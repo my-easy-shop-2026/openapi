@@ -1,0 +1,9 @@
+---
+productGetRequest:
+  allOf:
+    - "$ref": "../../schemas.yml#/schemas/product"
+    - type: object
+      properties:
+        userId:
+          type: integer
+          format: int64

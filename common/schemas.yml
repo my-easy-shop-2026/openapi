@@ -1,0 +1,11 @@
+---
+schemas:
+  result:
+    "$ref": schemas/result.yml#/result
+  id:
+    "$ref": schemas/id.yml#/id
+  phoneNumber:
+    $ref: schemas/phoneNumber.yml#/phoneNumber
+  page:
+    $ref: schemas/page.yml#/page
+

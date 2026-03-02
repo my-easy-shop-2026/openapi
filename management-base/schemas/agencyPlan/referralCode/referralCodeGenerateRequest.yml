@@ -1,0 +1,8 @@
+---
+referralCodeGenerateRequest:
+  type: object
+  properties:
+    strategy:
+      type: integer
+      description: 1:random
+    

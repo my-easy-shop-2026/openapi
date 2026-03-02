@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /transfer/get
+  description: 取得轉帳
+  tags:
+    - transfer
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/transferGetRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/transferGetResponse"

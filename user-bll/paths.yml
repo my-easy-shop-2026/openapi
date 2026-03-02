@@ -1,0 +1,33 @@
+---
+paths:
+
+
+# user
+  /user/register:
+    $ref: "../user-base/paths/user/register.yml"
+  /user/forgetPassword:
+    $ref: "../user-base/paths/user/forgetPassword.yml"
+  /user/{userId}/resetPassword:
+    $ref: "../user-base/paths/user/resetPassword.yml"
+  # /user/{userId}/resetEmail:
+  #   $ref: "paths/user/resetEmail.yml"
+  # /user/{userId}:
+  #   $ref: "paths/user/getById.yml"
+  # /user/{userId}/bind:
+  #   $ref: "paths/user/bind.yml"
+  /user/infoGet:
+    $ref: "../user-base/paths/user/info.yml"
+    
+# auth
+  /auth/login:
+    $ref: "../user-base/paths/auth/login.yml"
+  /auth/logout:
+    $ref: "../user-base/paths/auth/logout.yml"
+  /auth/sendVerificationCode:
+    $ref: "../user-base/paths/auth/sendVerificationCode.yml"
+  /auth/captchaGet:
+    $ref: "../user-base/paths/auth/captcha.yml"
+    
+# token
+  # /token:
+  #   $ref: "paths/token/add.yml"

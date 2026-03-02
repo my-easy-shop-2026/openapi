@@ -1,0 +1,3 @@
+---
+userGetRequest:
+  "$ref": "../../schemas.yml#/schemas/userQuery"

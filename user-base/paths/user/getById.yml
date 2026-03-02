@@ -1,0 +1,27 @@
+---
+post:
+  operationId: /user/getById
+  description: 取得用戶資料
+  tags:
+    - user
+  parameters:
+    - in: path
+      name: userId
+      description: user ID
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/userGetByIdRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/userGetByIdResponse"

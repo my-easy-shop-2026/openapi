@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /agencyPlan/add
+  description: 新增代理方案
+  tags:
+    - agencyPlan
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/agencyPlanAddRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/agencyPlanAddResponse"

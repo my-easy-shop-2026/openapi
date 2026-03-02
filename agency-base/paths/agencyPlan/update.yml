@@ -1,0 +1,27 @@
+---
+patch:
+  operationId: /agencyPlan/update
+  description: 更新代理方案
+  tags:
+    - agencyPlan
+  parameters:
+    - in: path
+      name: agencyPlanId
+      description: agency plan ID
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/agencyPlanUpdateRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/agencyPlanUpdateResponse"

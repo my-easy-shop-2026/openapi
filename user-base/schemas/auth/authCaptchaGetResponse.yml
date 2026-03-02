@@ -1,0 +1,9 @@
+---
+authCaptchaGetResponse:
+  allOf:
+    - $ref: "../../schemas.yml#/schemas/result"
+      nullable: false
+    - type: object
+      properties:
+        data:
+          type: string

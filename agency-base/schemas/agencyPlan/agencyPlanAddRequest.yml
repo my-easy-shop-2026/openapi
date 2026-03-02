@@ -1,0 +1,3 @@
+---
+agencyPlanAddRequest:
+  "$ref": "../../schemas.yml#/schemas/agencyPlan"

@@ -1,0 +1,421 @@
+openapi: 3.0.3
+info:
+  title: card bll
+  description: This is my API
+  version: 1.0.0
+paths:
+  /cardProductGet:
+    post:
+      operationId: /cardProduct/get
+      description: 取得卡片產品
+      tags:
+        - cardProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cardProduct'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cardProductGetResponse'
+  '/cardProduct/{cardProductId}/byIdGet':
+    post:
+      operationId: /cardProduct/getById
+      description: 取得卡片產品
+      tags:
+        - cardProduct
+      parameters:
+        - in: path
+          name: cardProductId
+          description: card product ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cardProductGetByIdRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cardProductGetByIdResponse'
+  /productDescriptionGet:
+    post:
+      operationId: /productDescription/get
+      description: 取得產品說明
+      tags:
+        - productDescription
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productDescription'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productDescriptionGetResponse'
+  /productGet:
+    post:
+      operationId: /product/get
+      description: 展示單一產品
+      tags:
+        - product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productGetResponse'
+  /product/displayGet:
+    post:
+      operationId: /product/display
+      description: 展示產品
+      tags:
+        - product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productDisplayRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productDisplayResponse'
+components:
+  schemas:
+    result:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        requestId:
+          type: string
+        success:
+          type: boolean
+    id:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    cryptocurrency:
+      type: object
+      properties:
+        symbol:
+          type: string
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId()'
+        name:
+          type: string
+    currency:
+      type: object
+      properties:
+        symbol:
+          type: string
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId()'
+        name:
+          type: string
+    cardIssuer:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        name:
+          type: string
+        remark:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    cardIssuerGetRequest:
+      $ref: '#/components/schemas/cardIssuer'
+    cardIssuerGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/cardIssuer'
+    cardProduct:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        name:
+          type: string
+        cardAssociation:
+          type: integer
+          description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
+        cardIssuerId:
+          type: integer
+          format: int64
+        cardIssuerName:
+          type: string
+        balance:
+          type: number
+          description: card limit
+        cryptocurrency:
+          type: string
+        currency:
+          type: string
+        status:
+          type: integer
+          description: '1:activated 2:deactivated'
+        productDescriptionId:
+          type: integer
+          format: int64
+        remark:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    cardProductAddRequest:
+      $ref: '#/components/schemas/cardProduct'
+    cardProductAddResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/id'
+    cardProductGetRequest:
+      $ref: '#/components/schemas/cardProduct'
+    cardProductGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/cardProduct'
+    cardProductGetByIdRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    cardProductGetByIdResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/cardProduct'
+    productDescription:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        name:
+          type: string
+        cardAssociation:
+          type: integer
+          description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
+        cardProductId:
+          type: integer
+          format: int64
+        cryptocurrency:
+          type: string
+        currency:
+          type: string
+        introduction:
+          type: string
+        applicationInstructions:
+          type: string
+        feeSchedule:
+          type: string
+        agreement:
+          type: string
+        remark:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    productDescriptionAddRequest:
+      $ref: '#/components/schemas/productDescription'
+    productDescriptionAddResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/id'
+    productDescriptionGetRequest:
+      $ref: '#/components/schemas/productDescription'
+    productDescriptionGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/productDescription'
+    productDescriptionUpdateRequest:
+      $ref: '#/components/schemas/productDescription'
+    productDescriptionUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/productDescription'
+    product:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        cardAssociation:
+          type: integer
+          description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
+        cardIssuerId:
+          type: integer
+          format: int64
+        balance:
+          type: number
+          description: card limit
+        cryptocurrency:
+          type: string
+        currency:
+          type: string
+        remark:
+          type: string
+        productDescriptionId:
+          type: integer
+          format: int64
+        introduction:
+          type: string
+        applicationInstructions:
+          type: string
+        feeSchedule:
+          type: string
+        agreement:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        description:
+          $ref: '#/components/schemas/productDescription'
+        isApplied:
+          type: boolean
+    productGetRequest:
+      allOf:
+        - $ref: '#/components/schemas/product'
+        - type: object
+          properties:
+            userId:
+              type: integer
+              format: int64
+    productGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/product'
+    productDisplayRequest:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+        cardAssociation:
+          type: integer
+          description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
+    productDisplayResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/product'
+    productDisplayAllRequest:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+    productDisplayAllResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                type: object
+                properties:
+                  cardIssuerId:
+                    type: integer
+                    format: int64
+                  cardIssuerName:
+                    type: string
+                  productsByCardAssociation:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        cardAssociation:
+                          type: integer
+                        cardAssociationName:
+                          type: integer
+                        products:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/product'
+

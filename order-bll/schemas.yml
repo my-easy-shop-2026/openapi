@@ -1,0 +1,72 @@
+---
+schemas:
+# common
+  id:
+    "$ref": '../common/schemas.yml#/schemas/id'
+  result:
+    "$ref": '../common/schemas.yml#/schemas/result'
+  phoneNumber:
+    $ref: ../common/schemas.yml#/schemas/phoneNumber
+  page:
+    $ref: ../common/schemas.yml#/schemas/page
+  cryptocurrency:
+    "$ref": "../order-base/schemas/cryptocurrency.yml#/cryptocurrency"
+  currency:
+    "$ref": "../order-base/schemas/currency.yml#/currency"
+  
+# card order
+  cardOrder:  
+    "$ref": '../order-base/schemas/cardOrder.yml#/cardOrder'
+  cardOrderIsLatest:  
+    "$ref": '../order-base/schemas/cardOrderIsLatest.yml#/cardOrderIsLatest'
+  cardOrderAddRequest:
+    $ref: ../order-base/schemas/cardOrder/cardOrderAddRequest.yml#/cardOrderAddRequest
+  cardOrderAddResponse:
+    $ref: ../order-base/schemas/cardOrder/cardOrderAddResponse.yml#/cardOrderAddResponse
+  cardOrderGetRequest:
+    $ref: ../order-base/schemas/cardOrder/cardOrderGetRequest.yml#/cardOrderGetRequest
+  cardOrderGetResponse:
+    $ref: ../order-base/schemas/cardOrder/cardOrderGetResponse.yml#/cardOrderGetResponse
+  cardOrderUpdateRequest:
+    $ref: ../order-base/schemas/cardOrder/cardOrderUpdateRequest.yml#/cardOrderUpdateRequest
+  cardOrderUpdateResponse:
+    $ref: ../order-base/schemas/cardOrder/cardOrderUpdateResponse.yml#/cardOrderUpdateResponse
+  cardOrderCancelResponse:
+    $ref: ../order-base/schemas/cardOrder/cardOrderCancelResponse.yml#/cardOrderCancelResponse
+  cardOrderApplyRequest:
+    $ref: ../order-base/schemas/cardOrder/cardOrderApplyRequest.yml#/cardOrderApplyRequest
+  cardOrderApplyResponse:
+    $ref: ../order-base/schemas/cardOrder/cardOrderApplyResponse.yml#/cardOrderApplyResponse
+  cardOrderPageRequest:
+    $ref: ../order-base/schemas/cardOrder/cardOrderPageRequest.yml#/cardOrderPageRequest
+  cardOrderPageResponse:
+    $ref: ./schemas/cardOrder/cardOrderPageResponse.yml#/cardOrderPageResponse
+  cardOrderLatestExpiredGetRequest:
+    $ref: ../order-base/schemas/cardOrder/cardOrderLatestExpiredGetRequest.yml#/cardOrderLatestExpiredGetRequest
+  cardOrderLatestExpiredGetResponse:
+    $ref: ../order-base/schemas/cardOrder/cardOrderLatestExpiredGetResponse.yml#/cardOrderLatestExpiredGetResponse
+  cardOrderRepayRequest:
+    $ref: ../order-base/schemas/cardOrder/cardOrderRepayRequest.yml#/cardOrderRepayRequest
+  cardOrderRepayResponse:
+    $ref: ../order-base/schemas/cardOrder/cardOrderRepayResponse.yml#/cardOrderRepayResponse
+
+# transfer
+  transfer:  
+    "$ref": '../order-base/schemas/transfer.yml#/transfer'
+  transferAddRequest:
+    $ref: ../order-base/schemas/transfer/transferAddRequest.yml#/transferAddRequest
+  transferAddResponse:
+    $ref: ../order-base/schemas/transfer/transferAddResponse.yml#/transferAddResponse
+  transferGetRequest:
+    $ref: ../order-base/schemas/transfer/transferGetRequest.yml#/transferGetRequest
+  transferGetResponse:
+    $ref: ../order-base/schemas/transfer/transferGetResponse.yml#/transferGetResponse
+  transferUpdateRequest:
+    $ref: ../order-base/schemas/transfer/transferUpdateRequest.yml#/transferUpdateRequest
+  transferUpdateResponse:
+    $ref: ../order-base/schemas/transfer/transferUpdateResponse.yml#/transferUpdateResponse
+  transferConfirmRequest:
+    $ref: ../order-base/schemas/transfer/transferConfirmRequest.yml#/transferConfirmRequest
+  transferConfirmResponse:
+    $ref: ../order-base/schemas/transfer/transferConfirmResponse.yml#/transferConfirmResponse
+

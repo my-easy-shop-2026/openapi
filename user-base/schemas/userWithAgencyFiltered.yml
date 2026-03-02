@@ -1,0 +1,10 @@
+---
+userWithAgencyFiltered:
+  allOf:
+    - $ref: "../schemas.yml#/schemas/user"
+    - $ref: "../schemas.yml#/schemas/userAgency"
+    - $ref: "../schemas.yml#/schemas/userCardOrder"
+    - type: object
+      properties:
+        password:
+          type: Filtered

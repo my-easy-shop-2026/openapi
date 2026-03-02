@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /store/get
+  description: 取得發卡商
+  tags:
+    - store
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/cardIssuerGetRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/cardIssuerGetResponse"

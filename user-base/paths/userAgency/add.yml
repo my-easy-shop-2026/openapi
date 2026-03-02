@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /userAgency/add
+  description: 新增用戶代理
+  tags:
+    - userAgency
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/userAgencyAddRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/userAgencyAddResponse"

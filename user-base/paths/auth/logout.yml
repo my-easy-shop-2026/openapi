@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /auth/logout
+  tags:
+    - auth
+  requestBody:
+    description: 登出
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/authLogoutRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/authLogoutResponse"

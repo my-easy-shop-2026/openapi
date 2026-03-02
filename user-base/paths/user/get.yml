@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /user/get
+  description: 取得用戶
+  tags:
+    - user
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/userGetRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/userGetResponse"

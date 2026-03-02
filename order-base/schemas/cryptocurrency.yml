@@ -1,0 +1,9 @@
+---
+cryptocurrency:
+  type: object
+  properties:
+    symbol:
+      type: string
+      x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId()'
+    name:
+      type: string

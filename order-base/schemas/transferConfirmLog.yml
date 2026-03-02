@@ -1,0 +1,36 @@
+---
+transferConfirmLog:
+  type: object
+  title: transferConfirmLog
+  properties:
+    id:
+      type: integer
+      format: int64
+      x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+    accumulativeTotalAmount:
+      type: number
+    companyOrderNo:
+      type: string
+    rechargeAccountTime:
+      type: string
+      format: date-time
+    rechargeActualAmount:
+      type: number
+    rechargeActualCoin:
+      type: integer
+    rechargeAddress:
+      type: string
+    rechargeDetailOrderNo:
+      type: string
+    fromAddress:
+      type: string
+    txHash:
+      type: string
+    ext:
+      type: string
+    createdAt:
+      type: string
+      format: date-time
+    updatedAt:
+      type: string
+      format: date-time

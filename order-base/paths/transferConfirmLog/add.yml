@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /transferConfirmLog/add
+  description: 新增轉帳確認紀錄
+  tags:
+    - transferConfirmLog
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/transferConfirmLogAddRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/transferConfirmLogAddResponse"

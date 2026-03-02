@@ -1,0 +1,41 @@
+---
+paths:
+
+# agency
+  /agency:
+    post:
+      $ref: "paths/agency/add.yml#/post"
+    patch:
+      $ref: "paths/agency/batchUpdate.yml#/patch"
+  /agencyGet:
+    $ref: "paths/agency/get.yml"
+  /agency/pageGet:
+    $ref: "paths/agency/page.yml"
+  /agency/{agencyId}:
+    $ref: "paths/agency/update.yml"
+
+# agency plan
+  /agencyPlan:
+    post:
+      $ref: "paths/agencyPlan/add.yml#/post"
+    patch:
+      $ref: "paths/agencyPlan/batchUpdate.yml#/patch"
+  /agencyPlanGet:
+    $ref: "paths/agencyPlan/get.yml"
+  /agencyPlan/{agencyPlanId}:
+    $ref: "paths/agencyPlan/update.yml"
+  /agencyPlan/byReferralCodeGet:
+    $ref: "paths/agencyPlan/getByReferralCode.yml"
+
+# agencyWithPlan
+  /agencyWithPlan:
+    $ref: "paths/agencyWithPlan/add.yml"
+  /agencyWithPlanGet:
+    $ref: "paths/agencyWithPlan/get.yml"
+  /agencyWithPlan/pageGet:
+    $ref: "paths/agencyWithPlan/page.yml"
+
+# platform
+  /platformGet:
+    $ref: "paths/platform/get.yml"
+  

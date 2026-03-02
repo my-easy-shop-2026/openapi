@@ -1,0 +1,27 @@
+---
+patch:
+  operationId: /cardOrder/update
+  description: 更新卡片訂單
+  tags:
+    - cardOrder
+  parameters:
+    - in: path
+      name: cardOrderId
+      description: card order ID
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/cardOrderUpdateRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/cardOrderUpdateResponse"

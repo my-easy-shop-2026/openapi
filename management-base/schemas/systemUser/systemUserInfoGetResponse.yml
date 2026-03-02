@@ -1,0 +1,14 @@
+---
+systemUserInfoGetResponse:
+  allOf:
+    - $ref: "../../schemas.yml#/schemas/result"
+    - type: object
+      properties:
+        data:
+          allOf:
+            - "$ref": "../../schemas.yml#/schemas/systemUser"
+            - type: object
+              properties:
+                password:
+                  type: Filtered
+            

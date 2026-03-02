@@ -1,0 +1,8 @@
+---
+agencyBatchUpdateRequest:
+  allOf:
+    - "$ref": "../../schemas.yml#/schemas/agency"
+    - type: object
+      properties:
+        query:
+          "$ref": "../../schemas.yml#/schemas/agencyQuery"

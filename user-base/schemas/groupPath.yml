@@ -1,0 +1,30 @@
+---
+groupPath:
+  type: object
+  title: groupPath
+  properties:
+    id:
+      type: integer
+      format: int64
+      x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+    groupId:
+      type: integer
+      format: int64
+    groupName:
+      type: string
+    method:
+      type: string
+    path:
+      type: string
+    status:
+      type: integer
+      description: 狀態 1:啟用 2:停用
+    createdAt:
+      type: string
+      format: date-time
+    updatedAt:
+      type: string
+      format: date-time
+    updatedBy:
+      type: integer
+      format: int64

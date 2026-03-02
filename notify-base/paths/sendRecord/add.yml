@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /sendRecord/add
+  description: 新增傳送紀錄
+  tags:
+    - sendRecord
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/sendRecordAddRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/sendRecordAddResponse"

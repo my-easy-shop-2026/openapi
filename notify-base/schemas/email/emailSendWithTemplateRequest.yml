@@ -1,0 +1,21 @@
+---
+emailSendWithTemplateRequest:
+  type: object
+  title: emailSendWithTemplateRequest
+  properties:
+    templateId:
+      type: integer
+      format: int64
+    sender:
+      type: string
+      format: email
+    receiver:
+      type: string
+      format: email
+    additionalProperties:
+      type: string
+  required: 
+    - title
+    - content
+    - sender
+    - receiver

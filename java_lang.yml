@@ -1,0 +1,32 @@
+inputSpec: output/compiledUserBase.yml
+generatorName: java
+outputDir: target
+apiPackage: com.linkpay.userBase.api
+artifactId: user-base
+artifactUrl: 
+artifactVersion: 0.0.1-SNAPSHO
+artifactDescription: 
+developerEmail: 
+developerName: linkpay
+developerOrganization: 
+developerOrganizationUrl: 
+groupId: com.linkpay
+invokerPackage: com.linkpay.userBase
+# licenseName: MIT
+# licenseUrl: https://choosealicense.com/licenses/mit/
+modelPackage: com.linkpay.userBase.model
+# scmConnection: scm:git:git@github.com:phrase/openapi.git
+# scmDeveloperConnection: scm:git:git@github.com:phrase/openapi.git
+# scmUrl: https://github.com/phrase/openapi
+java17: true
+# dateLibrary: java8
+# templateDir: openapi-generator/templates/java
+additionalProperties::
+  useSpringBoot3: "true"
+  delegatePattern: "true"
+  skipDefaultInterface: "true"
+  supportingFilesToGenerate: ApiUtil.java
+  additionalModelTypeAnnotations: "@lombok.Builder @lombok.Data @lombok.AllArgsConstructor @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)"
+  openApiNullable: false
+  serializableModel: "true"
+  useOptional: "true"

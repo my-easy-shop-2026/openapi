@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /agencyPlan/getByReferralCode
+  description: 用推薦碼取得代理方案
+  tags:
+    - agencyPlan
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/agencyPlanGetByReferralCodeRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/agencyPlanGetByReferralCodeResponse"

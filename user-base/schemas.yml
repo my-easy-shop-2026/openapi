@@ -1,0 +1,141 @@
+---
+schemas:
+# common
+  id:
+    "$ref": '../common/schemas.yml#/schemas/id'
+  result:
+    "$ref": '../common/schemas.yml#/schemas/result'
+  phoneNumber:
+    $ref: ../common/schemas.yml#/schemas/phoneNumber
+  page:
+    $ref: ../common/schemas.yml#/schemas/page
+
+# user
+  user:
+    $ref: schemas/user.yml#/user
+  userQuery:
+    $ref: schemas/userQuery.yml#/userQuery
+  userInfoGetRequest:
+    $ref: schemas/user/userInfoGetRequest.yml#/userInfoGetRequest
+  userInfoGetResponse:
+    $ref: schemas/user/userInfoGetResponse.yml#/userInfoGetResponse
+  userGetRequest:
+    $ref: schemas/user/userGetRequest.yml#/userGetRequest
+  userGetResponse:
+    $ref: schemas/user/userGetResponse.yml#/userGetResponse
+  userGetByIdRequest:
+    $ref: schemas/user/userGetByIdRequest.yml#/userGetByIdRequest
+  userGetByIdResponse:
+    $ref: schemas/user/userGetByIdResponse.yml#/userGetByIdResponse
+  userPageRequest:
+    $ref: schemas/user/userPageRequest.yml#/userPageRequest
+  userPageResponse:
+    $ref: schemas/user/userPageResponse.yml#/userPageResponse
+  userRegisterRequest:
+    $ref: schemas/user/userRegisterRequest.yml#/userRegisterRequest
+  userRegisterResponse:
+    $ref: schemas/user/userRegisterResponse.yml#/userRegisterResponse
+  userResetPasswordRequest:
+    $ref: schemas/user/userResetPasswordRequest.yml#/userResetPasswordRequest
+  userResetPasswordResponse:
+    $ref: schemas/user/userResetPasswordResponse.yml#/userResetPasswordResponse
+  userForgetPasswordRequest:
+    $ref: schemas/user/userForgetPasswordRequest.yml#/userForgetPasswordRequest
+  userForgetPasswordResponse:
+    $ref: schemas/user/userForgetPasswordResponse.yml#/userForgetPasswordResponse
+  userResetEmailRequest:
+    $ref: schemas/user/userResetEmailRequest.yml#/userResetEmailRequest
+  userResetEmailResponse:
+    $ref: schemas/user/userResetEmailResponse.yml#/userResetEmailResponse
+  userBindRequest:
+    $ref: schemas/user/userBindRequest.yml#/userBindRequest
+  userBindResponse:
+    $ref: schemas/user/userBindResponse.yml#/userBindResponse
+  userUpdateRequest:
+    $ref: schemas/user/userUpdateRequest.yml#/userUpdateRequest
+  userUpdateResponse:
+    $ref: schemas/user/userUpdateResponse.yml#/userUpdateResponse
+
+# userAgency
+  userAgency:
+    $ref: schemas/userAgency.yml#/userAgency
+  userAgencyQuery:
+    $ref: schemas/userAgencyQuery.yml#/userAgencyQuery
+  userAgencyAddRequest:
+    $ref: schemas/userAgency/userAgencyAddRequest.yml#/userAgencyAddRequest
+  userAgencyAddResponse:
+    $ref: schemas/userAgency/userAgencyAddResponse.yml#/userAgencyAddResponse
+  userAgencyGetRequest:
+    $ref: schemas/userAgency/userAgencyGetRequest.yml#/userAgencyGetRequest
+  userAgencyGetResponse:
+    $ref: schemas/userAgency/userAgencyGetResponse.yml#/userAgencyGetResponse
+
+# userWithAgency
+  userWithAgency:
+    $ref: schemas/userWithAgency.yml#/userWithAgency
+  userWithAgencyFiltered:
+    $ref: schemas/userWithAgencyFiltered.yml#/userWithAgencyFiltered
+  userWithAgencyQuery:
+    $ref: schemas/userWithAgencyQuery.yml#/userWithAgencyQuery
+  userWithAgencyGetRequest:
+    $ref: schemas/userWithAgency/userWithAgencyGetRequest.yml#/userWithAgencyGetRequest
+  userWithAgencyGetResponse:
+    $ref: schemas/userWithAgency/userWithAgencyGetResponse.yml#/userWithAgencyGetResponse
+  userWithAgencyPageRequest:
+    $ref: schemas/userWithAgency/userWithAgencyPageRequest.yml#/userWithAgencyPageRequest
+  userWithAgencyPageResponse:
+    $ref: schemas/userWithAgency/userWithAgencyPageResponse.yml#/userWithAgencyPageResponse
+
+# userPlatform
+  userPlatform:
+    $ref: schemas/userPlatform.yml#/userPlatform
+  userPlatformQuery:
+    $ref: schemas/userPlatformQuery.yml#/userPlatformQuery
+  userPlatformAddRequest:
+    $ref: schemas/userPlatform/userPlatformAddRequest.yml#/userPlatformAddRequest
+  userPlatformAddResponse:
+    $ref: schemas/userPlatform/userPlatformAddResponse.yml#/userPlatformAddResponse
+  userPlatformGetRequest:
+    $ref: schemas/userPlatform/userPlatformGetRequest.yml#/userPlatformGetRequest
+  userPlatformGetResponse:
+    $ref: schemas/userPlatform/userPlatformGetResponse.yml#/userPlatformGetResponse
+
+#auth
+  jwtToken:
+    $ref: schemas/jwtToken.yml#/jwtToken
+  authLoginRequest:
+    $ref: schemas/auth/authLoginRequest.yml#/authLoginRequest
+  authLoginResponse:
+    $ref: schemas/auth/authLoginResponse.yml#/authLoginResponse
+  authLogoutRequest:
+    $ref: schemas/auth/authLogoutRequest.yml#/authLogoutRequest
+  authLogoutResponse:
+    $ref: schemas/auth/authLogoutResponse.yml#/authLogoutResponse
+  authSendVerificationCodeRequest:
+    $ref: schemas/auth/authSendVerificationCodeRequest.yml#/authSendVerificationCodeRequest
+  authSendVerificationCodeResponse:
+    $ref: schemas/auth/authSendVerificationCodeResponse.yml#/authSendVerificationCodeResponse
+  authCaptchaGetRequest:
+    $ref: schemas/auth/authCaptchaGetRequest.yml#/authCaptchaGetRequest
+  authCaptchaGetResponse:
+    $ref: schemas/auth/authCaptchaGetResponse.yml#/authCaptchaGetResponse
+
+#token
+  token:
+    $ref: schemas/token.yml#/token
+  tokenAddRequest:
+    $ref: schemas/token/tokenAddRequest.yml#/tokenAddRequest
+  tokenAddResponse:
+    $ref: schemas/token/tokenAddResponse.yml#/tokenAddResponse
+  
+#userCardOrder
+  userCardOrder:
+    $ref: schemas/userCardOrder.yml#/userCardOrder
+  userCardOrderAddRequest:
+    $ref: schemas/userCardOrder/userCardOrderAddRequest.yml#/userCardOrderAddRequest
+  userCardOrderAddResponse:
+    $ref: schemas/userCardOrder/userCardOrderAddResponse.yml#/userCardOrderAddResponse
+
+
+
+

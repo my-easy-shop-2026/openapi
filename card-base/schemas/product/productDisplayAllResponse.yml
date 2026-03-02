@@ -1,0 +1,32 @@
+---
+productDisplayAllResponse:
+  allOf:
+    - $ref: "../../schemas.yml#/schemas/result"
+    - type: object
+      properties:
+        data:
+          type: array
+          items: 
+            type: object
+            properties:
+              cardIssuerId:
+                type: integer
+                format: int64
+              cardIssuerName:
+                type: string
+              productsByCardAssociation:
+                type: array
+                items: 
+                  type: object
+                  properties:
+                    cardAssociation:
+                      type: integer
+                    cardAssociationName:
+                      type: integer
+                    products:
+                      type: array
+                      items: 
+                        "$ref": "../../schemas.yml#/schemas/product"
+
+
+    

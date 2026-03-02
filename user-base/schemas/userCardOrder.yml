@@ -1,0 +1,38 @@
+---
+userCardOrder:
+  type: object
+  title: userCardOrder
+  properties:
+    id:
+      type: integer
+      format: int64
+      x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+    userId:
+      type: integer
+      format: int64
+    cardOrderId:
+      type: integer
+      format: int64
+    orderNumber:
+      type: string
+    cardProductId:
+      type: integer
+      format: int64
+    cardAssociation:
+      type: integer
+      description: 1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay
+    agencyId:
+      type: integer
+      format: int64
+    agencyPlanId:
+      type: integer
+      format: int64
+    userAgencyId:
+      type: integer
+      format: int64
+    cardOrderCreatedAt:
+      type: string
+      format: date-time
+    createdAt:
+      type: string
+      format: date-time

@@ -1,0 +1,3 @@
+---
+shippingVendorGetRequest:
+  "$ref": "../../schemas.yml#/schemas/shippingVendor"

@@ -1,0 +1,3 @@
+---
+platformGetRequest:
+  "$ref": "../../schemas.yml#/schemas/platform"

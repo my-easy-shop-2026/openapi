@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /cardOrder/add
+  description: 新增卡片訂單
+  tags:
+    - cardOrder
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/cardOrderAddRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/cardOrderAddResponse"

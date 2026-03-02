@@ -1,0 +1,13 @@
+---
+userResetEmailRequest:
+  type: object
+  title: userResetEmailRequest
+  properties:
+    email:
+      type: string
+      format: email
+    emailVerificationCode:
+      type: string
+    executor:
+      type: integer
+      format: int64

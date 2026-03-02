@@ -1,0 +1,19 @@
+---
+patch:
+  operationId: /agency/batchUpdate
+  description: 批量更新代理
+  tags:
+    - agency
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/agencyBatchUpdateRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/agencyBatchUpdateResponse"

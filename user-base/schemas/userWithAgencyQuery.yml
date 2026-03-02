@@ -1,0 +1,26 @@
+---
+userWithAgencyQuery:
+  allOf:
+    - "$ref": "../schemas.yml#/schemas/userWithAgency"
+    - type: object
+      properties:
+        createdAtFrom:
+          type: string
+          format: date-time
+        createdAtTo:
+          type: string
+          format: date-time
+        updatedAtFrom:
+          type: string
+          format: date-time
+        updatedAtTo:
+          type: string
+          format: date-time
+        orderByColumn:
+          type: string
+        orderByDirection:
+          type: integer
+          description: 1:asc 2:desc
+        strategy:
+          type: integer
+          description: 1:newest 2:oldest 3:newest active 4:oldest active

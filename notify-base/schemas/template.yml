@@ -1,0 +1,22 @@
+---
+template:
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int64
+      x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+    name:
+      type: string
+    subject:
+      type: string
+    content:
+      type: string
+    notifyType:
+      type: integer
+    created_at:
+      type: string
+      format: date-time
+    updated_at:
+      type: string
+      format: date-time

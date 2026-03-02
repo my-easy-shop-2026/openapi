@@ -1,0 +1,21 @@
+---
+userBindRequest:
+  type: object
+  title: userRegisterRequest
+  properties:
+    email:
+      type: string
+      format: email
+    emailVerificationCode:
+      type: string
+    password:
+      type: string
+      format: password
+    conformPassword:
+      type: string
+      format: password
+  required: 
+    - email
+    - emailVerificationCode
+    - password
+    - conformPassword

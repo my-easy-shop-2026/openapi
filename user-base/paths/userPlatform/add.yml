@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /userPlatform/add
+  description: 新增用戶平台
+  tags:
+    - userPlatform
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/userPlatformAddRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/userPlatformAddResponse"

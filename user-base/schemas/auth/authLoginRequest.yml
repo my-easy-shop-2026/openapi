@@ -1,0 +1,14 @@
+---
+authLoginRequest:
+  type: object
+  properties:
+    email:
+      type: string
+      format: email
+    captcha:
+      type: string
+    password:
+      type: string
+      format: password
+    emailVerificationCode:
+      type: string

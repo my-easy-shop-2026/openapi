@@ -1,0 +1,3 @@
+---
+passagewayGetRequest:
+  "$ref": "../../schemas.yml#/schemas/passageway"

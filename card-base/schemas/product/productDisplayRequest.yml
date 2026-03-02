@@ -1,0 +1,10 @@
+---
+productDisplayRequest:
+  type: object
+  properties:
+    userId:
+      type: integer
+      format: int64
+    cardAssociation:
+      type: integer
+      description: 1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay

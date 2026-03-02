@@ -1,0 +1,9 @@
+---
+jwtToken:
+  type: object
+  title: jwtToken
+  properties:
+    accessToken:
+      type: string
+    refreshToken:
+      type: string

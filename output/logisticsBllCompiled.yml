@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  title: logistics bll
+  description: This is my API
+  version: 1.0.0
+paths:
+  /deliveryFeeGet:
+    post:
+      operationId: /deliveryFee/get
+      description: 取得運費
+      tags:
+        - deliveryFee
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deliveryFeeGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deliveryFeeGetResponse'
+components:
+  schemas:
+    id:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    result:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        requestId:
+          type: string
+        success:
+          type: boolean
+    phoneNumber:
+      type: object
+      title: phoneNumber
+      properties:
+        countryCode:
+          type: integer
+          format: int32
+        nationalPhoneNumber:
+          type: string
+    deliveryFeeGetRequest:
+      type: object
+      properties:
+        cryptoCurrency:
+          type: string
+        agencyPlanId:
+          type: integer
+          format: int64
+        shippingNationCode:
+          type: string
+          description: '國籍編碼(ISO 3166-1) 中國:CHN 新加坡:SGP 台灣:TWN'
+        shippingPostalCode:
+          type: string
+        shippingAddress:
+          type: string
+    deliveryFeeGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                deliveryFee:
+                  type: number
+

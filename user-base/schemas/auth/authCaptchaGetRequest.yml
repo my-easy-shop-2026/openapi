@@ -1,0 +1,8 @@
+---
+authCaptchaGetRequest:
+  type: object
+  properties:
+    purpose:
+      type: integer
+      description: captcha目的 1:user login 2:admin login 3:admin reset user email
+    

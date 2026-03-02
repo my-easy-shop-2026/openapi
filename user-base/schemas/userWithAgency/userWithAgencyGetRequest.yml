@@ -1,0 +1,3 @@
+---
+userWithAgencyGetRequest:
+  "$ref": "../../schemas.yml#/schemas/userWithAgencyQuery"

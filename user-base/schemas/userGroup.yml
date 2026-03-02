@@ -1,0 +1,27 @@
+---
+userGroup:
+  type: object
+  title: userGroup
+  properties:
+    id:
+      type: integer
+      format: int64
+      x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+    userId:
+      type: integer
+      format: int64
+    userAccount:
+      type: string
+    userName:
+      type: string
+    groupId:
+      type: integer
+      format: int64
+    groupName:
+      type: string
+    createdAt:
+      type: string
+      format: date-time
+    updatedAt:
+      type: string
+      format: date-time

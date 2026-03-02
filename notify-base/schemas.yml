@@ -1,0 +1,71 @@
+---
+schemas:
+# common
+  result:
+    "$ref": '../common/schemas.yml#/schemas/result'
+  id:
+    "$ref": '../common/schemas.yml#/schemas/id'
+
+# email
+  emailSendRequest:
+    $ref: schemas/email/emailSendRequest.yml#/emailSendRequest
+  emailSendResponse:
+    $ref: schemas/email/emailSendResponse.yml#/emailSendResponse
+  emailSendWithTemplateRequest:
+    $ref: schemas/email/emailSendWithTemplateRequest.yml#/emailSendWithTemplateRequest
+  emailSendWithTemplateResponse:
+    $ref: schemas/email/emailSendWithTemplateResponse.yml#/emailSendWithTemplateResponse
+
+# message
+  message:
+    $ref: schemas/message.yml#/message
+  messageAddRequest:
+    $ref: schemas/message/messageAddRequest.yml#/messageAddRequest
+  messageAddResponse:
+    $ref: schemas/message/messageAddResponse.yml#/messageAddResponse
+  messageGetByIdRequest:
+    $ref: schemas/message/messageGetByIdRequest.yml#/messageGetByIdRequest
+  messageGetByIdResponse:
+    $ref: schemas/message/messageGetByIdResponse.yml#/messageGetByIdResponse
+
+# sendRecord
+  sendRecord:
+    $ref: schemas/sendRecord.yml#/sendRecord
+  sendRecordAddRequest:
+    $ref: schemas/sendRecord/sendRecordAddRequest.yml#/sendRecordAddRequest
+  sendRecordAddResponse:
+    $ref: schemas/sendRecord/sendRecordAddResponse.yml#/sendRecordAddResponse
+  sendRecordGetByIdRequest:
+    $ref: schemas/sendRecord/sendRecordGetByIdRequest.yml#/sendRecordGetByIdRequest
+  sendRecordGetByIdResponse:
+    $ref: schemas/sendRecord/sendRecordGetByIdResponse.yml#/sendRecordGetByIdResponse
+
+# template
+  template:
+    $ref: schemas/template.yml#/template
+  templateAddRequest:
+    $ref: schemas/template/templateAddRequest.yml#/templateAddRequest
+  templateAddResponse:
+    $ref: schemas/template/templateAddResponse.yml#/templateAddResponse
+  templateGetByIdRequest:
+    $ref: schemas/template/templateGetByIdRequest.yml#/templateGetByIdRequest
+  templateGetByIdResponse:
+    $ref: schemas/template/templateGetByIdResponse.yml#/templateGetByIdResponse
+  templateGetRequest:
+    $ref: schemas/template/templateGetRequest.yml#/templateGetRequest
+  templateGetResponse:
+    $ref: schemas/template/templateGetResponse.yml#/templateGetResponse
+  templateUpdateRequest:
+    $ref: schemas/template/templateUpdateRequest.yml#/templateUpdateRequest
+  templateUpdateResponse:
+    $ref: schemas/template/templateUpdateResponse.yml#/templateUpdateResponse
+
+# passageway
+  passageway:
+    $ref: schemas/passageway.yml#/passageway
+  passagewayGetRequest:
+    $ref: schemas/passageway/passagewayGetRequest.yml#/passagewayGetRequest
+  passagewayGetResponse:
+    $ref: schemas/passageway/passagewayGetResponse.yml#/passagewayGetResponse
+
+

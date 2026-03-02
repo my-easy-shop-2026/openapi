@@ -1,0 +1,10 @@
+---
+userPageRequest:
+  allOf:
+    - "$ref": "../../schemas.yml#/schemas/userQuery"
+    - type: object
+      properties:
+        pageCurrent:
+          type: integer
+        pageSize:
+          type: integer

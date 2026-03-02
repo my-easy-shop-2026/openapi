@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /message/add
+  description: 新增訊息
+  tags:
+    - message
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/messageAddRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/messageAddResponse"

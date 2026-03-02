@@ -1,0 +1,24 @@
+---
+transferConfirmRequest:
+  additionalProperties: true
+  properties:
+    defaultField: 
+      type: string
+    # companyOrderNo:
+    #   type: string
+    # rechargeDetailOrderNo:
+    #   type: string
+    # rechargeActualCoin:
+    #   type: integer
+    # rechargeActualAmount:
+    #   type: number
+    # rechargeAccountTime:
+    #   type: string
+    # accumulativeTotalAmount:
+    #   type: number
+    # exchangeStatus:
+    #   type: integer
+    # exchangePrice:
+    #   type: number
+    # rechargeAddress:
+    #   type: string

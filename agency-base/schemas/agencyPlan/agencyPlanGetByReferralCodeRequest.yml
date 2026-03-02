@@ -1,0 +1,9 @@
+---
+agencyPlanGetByReferralCodeRequest:
+  type: object
+  properties:
+    userId:
+      type: integer
+      format: int64
+    referralCode:
+      type: string

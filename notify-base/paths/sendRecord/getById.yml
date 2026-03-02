@@ -1,0 +1,27 @@
+---
+get:
+  operationId: /sendRecord/getById
+  description: 取得通知紀錄
+  tags:
+    - sendRecord
+  parameters:
+    - in: path
+      name: sendRecordId
+      description: send Record ID
+      required: true
+      schema:
+        type: integer
+        format: int64
+  # requestBody:
+  #   required: true
+  #   content:
+  #     application/json:
+  #       schema:
+  #         $ref: "../../schemas.yml#/schemas/sendRecordGetByIdRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/sendRecordGetByIdResponse"

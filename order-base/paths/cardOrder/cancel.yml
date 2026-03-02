@@ -1,0 +1,27 @@
+---
+post:
+  operationId: /cardOrder/cancel
+  description: 取消卡片訂單
+  tags:
+    - cardOrder
+  parameters:
+    - in: path
+      name: cardOrderId
+      description: card order ID
+      required: true
+      schema:
+        type: integer
+        format: int64
+  # requestBody:
+  #   required: true
+  #   content:
+  #     application/json:
+  #       schema:
+  #         $ref: "../../schemas.yml#/schemas/cardOrderCancelRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/cardOrderCancelResponse"

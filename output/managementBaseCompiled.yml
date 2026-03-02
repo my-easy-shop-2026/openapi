@@ -1,0 +1,1890 @@
+openapi: 3.0.3
+info:
+  title: management base
+  description: This is my API
+  version: 1.0.0
+paths:
+  /auth/login:
+    post:
+      operationId: /auth/login
+      tags:
+        - auth
+      requestBody:
+        description: 登入
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authLoginRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authLoginResponse'
+  /auth/logout:
+    post:
+      operationId: /auth/logout
+      tags:
+        - auth
+      requestBody:
+        description: 登出
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authLogoutRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authLogoutResponse'
+  /auth/captchaGet:
+    post:
+      operationId: /auth/captcha/get
+      tags:
+        - auth
+      requestBody:
+        description: 登入
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authCaptchaGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authCaptchaGetResponse'
+  /auth/sendVerificationCode:
+    post:
+      operationId: /auth/sendVerificationCode
+      tags:
+        - auth
+      requestBody:
+        description: 送出驗證碼
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authSendVerificationCodeRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authSendVerificationCodeResponse'
+  /systemUserGet:
+    post:
+      operationId: /systemUser/get
+      description: 取得系統用戶資料
+      tags:
+        - systemUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/systemUserQuery'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/systemUserGetResponse'
+  /systemUser:
+    post:
+      operationId: /systemUser/add
+      description: 新增系統用戶
+      tags:
+        - systemUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/systemUser'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/systemUserAddResponse'
+  '/systemUser/{systemUserId}':
+    patch:
+      operationId: /systemUser/update
+      description: 更新系統用戶
+      tags:
+        - systemUser
+      parameters:
+        - in: path
+          name: systemUserId
+          description: system user ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/systemUserUpdateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/systemUserUpdateResponse'
+  '/systemUser/{systemUserId}/resetPassword':
+    patch:
+      operationId: /systemUser/resetPassword
+      description: 系統用戶重設密碼
+      tags:
+        - systemUser
+      parameters:
+        - in: path
+          name: systemUserId
+          description: system user ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: 系統用戶重設密碼
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/systemUserResetPasswordRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/systemUserResetPasswordResponse'
+  /systemUser/infoGet:
+    post:
+      operationId: /systemUser/info/get
+      description: 取得系統用戶本身資料
+      tags:
+        - systemUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/systemUserInfoGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/systemUserInfoGetResponse'
+  /cardOrderGet:
+    post:
+      operationId: /cardOrder/get
+      description: 取得卡片訂單
+      tags:
+        - cardOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cardOrderQuery'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cardOrderGetResponse'
+  /cardOrder/pageGet:
+    post:
+      operationId: /cardOrder/page/get
+      description: 取得卡片訂單分頁
+      tags:
+        - cardOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cardOrderPageRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cardOrderPageResponse'
+  '/cardOrder/{cardOrderId}/confirm':
+    patch:
+      operationId: /cardOrder/confirm
+      description: 確認付款狀態
+      tags:
+        - cardOrder
+      parameters:
+        - in: path
+          name: cardOrderId
+          description: card order ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cardOrderConfirmRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cardOrderConfirmResponse'
+  '/cardOrder/{cardOrderId}/ship':
+    patch:
+      operationId: /cardOrder/ship
+      description: 發貨
+      tags:
+        - cardOrder
+      parameters:
+        - in: path
+          name: cardOrderId
+          description: card order ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cardOrderShipRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cardOrderShipResponse'
+  '/cardOrder/{cardOrderId}/remark':
+    patch:
+      operationId: /cardOrder/remark
+      description: 備註訂單
+      tags:
+        - cardOrder
+      parameters:
+        - in: path
+          name: cardOrderId
+          description: card order ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cardOrderRemarkRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cardOrderRemarkResponse'
+  '/user/{userId}/resetEmail':
+    patch:
+      operationId: /user/resetEmail
+      description: 用戶重設email
+      tags:
+        - user
+      parameters:
+        - in: path
+          name: userId
+          description: user ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: 用戶重設密碼
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userResetEmailRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userResetEmailResponse'
+  /user/pageGet:
+    post:
+      operationId: /user/page/get
+      description: 取得用戶分頁
+      tags:
+        - user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userPageRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userPageResponse'
+  /userWithAgencyGet:
+    post:
+      operationId: /userWithAgency/get
+      description: 同時取得用戶與代理
+      tags:
+        - userWithAgency
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userWithAgencyQuery'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userWithAgencyGetResponse'
+  /userWithAgency/pageGet:
+    post:
+      operationId: /userWithAgency/page/get
+      description: 同時取得用戶與代理分頁
+      tags:
+        - userWithAgency
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userWithAgencyPageRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userWithAgencyPageResponse'
+  /agency:
+    post:
+      operationId: /agency/add
+      description: 新增代理
+      tags:
+        - agency
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/agency'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agencyAddResponse'
+  /agencyGet:
+    post:
+      operationId: /agency/get
+      description: 取得代理
+      tags:
+        - agency
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/agencyQuery'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agencyGetResponse'
+  '/agency/{agencyId}':
+    patch:
+      operationId: /agency/update
+      description: 更新代理
+      tags:
+        - agency
+      parameters:
+        - in: path
+          name: agencyId
+          description: agency ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/agencyUpdateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agencyUpdateResponse'
+  /agency/pageGet:
+    post:
+      operationId: /agency/page/get
+      description: 取得代理分頁
+      tags:
+        - agency
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/agencyPageRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agencyPageResponse'
+  '/agency/{agencyId}/activate':
+    patch:
+      operationId: /agency/activate
+      description: 代理啟用
+      tags:
+        - agency
+      parameters:
+        - in: path
+          name: agencyId
+          description: agency ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/agencyActivateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agencyActivateResponse'
+  /agencyPlan:
+    post:
+      operationId: /agencyPlan/add
+      description: 新增代理方案
+      tags:
+        - agencyPlan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/agencyPlan'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agencyPlanAddResponse'
+  /agencyPlanGet:
+    post:
+      operationId: /agencyPlan/get
+      description: 取得代理方案
+      tags:
+        - agencyPlan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/agencyPlanQuery'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agencyPlanGetResponse'
+  '/agencyPlan/{agencyPlanId}':
+    patch:
+      operationId: /agencyPlan/update
+      description: 更新代理方案
+      tags:
+        - agencyPlan
+      parameters:
+        - in: path
+          name: agencyPlanId
+          description: agency plan ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/agencyPlanUpdateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agencyPlanUpdateResponse'
+  /agencyPlan/referralCode/generateGet:
+    post:
+      operationId: /agencyPlan/referralCode/generate
+      description: 取得隨機推薦碼
+      tags:
+        - agencyPlan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/referralCodeGenerateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/referralCodeGenerateResponse'
+  /agencyWithPlan:
+    post:
+      operationId: /agencyWithPlan/add
+      description: 新增代理同時新增方案
+      tags:
+        - agencyWithPlan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/agencyWithPlan'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agencyWithPlanAddResponse'
+  /agencyWithPlanGet:
+    post:
+      operationId: /agencyWithPlan/get
+      description: 取得代理同時取得方案
+      tags:
+        - agencyWithPlan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/agencyWithPlanQuery'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agencyWithPlanGetResponse'
+  /agencyWithPlan/pageGet:
+    post:
+      operationId: /agencyWithPlan/page/get
+      description: 取得代理同時取得方案分頁
+      tags:
+        - agencyWithPlan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/agencyWithPlanPageRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agencyWithPlanPageResponse'
+  '/agencyWithPlan/{agencyPlanId}':
+    patch:
+      operationId: /agencyWithPlan/update
+      description: 更新代理代理同時更新方案
+      tags:
+        - agencyWithPlan
+      parameters:
+        - in: path
+          name: agencyPlanId
+          description: agency plan ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/agencyWithPlanUpdateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agencyWithPlanUpdateResponse'
+  /platformGet:
+    post:
+      operationId: /platform/get
+      description: 取得平台
+      tags:
+        - platform
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/platform'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/platformGetResponse'
+components:
+  schemas:
+    id:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    result:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        requestId:
+          type: string
+        success:
+          type: boolean
+    page:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        size:
+          type: integer
+          format: int64
+        current:
+          type: integer
+          format: int64
+        pages:
+          type: integer
+          format: int64
+    user:
+      type: object
+      title: user
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        email:
+          type: string
+          format: email
+        countryCode:
+          type: integer
+        nationalPhoneNumber:
+          type: string
+        password:
+          type: string
+          format: password
+        firstName:
+          type: string
+        lastName:
+          type: string
+        fullName:
+          type: string
+        fullNameWestern:
+          type: string
+        fullNameReverse:
+          type: string
+        fullNameWesternReverse:
+          type: string
+        nationCode:
+          type: string
+          description: '國籍編碼(ISO 3166-1) 中國:CHN 新加坡:SGP 台灣:TWN'
+        gender:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+        updatedAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+    userQuery:
+      allOf:
+        - $ref: '#/components/schemas/user'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+            idIn:
+              type: array
+              items:
+                type: integer
+                format: int64
+    userResetEmailRequest:
+      type: object
+      title: userResetEmailRequest
+      properties:
+        email:
+          type: string
+          format: email
+        emailVerificationCode:
+          type: string
+        executor:
+          type: integer
+          format: int64
+    userResetEmailResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    userPageRequest:
+      allOf:
+        - $ref: '#/components/schemas/userQuery'
+        - type: object
+          properties:
+            pageCurrent:
+              type: integer
+            pageSize:
+              type: integer
+    userPageResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/page'
+                - type: object
+                  properties:
+                    records:
+                      type: array
+                      items:
+                        allOf:
+                          - $ref: '#/components/schemas/user'
+                          - type: object
+                            properties:
+                              password:
+                                type: Filtered
+    userWithAgency:
+      allOf:
+        - $ref: '#/components/schemas/user'
+        - type: object
+          title: userAgency
+          properties:
+            id:
+              type: integer
+              format: int64
+              x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+            userId:
+              type: integer
+              format: int64
+            agencyId:
+              type: integer
+              format: int64
+            agencyName:
+              type: string
+            platformId:
+              type: integer
+              format: int64
+            platformName:
+              type: string
+            platformRegistrationMethod:
+              type: integer
+              description: '1:phone 2:email 3:username'
+            countryCodeFromPlatform:
+              type: integer
+              format: int32
+            nationalPhoneNumberFromPlatform:
+              type: string
+            emailFromPlatform:
+              type: string
+              format: email
+            userPlatformId:
+              type: integer
+              format: int64
+              description: the relation between user and platform
+            createdAt:
+              type: string
+              format: date-time
+              description: 'format:2023-12-25T05:04:03+02:00'
+            updatedAt:
+              type: string
+              format: date-time
+              description: 'format:2023-12-25T05:04:03+02:00'
+            deleted:
+              type: integer
+              description: '0:not delete 1:delete'
+        - type: object
+          title: userCardOrder
+          properties:
+            id:
+              type: integer
+              format: int64
+              x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+            userId:
+              type: integer
+              format: int64
+            cardOrderId:
+              type: integer
+              format: int64
+            orderNumber:
+              type: string
+            cardProductId:
+              type: integer
+              format: int64
+            cardAssociation:
+              type: integer
+              description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
+            agencyId:
+              type: integer
+              format: int64
+            agencyPlanId:
+              type: integer
+              format: int64
+            userAgencyId:
+              type: integer
+              format: int64
+            cardOrderCreatedAt:
+              type: string
+              format: date-time
+            createdAt:
+              type: string
+              format: date-time
+    userWithAgencyFiltered:
+      allOf:
+        - $ref: '#/components/schemas/user'
+        - $ref: '#/components/schemas/userWithAgency/allOf/1'
+        - $ref: '#/components/schemas/userWithAgency/allOf/2'
+        - type: object
+          properties:
+            password:
+              type: Filtered
+    userWithAgencyQuery:
+      allOf:
+        - $ref: '#/components/schemas/userWithAgency'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+            orderByColumn:
+              type: string
+            orderByDirection:
+              type: integer
+              description: '1:asc 2:desc'
+            strategy:
+              type: integer
+              description: '1:newest 2:oldest 3:newest active 4:oldest active'
+    userWithAgencyGetRequest:
+      $ref: '#/components/schemas/userWithAgencyQuery'
+    userWithAgencyGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                allOf:
+                  - $ref: '#/components/schemas/userWithAgency'
+                  - type: object
+                    properties:
+                      password:
+                        type: Filtered
+    userWithAgencyPageRequest:
+      allOf:
+        - $ref: '#/components/schemas/userWithAgencyQuery'
+        - type: object
+          properties:
+            pageCurrent:
+              type: integer
+            pageSize:
+              type: integer
+    userWithAgencyPageResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                total:
+                  type: integer
+                  format: int64
+                size:
+                  type: integer
+                  format: int64
+                current:
+                  type: integer
+                  format: int64
+                pages:
+                  type: integer
+                  format: int64
+                records:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/userWithAgencyFiltered'
+    systemUser:
+      type: object
+      title: systemUser
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        password:
+          type: string
+          format: password
+        username:
+          type: string
+        status:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        updatedBy:
+          type: integer
+          format: int64
+        updatedByUsername:
+          type: string
+    systemUserQuery:
+      allOf:
+        - $ref: '#/components/schemas/systemUser'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+    systemUserInfoGetRequest:
+      type: object
+      title: systemUserInfoGetRequest
+      properties:
+        id:
+          type: integer
+          format: int64
+    systemUserInfoGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/systemUser'
+                - type: object
+                  properties:
+                    password:
+                      type: Filtered
+    systemUserGetRequest:
+      $ref: '#/components/schemas/systemUserQuery'
+    systemUserGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/systemUser'
+    systemUserAddRequest:
+      $ref: '#/components/schemas/systemUser'
+    systemUserAddResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/id'
+    systemUserUpdateRequest:
+      allOf:
+        - $ref: '#/components/schemas/systemUser'
+        - type: object
+          properties:
+            query:
+              $ref: '#/components/schemas/systemUserQuery'
+    systemUserUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/systemUser'
+    systemUserResetPasswordRequest:
+      type: object
+      title: systemUserResetPasswordRequest
+      properties:
+        oldPassword:
+          type: string
+          format: password
+        newPassword:
+          type: string
+          format: password
+        confirmNewPassword:
+          type: string
+          format: password
+    systemUserResetPasswordResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    jwtToken:
+      type: object
+      title: jwtToken
+      properties:
+        accessToken:
+          type: string
+        refreshToken:
+          type: string
+    authLoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        captcha:
+          type: string
+        password:
+          type: string
+          format: password
+    authLoginResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/jwtToken'
+    authLogoutRequest:
+      type: object
+      properties:
+        accessToken:
+          type: object
+          properties:
+            token:
+              type: string
+          additionalProperties:
+            type: object
+        refreshToken:
+          type: object
+          properties:
+            token:
+              type: string
+          additionalProperties:
+            type: object
+    authLogoutResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    authCaptchaGetRequest:
+      type: object
+      properties:
+        purpose:
+          type: integer
+          description: 'captcha目的 1:user login 2:admin login 3:admin reset user email'
+    authCaptchaGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+          nullable: false
+        - type: object
+          properties:
+            data:
+              type: string
+    authSendVerificationCodeRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        phoneNumber:
+          type: object
+          title: phoneNumber
+          properties:
+            countryCode:
+              type: integer
+              format: int32
+            nationalPhoneNumber:
+              type: string
+        purpose:
+          type: integer
+          description: '驗證碼目的 1:register 2:login 3:forgetPassword 4:resetEmail'
+    authSendVerificationCodeResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+          nullable: false
+        - type: object
+          properties:
+            data:
+              type: object
+    cardOrder:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        userId:
+          type: integer
+          format: int64
+        userNationCode:
+          type: string
+          description: '國籍編碼(ISO 3166-1) 中國:CHN 新加坡:SGP 台灣:TWN'
+        userCountryCode:
+          type: integer
+        userNationalPhoneNumber:
+          type: string
+        orderNumber:
+          type: string
+        transferId:
+          type: integer
+          format: int64
+        transferOrderNumber:
+          type: string
+        transferRedirectLink:
+          type: string
+        cardProductId:
+          type: integer
+          format: int64
+        cardAssociation:
+          type: integer
+          description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
+        cryptocurrency:
+          type: string
+        currency:
+          type: string
+        userFirstName:
+          type: string
+        userLastName:
+          type: string
+        userFullName:
+          type: string
+        userFullNameWestern:
+          type: string
+        userFullNameReverse:
+          type: string
+        userFullNameWesternReverse:
+          type: string
+        userGender:
+          type: integer
+        platformId:
+          type: integer
+          format: int64
+        platformName:
+          type: string
+        platformRegistrationMethod:
+          type: integer
+          description: '1:phone 2:email 3:username'
+        countryCodeFromPlatform:
+          type: integer
+          format: int32
+        nationalPhoneNumberFromPlatform:
+          type: string
+        emailFromPlatform:
+          type: string
+          format: email
+        agencyId:
+          type: integer
+          format: int64
+        agencyPlanId:
+          type: integer
+          format: int64
+        agencyName:
+          type: string
+        referralCode:
+          type: string
+        orderAmount:
+          type: number
+        finalOrderAmount:
+          type: number
+        receivedAmount:
+          type: number
+        discount:
+          type: number
+          description: 折扣 以元為單位
+        shippingCity:
+          type: string
+        shippingNationCode:
+          type: string
+          description: '國籍編碼(ISO 3166-1) 中國:CHN 新加坡:SGP 台灣:TWN'
+        shippingPostalCode:
+          type: string
+        shippingAddress:
+          type: string
+        shippingFirstName:
+          type: string
+        shippingLastName:
+          type: string
+        shippingCountryCode:
+          type: integer
+        shippingNationalPhoneNumber:
+          type: string
+        paymentStatus:
+          type: integer
+          description: '1:創建中 2:待付款 3:付款中 4:完成付款 5:付款失敗 6:超時 7:金額不符 8:重新付款 9:上拋失敗'
+        shippingStatus:
+          type: integer
+          description: '貨運狀態 1:不需出貨 2:等待貨運 3:建立貨運中 4:已出貨 5:創建貨運失敗 6:出貨失敗 7:已到貨'
+        shipmentId:
+          type: integer
+          format: int64
+        shippingOrderNumber:
+          type: string
+        shippingVendor:
+          type: integer
+          description: '物流公司 1:DHL 2:FedEx'
+        deliveryFee:
+          type: number
+        deliveryFeeCryptocurrency:
+          type: string
+        handlingFee:
+          type: number
+        remark:
+          type: string
+        agreement:
+          type: string
+        cardId:
+          type: integer
+          format: int64
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        paymentDueAt:
+          type: string
+          format: date-time
+        paidAt:
+          type: string
+          format: date-time
+        confirmedAt:
+          type: string
+          format: date-time
+        shippedAt:
+          type: string
+          format: date-time
+    cardOrderQuery:
+      allOf:
+        - $ref: '#/components/schemas/cardOrder'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+            paymentDueAtFrom:
+              type: string
+              format: date-time
+            paymentDueAtTo:
+              type: string
+              format: date-time
+            ShippedAtFrom:
+              type: string
+              format: date-time
+            ShippedAtTo:
+              type: string
+              format: date-time
+    cardOrderExtended:
+      allOf:
+        - $ref: '#/components/schemas/cardOrder'
+        - type: object
+          properties:
+            userEmail:
+              type: string
+              format: email
+    cardOrderExtendedQuery:
+      allOf:
+        - $ref: '#/components/schemas/cardOrderExtended'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+            paymentDueAtFrom:
+              type: string
+              format: date-time
+            paymentDueAtTo:
+              type: string
+              format: date-time
+            ShippedAtFrom:
+              type: string
+              format: date-time
+            ShippedAtTo:
+              type: string
+              format: date-time
+    cardOrderGetRequest:
+      $ref: '#/components/schemas/cardOrderQuery'
+    cardOrderGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/cardOrder'
+    cardOrderConfirmRequest:
+      type: object
+      properties:
+        remark:
+          type: string
+    cardOrderConfirmResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    cardOrderRemarkRequest:
+      type: object
+      properties:
+        remark:
+          type: string
+    cardOrderRemarkResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    cardOrderPageRequest:
+      allOf:
+        - $ref: '#/components/schemas/cardOrderExtendedQuery'
+        - type: object
+          properties:
+            pageCurrent:
+              type: integer
+            pageSize:
+              type: integer
+    cardOrderPageResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/page'
+                - type: object
+                  properties:
+                    records:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/cardOrderExtended'
+    cardOrderShipRequest:
+      type: object
+      properties:
+        shippingOrderNumber:
+          type: string
+        shippingVendor:
+          type: integer
+        shippedAt:
+          type: string
+          format: date-time
+    cardOrderShipResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    agency:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        name:
+          type: string
+        countryCode:
+          type: integer
+        nationalPhoneNumber:
+          type: string
+        agencyStatus:
+          type: integer
+          description: '1:active 2:inactive'
+        platformId:
+          type: integer
+          format: int64
+        platformName:
+          type: string
+        registrationMethod:
+          type: integer
+          description: '1:phone 2:email 3:username'
+        createdAt:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    agencyQuery:
+      allOf:
+        - $ref: '#/components/schemas/agency'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+            idIn:
+              type: array
+              items:
+                type: integer
+                format: int64
+    agencyAddRequest:
+      $ref: '#/components/schemas/agency'
+    agencyAddResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    agencyPageRequest:
+      allOf:
+        - $ref: '#/components/schemas/agencyQuery'
+        - type: object
+          properties:
+            pageCurrent:
+              type: integer
+            pageSize:
+              type: integer
+    agencyPageResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                total:
+                  type: integer
+                  format: int64
+                size:
+                  type: integer
+                  format: int64
+                current:
+                  type: integer
+                  format: int64
+                pages:
+                  type: integer
+                  format: int64
+                records:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/agency'
+    agencyGetRequest:
+      $ref: '#/components/schemas/agencyQuery'
+    agencyGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/agency'
+    agencyUpdateRequest:
+      allOf:
+        - $ref: '#/components/schemas/agency'
+        - type: object
+          properties:
+            query:
+              $ref: '#/components/schemas/agencyQuery'
+    agencyUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: Filtered
+    agencyActivateRequest:
+      type: object
+      title: agencyActivateRequest
+      properties:
+        status:
+          type: integer
+          description: '狀態 1:啟用 2:停用'
+    agencyActivateResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    agencyPlan:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        name:
+          type: string
+        agencyId:
+          type: integer
+          format: int64
+        agencyName:
+          type: string
+        cardAssociation:
+          type: integer
+          description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
+        platformId:
+          type: integer
+          format: int64
+        platformName:
+          type: string
+        registrationMethod:
+          type: integer
+          description: '1:phone 2:email 3:username'
+        discount:
+          type: number
+          description: in percentage
+        referralCode:
+          type: string
+        planStatus:
+          type: integer
+          description: '1:active 2:inactive'
+        createdAt:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    agencyPlanQuery:
+      allOf:
+        - $ref: '#/components/schemas/agencyPlan'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+            idIn:
+              type: array
+              items:
+                type: integer
+                format: int64
+    agencyPlanAddRequest:
+      $ref: '#/components/schemas/agencyPlan'
+    agencyPlanAddResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    agencyPlanGetRequest:
+      $ref: '#/components/schemas/agencyPlanQuery'
+    agencyPlanGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/agencyPlan'
+    agencyPlanUpdateRequest:
+      allOf:
+        - $ref: '#/components/schemas/agencyPlan'
+        - type: object
+          properties:
+            query:
+              $ref: '#/components/schemas/agencyPlanQuery'
+    agencyPlanUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: Filtered
+    referralCodeGenerateRequest:
+      type: object
+      properties:
+        strategy:
+          type: integer
+          description: '1:random'
+    referralCodeGenerateResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                referralCode:
+                  type: string
+    agencyWithPlan:
+      allOf:
+        - $ref: '#/components/schemas/agency'
+        - type: object
+          properties:
+            planId:
+              type: integer
+              format: int64
+            planName:
+              type: string
+            cardAssociation:
+              type: integer
+              description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
+            discount:
+              type: number
+              description: in percentage
+            referralCode:
+              type: string
+            planStatus:
+              type: integer
+              description: '1:active 2:inactive'
+    agencyWithPlanQuery:
+      allOf:
+        - $ref: '#/components/schemas/agencyWithPlan'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+            orderByColumn:
+              type: string
+            orderByDirection:
+              type: integer
+              description: '1:asc 2:desc'
+            strategy:
+              type: integer
+              description: '1:newest 2:oldest 3:newest active 4:oldest active'
+    agencyWithPlanAddRequest:
+      $ref: '#/components/schemas/agencyWithPlan'
+    agencyWithPlanAddResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    agencyWithPlanGetRequest:
+      $ref: '#/components/schemas/agencyWithPlanQuery'
+    agencyWithPlanGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/agencyWithPlan'
+    agencyWithPlanPageRequest:
+      allOf:
+        - $ref: '#/components/schemas/agencyWithPlanQuery'
+        - type: object
+          properties:
+            pageCurrent:
+              type: integer
+            pageSize:
+              type: integer
+    agencyWithPlanPageResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                total:
+                  type: integer
+                  format: int64
+                size:
+                  type: integer
+                  format: int64
+                current:
+                  type: integer
+                  format: int64
+                pages:
+                  type: integer
+                  format: int64
+                records:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/agencyWithPlan'
+    agencyWithPlanUpdateRequest:
+      allOf:
+        - $ref: '#/components/schemas/agencyWithPlan'
+        - type: object
+          properties:
+            query:
+              $ref: '#/components/schemas/agencyWithPlanQuery'
+    agencyWithPlanUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    platform:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        name:
+          type: string
+        registrationMethod:
+          type: integer
+          description: '1:phone 2:email 3:username'
+        createdAt:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    platformGetRequest:
+      $ref: '#/components/schemas/platform'
+    platformGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/platform'
+

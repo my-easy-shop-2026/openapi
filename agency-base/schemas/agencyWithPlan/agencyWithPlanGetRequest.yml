@@ -1,0 +1,3 @@
+---
+agencyWithPlanGetRequest:
+  "$ref": "../../schemas.yml#/schemas/agencyWithPlanQuery"

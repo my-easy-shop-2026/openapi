@@ -1,0 +1,3 @@
+---
+userAgencyAddRequest:
+  "$ref": "../../schemas.yml#/schemas/userAgency"

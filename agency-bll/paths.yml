@@ -1,0 +1,7 @@
+---
+paths:
+
+# agency plan
+  /agencyPlan/byReferralCodeGet:
+    $ref: ../agency-base/paths/agencyPlan/getByReferralCode.yml
+  

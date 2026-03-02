@@ -1,0 +1,20 @@
+---
+paths:
+
+# transfer
+  /transfer/{transferId}/confirm:
+    $ref: "../order-base/paths/transfer/confirm.yml"
+
+# cardOrder
+  /cardOrderGet:
+    $ref: "../order-base/paths/cardOrder/get.yml"
+  /cardOrder/{cardOrderId}/repay:
+      $ref: "../order-base/paths/cardOrder/repay.yml"
+  /cardOrder/apply:
+    $ref: "../order-base/paths/cardOrder/apply.yml"
+  /cardOrder/pageGet:
+      $ref: "./paths/cardOrder/page.yml"
+  /cardOrder/latestExpiredGet:
+      $ref: "../order-base/paths/cardOrder/latestExpired.yml"
+
+  

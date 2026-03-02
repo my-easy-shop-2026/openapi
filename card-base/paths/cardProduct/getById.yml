@@ -1,0 +1,27 @@
+---
+post:
+  operationId: /sku/getById
+  description: 取得卡片產品
+  tags:
+    - sku
+  parameters:
+    - in: path
+      name: cardProductId
+      description: card product ID
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/cardProductGetByIdRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/cardProductGetByIdResponse"

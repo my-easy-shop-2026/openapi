@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /sku/add
+  description: 新增卡片產品
+  tags:
+    - sku
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/cardProductAddRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/cardProductAddResponse"

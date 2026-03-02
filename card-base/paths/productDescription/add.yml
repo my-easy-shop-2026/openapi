@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /productDescription/add
+  description: 取得產品說明
+  tags:
+    - productDescription
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/productDescriptionAddRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/productDescriptionAddResponse"

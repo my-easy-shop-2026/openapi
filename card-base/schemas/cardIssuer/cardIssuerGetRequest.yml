@@ -1,0 +1,3 @@
+---
+cardIssuerGetRequest:
+  "$ref": "../../schemas.yml#/schemas/cardIssuer"

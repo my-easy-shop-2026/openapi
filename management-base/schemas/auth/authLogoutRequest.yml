@@ -1,0 +1,19 @@
+---
+authLogoutRequest:
+  type: object
+  # crash without properties. actually not needed
+  properties:
+    accessToken:
+      type: object
+      properties:
+        token: 
+          type: string
+      additionalProperties: 
+        type: object
+    refreshToken:
+      type: object
+      properties:
+        token: 
+          type: string
+      additionalProperties: 
+        type: object

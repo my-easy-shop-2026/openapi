@@ -1,0 +1,37 @@
+---
+userInfoGetResponse:
+  allOf:
+    - $ref: "../../schemas.yml#/schemas/result"
+    - type: object
+      properties:
+        data:
+          allOf:
+            - "$ref": "../../schemas.yml#/schemas/user"
+            - type: object
+              properties:
+                password:
+                  type: Filtered
+                countryCode:
+                  type: Filtered
+                nationalPhoneNumber:
+                  type: Filtered
+                platformRegistrations:
+                  type: array
+                  items:
+                    allOf:
+                      - "$ref": "../../schemas.yml#/schemas/userPlatform"
+                      - type: object
+                        properties:
+                              id:
+                                type: Filtered
+                              userId:
+                                type: Filtered
+                              platformId:
+                                type: Filtered
+                              platformRegistrationMethod:
+                                type: Filtered
+                              createdAt:
+                                type: Filtered
+                              updatedAt:
+                                type: Filtered
+            

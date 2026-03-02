@@ -1,0 +1,11 @@
+---
+cardOrderShipRequest:
+  type: object
+  properties:
+    shippingOrderNumber:
+      type: string
+    shippingVendor:
+      type: integer
+    shippedAt:
+      type: string
+      format: date-time

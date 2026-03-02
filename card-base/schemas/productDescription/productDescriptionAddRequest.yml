@@ -1,0 +1,3 @@
+---
+productDescriptionAddRequest:
+  "$ref": "../../schemas.yml#/schemas/productDescription"

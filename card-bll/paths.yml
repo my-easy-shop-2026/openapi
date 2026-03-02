@@ -1,0 +1,18 @@
+---
+paths:
+
+# cardProduct
+  /cardProductGet:
+    $ref: "../card-base/paths/cardProduct/get.yml"
+  /cardProduct/{cardProductId}/byIdGet:
+    $ref: "../card-base/paths/cardProduct/getById.yml"
+
+# productDescription
+  /productDescriptionGet:
+    $ref: "../card-base/paths/productDescription/get.yml"
+  
+# product
+  /productGet:
+    $ref: "../card-base/paths/product/get.yml"
+  /product/displayGet:
+    $ref: "../card-base/paths/product/display.yml"

@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /cardOrder/latestExpired/get
+  description: 取得最新超時卡片訂單
+  tags:
+    - cardOrder
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/cardOrderLatestExpiredGetRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/cardOrderLatestExpiredGetResponse"

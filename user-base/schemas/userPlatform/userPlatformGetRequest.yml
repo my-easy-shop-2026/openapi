@@ -1,0 +1,3 @@
+---
+userPlatformGetRequest:
+  "$ref": "../../schemas.yml#/schemas/userPlatformQuery"

@@ -1,0 +1,8 @@
+---
+agencyWithPlanUpdateRequest:
+  allOf:
+    - "$ref": "../../schemas.yml#/schemas/agencyWithPlan"
+    - type: object
+      properties:
+        query:
+          "$ref": "../../schemas.yml#/schemas/agencyWithPlanQuery"

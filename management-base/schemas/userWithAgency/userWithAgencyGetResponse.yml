@@ -1,0 +1,18 @@
+---
+userWithAgencyGetResponse:
+  allOf:
+    - $ref: "../../schemas.yml#/schemas/result"
+    - type: object
+      properties:
+        data:
+          type: array
+          items:
+            allOf:
+              - "$ref": "../../schemas.yml#/schemas/userWithAgency"
+              - type: object
+                properties:
+                  password:
+                    type: Filtered
+    
+    
+    

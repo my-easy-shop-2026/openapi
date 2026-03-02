@@ -1,0 +1,13 @@
+---
+authSendVerificationCodeRequest:
+  type: object
+  properties:
+    email:
+      type: string
+      format: email
+    phoneNumber:
+      $ref: "../../schemas.yml#/schemas/phoneNumber"
+    purpose:
+      type: integer
+      description: 驗證碼目的 1:register 2:login 3:forgetPassword 4:resetEmail
+    

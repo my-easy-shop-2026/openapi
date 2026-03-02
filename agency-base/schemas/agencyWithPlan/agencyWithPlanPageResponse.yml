@@ -1,0 +1,27 @@
+---
+agencyWithPlanPageResponse:
+  allOf:
+    - $ref: "../../schemas.yml#/schemas/result"
+    - type: object
+      properties:
+        data:
+          type: object
+          properties:
+            total:
+              type: integer
+              format: int64
+            size:
+              type: integer
+              format: int64
+            current: 
+              type: integer
+              format: int64
+            pages:
+              type: integer
+              format: int64
+            records:
+              type: array
+              items:
+                "$ref": "../../schemas.yml#/schemas/agencyWithPlan"
+    
+    

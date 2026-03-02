@@ -1,0 +1,61 @@
+---
+paths:
+
+
+# user
+  /userGet:
+    $ref: "paths/user/get.yml"
+  /user/register:
+    $ref: "paths/user/register.yml"
+  /user/pageGet:
+    $ref: "paths/user/page.yml"
+  /user/forgetPassword:
+    $ref: "paths/user/forgetPassword.yml"
+  /user/{userId}/resetPassword:
+    $ref: "paths/user/resetPassword.yml"
+  /user/{userId}/resetEmail:
+    $ref: "paths/user/resetEmail.yml"
+  /user/{userId}/byIdGet:
+    $ref: "paths/user/getById.yml"
+  /user/{userId}/bind:
+    $ref: "paths/user/bind.yml"
+  /user/{userId}:
+    $ref: "paths/user/update.yml"
+  /user/infoGet:
+    $ref: "paths/user/info.yml"
+    
+# auth
+  /auth/login:
+    $ref: "paths/auth/login.yml"
+  /auth/logout:
+    $ref: "paths/auth/logout.yml"
+  /auth/sendVerificationCode:
+    $ref: "paths/auth/sendVerificationCode.yml"
+  /auth/captchaGet:
+    $ref: "paths/auth/captcha.yml"
+    
+# token
+  /token:
+    $ref: "paths/token/add.yml"
+
+# userAgency
+  /userAgency:
+    $ref: "paths/userAgency/add.yml"
+  /userAgencyGet:
+    $ref: "paths/userAgency/get.yml"
+
+# userPlatform
+  /userPlatform:
+    $ref: "paths/userPlatform/add.yml"
+  /userPlatformGet:
+    $ref: "paths/userPlatform/get.yml"
+
+# userWithAgency
+  /userWithAgencyGet:
+    $ref: "paths/userWithAgency/get.yml"
+  /userWithAgency/pageGet:
+    $ref: "paths/userWithAgency/page.yml"
+
+# userCardOrder
+  /userCardOrder:
+    $ref: "paths/userCardOrder/add.yml"

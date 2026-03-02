@@ -1,0 +1,17 @@
+---
+cardOrderPageResponse:
+  allOf:
+    - $ref: "../../schemas.yml#/schemas/result"
+    - type: object
+      properties:
+        data:
+          allOf:
+            - $ref: "../../schemas.yml#/schemas/page"
+            - type: object
+              properties:
+                records:
+                  type: array
+                  items:
+                    "$ref": "../../schemas.yml#/schemas/cardOrder"
+    
+    

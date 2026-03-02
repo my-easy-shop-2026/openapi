@@ -1,0 +1,3 @@
+---
+userPlatformAddRequest:
+  "$ref": "../../schemas.yml#/schemas/userPlatform"

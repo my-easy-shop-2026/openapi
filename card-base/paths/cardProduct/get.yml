@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /sku/get
+  description: 取得卡片產品
+  tags:
+    - sku
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/cardProductGetRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/cardProductGetResponse"

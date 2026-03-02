@@ -1,0 +1,10 @@
+---
+phoneNumber:
+  type: object
+  title: phoneNumber
+  properties:
+    countryCode:
+      type: integer
+      format: int32
+    nationalPhoneNumber:
+      type: string

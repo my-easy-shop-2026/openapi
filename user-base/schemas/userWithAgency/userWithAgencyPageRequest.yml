@@ -1,0 +1,10 @@
+---
+userWithAgencyPageRequest:
+  allOf:
+    - "$ref": "../../schemas.yml#/schemas/userWithAgencyQuery"
+    - type: object
+      properties:
+        pageCurrent:
+          type: integer
+        pageSize:
+          type: integer

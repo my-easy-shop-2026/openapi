@@ -1,0 +1,27 @@
+---
+patch:
+  operationId: /agency/activate
+  description: 代理啟用
+  tags:
+    - agency
+  parameters:
+    - in: path
+      name: agencyId
+      description: agency ID
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/agencyActivateRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/agencyActivateResponse"

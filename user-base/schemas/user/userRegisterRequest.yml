@@ -1,0 +1,25 @@
+---
+userRegisterRequest:
+  type: object
+  title: userRegisterRequest
+  properties:
+    email:
+      type: string
+      format: email
+      description: max:100
+    emailVerificationCode:
+      type: string
+      description: max:6
+    password:
+      type: string
+      format: password
+      description: max:100
+    confirmPassword:
+      type: string
+      format: password
+      description: max:100
+  required: 
+    - email
+    - emailVerificationCode
+    - password
+    - conformPassword

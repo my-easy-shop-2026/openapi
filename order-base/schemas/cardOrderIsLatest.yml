@@ -1,0 +1,9 @@
+---
+cardOrderIsLatest:
+  allOf:
+    - $ref: "cardOrder.yml#/cardOrder"
+    - type: object
+      properties:
+        isLatest:
+          type: boolean
+    

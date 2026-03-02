@@ -1,0 +1,189 @@
+---
+schemas:
+# common
+  id:
+    $ref: ../common/schemas.yml#/schemas/id
+  result:
+    $ref: ../common/schemas.yml#/schemas/result
+  page:
+    $ref: ../common/schemas.yml#/schemas/page
+  
+# user
+  user:
+    $ref: ../user-base/schemas/user.yml#/user
+  userQuery:
+    $ref: ../user-base/schemas/userQuery.yml#/userQuery
+  userResetEmailRequest:
+    $ref: ../management-base/schemas/user/userResetEmailRequest.yml#/userResetEmailRequest
+  userResetEmailResponse:
+    $ref: ../management-base/schemas/user/userResetEmailResponse.yml#/userResetEmailResponse
+  userPageRequest:
+    $ref: ../user-base/schemas/user/userPageRequest.yml#/userPageRequest
+  userPageResponse:
+    $ref: ../user-base/schemas/user/userPageResponse.yml#/userPageResponse
+
+# userWithAgency
+  userWithAgency:
+    $ref: ../user-base/schemas/userWithAgency.yml#/userWithAgency
+  userWithAgencyQuery:
+    $ref: ../user-base/schemas/userWithAgencyQuery.yml#/userWithAgencyQuery
+  userWithAgencyGetRequest:
+    $ref: ../user-base/schemas/userWithAgency/userWithAgencyGetRequest.yml#/userWithAgencyGetRequest
+  userWithAgencyGetResponse:
+    $ref: ../management-base/schemas/userWithAgency/userWithAgencyGetResponse.yml#/userWithAgencyGetResponse
+  userWithAgencyPageRequest:
+    $ref: ../user-base/schemas/userWithAgency/userWithAgencyPageRequest.yml#/userWithAgencyPageRequest
+  userWithAgencyPageResponse:
+    $ref: ../management-base/schemas/userWithAgency/userWithAgencyPageResponse.yml#/userWithAgencyPageResponse
+
+# system user
+  systemUser:  
+    $ref: ../management-base/schemas/systemUser.yml#/systemUser
+  systemUserQuery:  
+    $ref: ../management-base/schemas/systemUserQuery.yml#/systemUserQuery
+  systemUserInfoGetRequest:
+    $ref: ../management-base/schemas/systemUser/systemUserInfoGetRequest.yml#/systemUserInfoGetRequest
+  systemUserInfoGetResponse:
+    $ref: ../management-base/schemas/systemUser/systemUserInfoGetResponse.yml#/systemUserInfoGetResponse
+  systemUserGetRequest:
+    $ref: ../management-base/schemas/systemUser/systemUserGetRequest.yml#/systemUserGetRequest
+  systemUserGetResponse:
+    $ref: ../management-base/schemas/systemUser/systemUserGetResponse.yml#/systemUserGetResponse
+  systemUserAddRequest:
+    $ref: ../management-base/schemas/systemUser/systemUserAddRequest.yml#/systemUserAddRequest
+  systemUserAddResponse:
+    $ref: ../management-base/schemas/systemUser/systemUserAddResponse.yml#/systemUserAddResponse
+  systemUserResetPasswordRequest:
+    $ref: ../management-base/schemas/systemUser/systemUserResetPasswordRequest.yml#/systemUserResetPasswordRequest
+  systemUserResetPasswordResponse:
+    $ref: ../management-base/schemas/systemUser/systemUserResetPasswordResponse.yml#/systemUserResetPasswordResponse
+
+# auth
+  jwtToken:
+    $ref: ../user-base/schemas/jwtToken.yml#/jwtToken
+  authLoginRequest:
+    $ref: ../management-base/schemas/auth/authLoginRequest.yml#/authLoginRequest
+  authLoginResponse:
+    $ref: ../management-base/schemas/auth/authLoginResponse.yml#/authLoginResponse
+  authLogoutRequest:
+    $ref: ../management-base/schemas/auth/authLogoutRequest.yml#/authLogoutRequest
+  authLogoutResponse:
+    $ref: ../management-base/schemas/auth/authLogoutResponse.yml#/authLogoutResponse
+  authCaptchaGetRequest:
+    $ref: ../user-base/schemas/auth/authCaptchaGetRequest.yml#/authCaptchaGetRequest
+  authCaptchaGetResponse:
+    $ref: ../user-base/schemas/auth/authCaptchaGetResponse.yml#/authCaptchaGetResponse
+  authSendVerificationCodeRequest:
+    $ref: ../user-base/schemas/auth/authSendVerificationCodeRequest.yml#/authSendVerificationCodeRequest
+  authSendVerificationCodeResponse:
+    $ref: ../user-base/schemas/auth/authSendVerificationCodeResponse.yml#/authSendVerificationCodeResponse
+
+# card order
+  cardOrder:
+    $ref: ../order-base/schemas.yml#/schemas/cardOrder
+  cardOrderQuery:
+    $ref: ../order-base/schemas.yml#/schemas/cardOrderQuery
+  cardOrderExtended:
+    $ref: ../management-base/schemas/cardOrderExtended.yml#/cardOrderExtended
+  cardOrderExtendedQuery:
+    $ref: ../management-base/schemas/cardOrderExtendedQuery.yml#/cardOrderExtendedQuery
+  cardOrderGetRequest:
+    $ref: ../order-base/schemas/cardOrder/cardOrderGetRequest.yml#/cardOrderGetRequest
+  cardOrderGetResponse:
+    $ref: ../order-base/schemas/cardOrder/cardOrderGetResponse.yml#/cardOrderGetResponse
+  cardOrderConfirmRequest:
+    $ref: ../management-base/schemas/cardOrder/cardOrderConfirmRequest.yml#/cardOrderConfirmRequest
+  cardOrderConfirmResponse:
+    $ref: ../management-base/schemas/cardOrder/cardOrderConfirmResponse.yml#/cardOrderConfirmResponse
+  cardOrderRemarkRequest:
+    $ref: ../management-base/schemas/cardOrder/cardOrderRemarkRequest.yml#/cardOrderRemarkRequest
+  cardOrderRemarkResponse:
+    $ref: ../management-base/schemas/cardOrder/cardOrderRemarkResponse.yml#/cardOrderRemarkResponse
+  cardOrderPageRequest:
+    $ref: ../management-base/schemas/cardOrder/cardOrderPageRequest.yml#/cardOrderPageRequest
+  cardOrderPageResponse:
+    $ref: ../management-base/schemas/cardOrder/cardOrderPageResponse.yml#/cardOrderPageResponse
+  cardOrderShipRequest:
+    $ref: ../management-base/schemas/cardOrder/cardOrderShipRequest.yml#/cardOrderShipRequest
+  cardOrderShipResponse:
+    $ref: ../management-base/schemas/cardOrder/cardOrderShipResponse.yml#/cardOrderShipResponse
+
+# agency
+  agency:  
+    $ref: ../agency-base/schemas/agency.yml#/agency
+  agencyQuery:  
+    $ref: ../agency-base/schemas/agencyQuery.yml#/agencyQuery
+  agencyAddRequest:
+    $ref: ../agency-base/schemas/agency/agencyAddRequest.yml#/agencyAddRequest
+  agencyAddResponse:
+    $ref: ../management-base/schemas/agency/agencyAddResponse.yml#/agencyAddResponse
+  agencyPageRequest:
+    $ref: ../agency-base/schemas/agency/agencyPageRequest.yml#/agencyPageRequest
+  agencyPageResponse:
+    $ref: ../agency-base/schemas/agency/agencyPageResponse.yml#/agencyPageResponse
+  agencyGetRequest:
+    $ref: ../agency-base/schemas/agency/agencyGetRequest.yml#/agencyGetRequest
+  agencyGetResponse:
+    $ref: ../agency-base/schemas/agency/agencyGetResponse.yml#/agencyGetResponse
+  agencyUpdateRequest:
+    $ref: ../agency-base/schemas/agency/agencyUpdateRequest.yml#/agencyUpdateRequest
+  agencyUpdateResponse:
+    $ref: ../management-base/schemas/agency/agencyUpdateResponse.yml#/agencyUpdateResponse
+  agencyActivateRequest:
+    $ref: ../management-base/schemas/agency/agencyActivateRequest.yml#/agencyActivateRequest
+  agencyActivateResponse:
+    $ref: ../management-base/schemas/agency/agencyActivateResponse.yml#/agencyActivateResponse
+
+# agency plan
+  agencyPlan:  
+    $ref: ../agency-base/schemas/agencyPlan.yml#/agencyPlan
+  agencyPlanQuery:  
+    $ref: ../agency-base/schemas/agencyPlanQuery.yml#/agencyPlanQuery
+  agencyPlanAddRequest:
+    $ref: ../agency-base/schemas/agencyPlan/agencyPlanAddRequest.yml#/agencyPlanAddRequest
+  agencyPlanAddResponse:
+    $ref: ../management-base/schemas/agencyPlan/agencyPlanAddResponse.yml#/agencyPlanAddResponse
+  agencyPlanGetRequest:
+    $ref: ../agency-base/schemas/agencyPlan/agencyPlanGetRequest.yml#/agencyPlanGetRequest
+  agencyPlanGetResponse:
+    $ref: ../agency-base/schemas/agencyPlan/agencyPlanGetResponse.yml#/agencyPlanGetResponse
+  agencyPlanUpdateRequest:
+    $ref: ../agency-base/schemas/agencyPlan/agencyPlanUpdateRequest.yml#/agencyPlanUpdateRequest
+  agencyPlanUpdateResponse:
+    $ref: ../management-base/schemas/agencyPlan/agencyPlanUpdateResponse.yml#/agencyPlanUpdateResponse
+  referralCodeGenerateRequest:
+    $ref: ../management-base/schemas/agencyPlan/referralCode/referralCodeGenerateRequest.yml#/referralCodeGenerateRequest
+  referralCodeGenerateResponse:
+    $ref: ../management-base/schemas/agencyPlan/referralCode/referralCodeGenerateResponse.yml#/referralCodeGenerateResponse
+
+# agency with plan
+  agencyWithPlan:  
+    $ref: ../agency-base/schemas/agencyWithPlan.yml#/agencyWithPlan
+  userWithAgencyFiltered:
+    $ref: ../user-base/schemas/userWithAgencyFiltered.yml#/userWithAgencyFiltered
+  agencyWithPlanQuery:  
+    $ref: ../agency-base/schemas/agencyWithPlanQuery.yml#/agencyWithPlanQuery
+  agencyWithPlanAddRequest:
+    $ref: ../agency-base/schemas/agencyWithPlan/agencyWithPlanAddRequest.yml#/agencyWithPlanAddRequest
+  agencyWithPlanAddResponse:
+    $ref: ../management-base/schemas/agencyWithPlan/agencyWithPlanAddResponse.yml#/agencyWithPlanAddResponse
+  agencyWithPlanGetRequest:
+    $ref: ../agency-base/schemas/agencyWithPlan/agencyWithPlanGetRequest.yml#/agencyWithPlanGetRequest
+  agencyWithPlanGetResponse:
+    $ref: ../agency-base/schemas/agencyWithPlan/agencyWithPlanGetResponse.yml#/agencyWithPlanGetResponse
+  agencyWithPlanPageRequest:
+    $ref: ../agency-base/schemas/agencyWithPlan/agencyWithPlanPageRequest.yml#/agencyWithPlanPageRequest
+  agencyWithPlanPageResponse:
+    $ref: ../agency-base/schemas/agencyWithPlan/agencyWithPlanPageResponse.yml#/agencyWithPlanPageResponse
+  agencyWithPlanUpdateRequest:
+    $ref: ../management-base/schemas/agencyWithPlan/agencyWithPlanUpdateRequest.yml#/agencyWithPlanUpdateRequest
+  agencyWithPlanUpdateResponse:
+    $ref: ../management-base/schemas/agencyWithPlan/agencyWithPlanUpdateResponse.yml#/agencyWithPlanUpdateResponse
+
+# platform
+  platform:  
+    $ref: ../agency-base/schemas/platform.yml#/platform 
+  platformGetRequest:
+    $ref: ../agency-base/schemas/platform/platformGetRequest.yml#/platformGetRequest
+  platformGetResponse:
+    $ref: ../agency-base/schemas/platform/platformGetResponse.yml#/platformGetResponse

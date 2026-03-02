@@ -1,0 +1,27 @@
+---
+patch:
+  operationId: /productDescription/update
+  description: 更新產品說明
+  tags:
+    - productDescription
+  parameters:
+    - in: path
+      name: productDescriptionId
+      description: product description ID
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/productDescriptionUpdateRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/productDescriptionUpdateResponse"

@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /auth/sendVerificationCode
+  tags:
+    - auth
+  requestBody:
+    description: 送出驗證碼
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/authSendVerificationCodeRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/authSendVerificationCodeResponse"

@@ -1,0 +1,3 @@
+---
+shipmentGetRequest:
+  "$ref": "../../schemas.yml#/schemas/shipmentQuery"

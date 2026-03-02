@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /agencyPlan/referralCode/generate
+  description: 取得隨機推薦碼
+  tags:
+    - agencyPlan
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../../schemas.yml#/schemas/referralCodeGenerateRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../../schemas.yml#/schemas/referralCodeGenerateResponse"

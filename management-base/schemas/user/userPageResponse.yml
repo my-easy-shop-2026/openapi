@@ -1,0 +1,22 @@
+---
+userPageResponse:
+  allOf:
+    - $ref: "../../schemas.yml#/schemas/result"
+    - type: object
+      properties:
+        data:
+          allOf:
+            - $ref: "../../schemas.yml#/schemas/page"
+            - type: object
+              properties:
+                records:
+                  type: array
+                  items:
+                    allOf:
+                      - "$ref": "../../schemas.yml#/schemas/user"
+                      - type: object
+                        properties:
+                          password:
+                            type: Filtered
+    
+    

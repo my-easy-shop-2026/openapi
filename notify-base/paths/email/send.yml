@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /email/send
+  tags:
+    - email
+  requestBody:
+    description: 寄信
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/emailSendRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/emailSendResponse"

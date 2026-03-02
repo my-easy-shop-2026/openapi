@@ -1,0 +1,31 @@
+---
+agency:
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int64
+      x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+    name:
+      type: string
+    countryCode:
+      type: integer
+    nationalPhoneNumber:
+      type: string
+    agencyStatus:
+      type: integer
+      description: 1:active 2:inactive
+    platformId:
+      type: integer
+      format: int64
+    platformName:
+      type: string
+    registrationMethod:
+      type: integer
+      description: 1:phone 2:email 3:username
+    createdAt:
+      type: string
+      format: date-time
+    updated_at:
+      type: string
+      format: date-time

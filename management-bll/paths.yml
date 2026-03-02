@@ -1,0 +1,84 @@
+---
+paths:
+
+# auth
+  /auth/login:
+    $ref: ../management-base/paths/auth/login.yml
+  /auth/logout:
+    $ref: ../management-base/paths/auth/logout.yml
+  /auth/captchaGet:
+    $ref: ../user-base/paths/auth/captcha.yml
+  /auth/sendVerificationCode:
+    $ref: ../user-base/paths/auth/sendVerificationCode.yml
+
+# systemUser
+  /systemUserGet:
+    $ref: ../management-base/paths/systemUser/get.yml
+  # /systemUser:
+  #   $ref: ../management-base/paths/systemUser/add.yml
+  # /systemUser/{systemUserId}:
+  #   $ref: paths/systemUser/update.yml
+  /systemUser/{systemUserId}/resetPassword:
+    $ref: ../management-base/paths/systemUser/resetPassword.yml
+  /systemUser/infoGet:
+    $ref: ../management-base/paths/systemUser/info.yml
+
+# cardOrder
+  /cardOrderGet:
+    $ref: ../order-base/paths/cardOrder/get.yml
+  /cardOrder/pageGet:
+    $ref: ../management-base/paths/cardOrder/page.yml
+  /cardOrder/{cardOrderId}/confirm:
+    $ref: ../management-base/paths/cardOrder/confirm.yml
+  /cardOrder/{cardOrderId}/ship:
+    $ref: ../management-base/paths/cardOrder/ship.yml
+  /cardOrder/{cardOrderId}/remark:
+    $ref: ../management-base/paths/cardOrder/remark.yml
+
+# user
+  /user/{userId}/resetEmail:
+    $ref: ../management-base/paths/user/resetEmail.yml
+  /user/pageGet:
+    $ref: ../user-base/paths/user/page.yml
+  
+# user with agency
+  /userWithAgencyGet:
+    $ref: ../management-base/paths/userWithAgency/get.yml
+  /userWithAgency/pageGet:
+    $ref: ../management-base/paths/userWithAgency/page.yml
+
+# agency
+  /agency:
+    $ref: ../management-base/paths/agency/add.yml
+  /agencyGet:
+    $ref: ../agency-base/paths/agency/get.yml
+  /agency/{agencyId}:
+    $ref: ../management-base/paths/agency/update.yml
+  /agency/pageGet:
+    $ref: ../agency-base/paths/agency/page.yml
+  /agency/{agencyId}/activate:
+    $ref: ../management-base/paths/agency/activate.yml
+
+# agencyPlan
+  /agencyPlan:
+    $ref: ../management-base/paths/agencyPlan/add.yml
+  /agencyPlanGet:
+    $ref: ../agency-base/paths/agencyPlan/get.yml
+  /agencyPlan/{agencyPlanId}:
+    $ref: ../management-base/paths/agencyPlan/update.yml
+  /agencyPlan/referralCode/generateGet:
+    $ref: ../management-base/paths/agencyPlan/referralCode/generate.yml
+
+# agencyWithPlan
+  /agencyWithPlan:
+    $ref: ../management-base/paths/agencyWithPlan/add.yml
+  /agencyWithPlanGet:
+    $ref: ../management-base/paths/agencyWithPlan/get.yml
+  /agencyWithPlan/pageGet:
+    $ref: ../management-base/paths/agencyWithPlan/page.yml
+  /agencyWithPlan/{agencyPlanId}:
+    $ref: ../management-base/paths/agencyWithPlan/update.yml
+
+# platform
+  /platformGet:
+    $ref: ../agency-base/paths/platform/get.yml

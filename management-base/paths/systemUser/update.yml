@@ -1,0 +1,27 @@
+---
+patch:
+  operationId: /systemUser/update
+  description: 更新系統用戶
+  tags:
+    - systemUser
+  parameters:
+    - in: path
+      name: systemUserId
+      description: system user ID
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/systemUserUpdateRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/systemUserUpdateResponse"

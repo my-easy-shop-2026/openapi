@@ -1,0 +1,8 @@
+---
+userRegisterResponse:
+  allOf:
+    - $ref: "../../schemas.yml#/schemas/result"
+    - type: object
+      properties:
+        data:
+          "$ref": "../../schemas.yml#/schemas/jwtToken"

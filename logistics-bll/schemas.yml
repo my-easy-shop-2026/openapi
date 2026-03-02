@@ -1,0 +1,16 @@
+---
+schemas:
+# common
+  id:
+    "$ref": '../common/schemas.yml#/schemas/id'
+  result:
+    "$ref": '../common/schemas.yml#/schemas/result'
+  phoneNumber:
+    $ref: ../common/schemas.yml#/schemas/phoneNumber
+  
+# deliveryFee
+  deliveryFeeGetRequest:
+    $ref: ../logistics-base/schemas/deliveryFee/deliveryFeeGetRequest.yml#/deliveryFeeGetRequest
+  deliveryFeeGetResponse:
+    $ref: ../logistics-base/schemas/deliveryFee/deliveryFeeGetResponse.yml#/deliveryFeeGetResponse
+  

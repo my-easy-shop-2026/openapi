@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /user/register
+  tags:
+    - user
+  requestBody:
+    description: 用戶註冊
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/userRegisterRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/userRegisterResponse"

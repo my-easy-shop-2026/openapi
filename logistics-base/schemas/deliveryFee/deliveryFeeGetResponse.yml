@@ -1,0 +1,13 @@
+---
+deliveryFeeGetResponse:
+  allOf:
+    - $ref: "../../schemas.yml#/schemas/result"
+    - type: object
+      properties:
+        data:
+          type: object
+          properties:
+            deliveryFee:
+              type: number
+    
+    

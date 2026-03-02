@@ -1,0 +1,618 @@
+openapi: 3.0.3
+info:
+  title: order bll
+  description: This is my API
+  version: 1.0.0
+paths:
+  '/transfer/{transferId}/confirm':
+    post:
+      operationId: /transfer/confirm
+      description: 確認轉帳(接收回調)
+      tags:
+        - transfer
+      parameters:
+        - in: path
+          name: transferId
+          description: transfer ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/transferConfirmRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/transferConfirmResponse'
+  /cardOrderGet:
+    post:
+      operationId: /cardOrder/get
+      description: 取得卡片訂單
+      tags:
+        - cardOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cardOrderGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cardOrderGetResponse'
+  '/cardOrder/{cardOrderId}/repay':
+    post:
+      operationId: /cardOrder/repay
+      description: 重新付款卡片訂單
+      tags:
+        - cardOrder
+      parameters:
+        - in: path
+          name: cardOrderId
+          description: card order ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cardOrderRepayRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cardOrderRepayResponse'
+  /cardOrder/apply:
+    post:
+      operationId: /cardOrder/apply
+      description: 申請卡片訂單
+      tags:
+        - cardOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cardOrderApplyRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cardOrderApplyResponse'
+  /cardOrder/pageGet:
+    post:
+      operationId: /cardOrder/page/get
+      description: 取得卡片訂單分頁
+      tags:
+        - cardOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cardOrderPageRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cardOrderPageResponse'
+  /cardOrder/latestExpiredGet:
+    post:
+      operationId: /cardOrder/latestExpired/get
+      description: 取得最新超時卡片訂單
+      tags:
+        - cardOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cardOrderLatestExpiredGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cardOrderLatestExpiredGetResponse'
+components:
+  schemas:
+    id:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    result:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        requestId:
+          type: string
+        success:
+          type: boolean
+    phoneNumber:
+      type: object
+      title: phoneNumber
+      properties:
+        countryCode:
+          type: integer
+          format: int32
+        nationalPhoneNumber:
+          type: string
+    page:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        size:
+          type: integer
+          format: int64
+        current:
+          type: integer
+          format: int64
+        pages:
+          type: integer
+          format: int64
+    cryptocurrency:
+      type: object
+      properties:
+        symbol:
+          type: string
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId()'
+        name:
+          type: string
+    currency:
+      type: object
+      properties:
+        symbol:
+          type: string
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId()'
+        name:
+          type: string
+    cardOrder:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        userId:
+          type: integer
+          format: int64
+        userNationCode:
+          type: string
+          description: '國籍編碼(ISO 3166-1) 中國:CHN 新加坡:SGP 台灣:TWN'
+        userCountryCode:
+          type: integer
+        userNationalPhoneNumber:
+          type: string
+        orderNumber:
+          type: string
+        transferId:
+          type: integer
+          format: int64
+        transferOrderNumber:
+          type: string
+        transferRedirectLink:
+          type: string
+        cardProductId:
+          type: integer
+          format: int64
+        cardAssociation:
+          type: integer
+          description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
+        cryptocurrency:
+          type: string
+        currency:
+          type: string
+        userFirstName:
+          type: string
+        userLastName:
+          type: string
+        userFullName:
+          type: string
+        userFullNameWestern:
+          type: string
+        userFullNameReverse:
+          type: string
+        userFullNameWesternReverse:
+          type: string
+        userGender:
+          type: integer
+        platformId:
+          type: integer
+          format: int64
+        platformName:
+          type: string
+        platformRegistrationMethod:
+          type: integer
+          description: '1:phone 2:email 3:username'
+        countryCodeFromPlatform:
+          type: integer
+          format: int32
+        nationalPhoneNumberFromPlatform:
+          type: string
+        emailFromPlatform:
+          type: string
+          format: email
+        agencyId:
+          type: integer
+          format: int64
+        agencyPlanId:
+          type: integer
+          format: int64
+        agencyName:
+          type: string
+        referralCode:
+          type: string
+        orderAmount:
+          type: number
+        finalOrderAmount:
+          type: number
+        receivedAmount:
+          type: number
+        discount:
+          type: number
+          description: 折扣 以元為單位
+        shippingCity:
+          type: string
+        shippingNationCode:
+          type: string
+          description: '國籍編碼(ISO 3166-1) 中國:CHN 新加坡:SGP 台灣:TWN'
+        shippingPostalCode:
+          type: string
+        shippingAddress:
+          type: string
+        shippingFirstName:
+          type: string
+        shippingLastName:
+          type: string
+        shippingCountryCode:
+          type: integer
+        shippingNationalPhoneNumber:
+          type: string
+        paymentStatus:
+          type: integer
+          description: '1:創建中 2:待付款 3:付款中 4:完成付款 5:付款失敗 6:超時 7:金額不符 8:重新付款 9:上拋失敗'
+        shippingStatus:
+          type: integer
+          description: '貨運狀態 1:不需出貨 2:等待貨運 3:建立貨運中 4:已出貨 5:創建貨運失敗 6:出貨失敗 7:已到貨'
+        shipmentId:
+          type: integer
+          format: int64
+        shippingOrderNumber:
+          type: string
+        shippingVendor:
+          type: integer
+          description: '物流公司 1:DHL 2:FedEx'
+        deliveryFee:
+          type: number
+        deliveryFeeCryptocurrency:
+          type: string
+        handlingFee:
+          type: number
+        remark:
+          type: string
+        agreement:
+          type: string
+        cardId:
+          type: integer
+          format: int64
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        paymentDueAt:
+          type: string
+          format: date-time
+        paidAt:
+          type: string
+          format: date-time
+        confirmedAt:
+          type: string
+          format: date-time
+        shippedAt:
+          type: string
+          format: date-time
+    cardOrderIsLatest:
+      allOf:
+        - $ref: '#/components/schemas/cardOrder'
+        - type: object
+          properties:
+            isLatest:
+              type: boolean
+    cardOrderAddRequest:
+      $ref: '#/components/schemas/cardOrder'
+    cardOrderAddResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/id'
+    cardOrderGetRequest:
+      allOf:
+        - $ref: '#/components/schemas/cardOrder'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+            paymentDueAtFrom:
+              type: string
+              format: date-time
+            paymentDueAtTo:
+              type: string
+              format: date-time
+            ShippedAtFrom:
+              type: string
+              format: date-time
+            ShippedAtTo:
+              type: string
+              format: date-time
+    cardOrderGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/cardOrder'
+    cardOrderUpdateRequest:
+      allOf:
+        - $ref: '#/components/schemas/cardOrder'
+        - type: object
+          properties:
+            query:
+              $ref: '#/components/schemas/cardOrderGetRequest'
+    cardOrderUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/cardOrder'
+    cardOrderCancelResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/cardOrder'
+    cardOrderApplyRequest:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+        userFirstName:
+          type: string
+        userLastName:
+          type: string
+        userGender:
+          type: integer
+        userNationCode:
+          type: string
+          description: '國籍編碼(ISO 3166-1) 中國:CHN 新加坡:SGP 台灣:TWN'
+        userCountryCode:
+          type: integer
+        userNationalPhoneNumber:
+          type: string
+        cardProductId:
+          type: integer
+          format: int64
+        referralCode:
+          type: string
+        emailFromPlatform:
+          type: string
+        countryCodeFromPlatform:
+          type: integer
+          format: int32
+        nationalPhoneNumberFromPlatform:
+          type: string
+        shippingFirstName:
+          type: string
+        shippingLastName:
+          type: string
+        shippingCity:
+          type: string
+        shippingNationCode:
+          type: string
+        shippingPostalCode:
+          type: string
+        shippingAddress:
+          type: string
+        shippingCountryCode:
+          type: integer
+        shippingNationalPhoneNumber:
+          type: string
+        remark:
+          type: string
+    cardOrderApplyResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                transferRedirectLink:
+                  type: string
+    cardOrderPageRequest:
+      allOf:
+        - $ref: '#/components/schemas/cardOrderGetRequest'
+        - type: object
+          properties:
+            pageCurrent:
+              type: integer
+            pageSize:
+              type: integer
+    cardOrderPageResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/page'
+                - type: object
+                  properties:
+                    records:
+                      type: array
+                      items:
+                        allOf:
+                          - $ref: '#/components/schemas/cardOrder'
+                          - type: object
+                            properties:
+                              handlingFee:
+                                type: Filtered
+                                description: data filtered
+                              agreement:
+                                type: Filtered
+                                description: data filtered
+    cardOrderLatestExpiredGetRequest:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+    cardOrderLatestExpiredGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/cardOrder'
+    cardOrderRepayRequest:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+    cardOrderRepayResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                transferRedirectLink:
+                  type: string
+    transfer:
+      type: object
+      title: transfer
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        cardOrderId:
+          type: integer
+          format: int64
+        orderNumber:
+          type: string
+        redirectLink:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        cryptocurrency:
+          type: string
+        transferAmount:
+          type: number
+        receivedAmount:
+          type: number
+        direction:
+          type: integer
+          description: '1:deposit 2:withdraw'
+        transferStatus:
+          type: integer
+          description: '1:creating 2:pending 3:processing 4:completed 5:denied 6:overdue'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        confirmedAt:
+          type: string
+          format: date-time
+    transferAddRequest:
+      $ref: '#/components/schemas/transfer'
+    transferAddResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/id'
+    transferGetRequest:
+      $ref: '#/components/schemas/transfer'
+    transferGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/transfer'
+    transferUpdateRequest:
+      $ref: '#/components/schemas/transfer'
+    transferUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/transfer'
+    transferConfirmRequest:
+      additionalProperties: true
+      properties:
+        defaultField:
+          type: string
+    transferConfirmResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+

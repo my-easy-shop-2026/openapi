@@ -1,0 +1,41 @@
+---
+schemas:
+# common
+  id:
+    "$ref": '../common/schemas.yml#/schemas/id'
+  result:
+    "$ref": '../common/schemas.yml#/schemas/result'
+  phoneNumber:
+    $ref: ../common/schemas.yml#/schemas/phoneNumber
+  
+# shippingVendor
+  shippingVendor:
+    $ref: schemas/shippingVendor.yml#/shippingVendor
+  shippingVendorGetRequest:
+    $ref: schemas/shippingVendor/shippingVendorGetRequest.yml#/shippingVendorGetRequest
+  shippingVendorGetResponse:
+    $ref: schemas/shippingVendor/shippingVendorGetResponse.yml#/shippingVendorGetResponse
+  
+# deliveryFee
+  deliveryFeeGetRequest:
+    $ref: schemas/deliveryFee/deliveryFeeGetRequest.yml#/deliveryFeeGetRequest
+  deliveryFeeGetResponse:
+    $ref: schemas/deliveryFee/deliveryFeeGetResponse.yml#/deliveryFeeGetResponse
+
+# shipment
+  shipment:  
+    $ref: schemas/shipment.yml#/shipment
+  shipmentQuery:  
+    $ref: schemas/shipmentQuery.yml#/shipmentQuery
+  shipmentAddRequest:
+    $ref: schemas/shipment/shipmentAddRequest.yml#/shipmentAddRequest
+  shipmentAddResponse:
+    $ref: schemas/shipment/shipmentAddResponse.yml#/shipmentAddResponse
+  shipmentGetRequest:
+    $ref: schemas/shipment/shipmentGetRequest.yml#/shipmentGetRequest
+  shipmentGetResponse:
+    $ref: schemas/shipment/shipmentGetResponse.yml#/shipmentGetResponse
+  shipmentUpdateRequest:
+    $ref: schemas/shipment/shipmentUpdateRequest.yml#/shipmentUpdateRequest
+  shipmentUpdateResponse:
+    $ref: schemas/shipment/shipmentUpdateResponse.yml#/shipmentUpdateResponse

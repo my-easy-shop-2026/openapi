@@ -1,0 +1,6 @@
+---
+userWithAgency:
+  allOf:
+    - $ref: "../schemas.yml#/schemas/user"
+    - $ref: "../schemas.yml#/schemas/userAgency"
+    - $ref: "../schemas.yml#/schemas/userCardOrder"

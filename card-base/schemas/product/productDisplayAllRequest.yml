@@ -1,0 +1,7 @@
+---
+productDisplayAllRequest:
+  type: object
+  properties:
+    userId:
+      type: integer
+      format: int64

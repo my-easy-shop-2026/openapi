@@ -1,0 +1,8 @@
+---
+systemUserInfoGetRequest:
+  type: object
+  title: systemUserInfoGetRequest
+  properties:
+    id:
+      type: integer
+      format: int64

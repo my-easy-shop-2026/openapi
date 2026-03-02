@@ -1,0 +1,16 @@
+---
+agencyWithPlanAddResponse:
+  allOf:
+    - $ref: "../../schemas.yml#/schemas/result"
+    - type: object
+      properties:
+        data:
+          type: object
+          properties:
+            agencyId: 
+              type: integer
+              format: int64
+            agencyPlanId:
+              type: integer
+              format: int64
+    

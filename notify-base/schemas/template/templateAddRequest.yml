@@ -1,0 +1,20 @@
+---
+templateAddRequest:
+  type: object
+  title: templateAddRequest
+  properties:
+    title:
+      type: string
+    content:
+      type: string
+    sender:
+      type: string
+      format: email
+    receiver:
+      type: string
+      format: email
+  required: 
+    - title
+    - content
+    - sender
+    - receiver

@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /product/displayAll
+  description: 展示所有推薦產品
+  tags:
+    - product
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/productDisplayAllRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/productDisplayAllResponse"

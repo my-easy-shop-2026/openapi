@@ -1,0 +1,12 @@
+---
+referralCodeGenerateResponse:
+  allOf:
+    - $ref: "../../../schemas.yml#/schemas/result"
+    - type: object
+      properties:
+        data:
+          type: object
+          properties: 
+            referralCode: 
+              type: string
+    

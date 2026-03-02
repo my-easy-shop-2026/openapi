@@ -1,0 +1,16 @@
+---
+page:
+  type: object
+  properties:
+    total:
+      type: integer
+      format: int64
+    size:
+      type: integer
+      format: int64
+    current: 
+      type: integer
+      format: int64
+    pages:
+      type: integer
+      format: int64

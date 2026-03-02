@@ -1,0 +1,13 @@
+openapi: 3.0.3
+
+info:
+  title: order base
+  description: This is my API
+  version: 1.0.0
+
+paths:
+  $ref: ./paths.yml#/paths
+  
+components:
+  schemas:
+    "$ref": "./schemas.yml#/schemas"

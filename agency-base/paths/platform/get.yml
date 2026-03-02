@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /platform/get
+  description: 取得平台
+  tags:
+    - platform
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/platformGetRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/platformGetResponse"

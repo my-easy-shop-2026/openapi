@@ -1,0 +1,3 @@
+---
+sendRecordAddRequest:
+  "$ref": "../../schemas.yml#/schemas/sendRecord"

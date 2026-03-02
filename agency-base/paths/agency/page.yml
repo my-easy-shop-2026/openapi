@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /agency/page/get
+  description: 取得代理分頁
+  tags:
+    - agency
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/agencyPageRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/agencyPageResponse"

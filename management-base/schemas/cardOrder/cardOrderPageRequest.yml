@@ -1,0 +1,10 @@
+---
+cardOrderPageRequest:
+  allOf:
+    - "$ref": "../../schemas.yml#/schemas/cardOrderExtendedQuery"
+    - type: object
+      properties:
+        pageCurrent:
+          type: integer
+        pageSize:
+          type: integer

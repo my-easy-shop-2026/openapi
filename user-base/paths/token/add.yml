@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /token/add
+  description: 新增權杖
+  tags:
+    - token
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/tokenAddRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/tokenAddResponse"

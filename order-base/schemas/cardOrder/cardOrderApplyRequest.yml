@@ -1,0 +1,50 @@
+---
+cardOrderApplyRequest:
+  type: object
+  properties:
+    userId:
+      type: integer
+      format: int64
+    userFirstName:
+      type: string
+    userLastName:
+      type: string
+    userGender:
+      type: integer
+    userNationCode:
+      type: string
+      description: 國籍編碼(ISO 3166-1) 中國:CHN 新加坡:SGP 台灣:TWN
+    userCountryCode:
+      type: integer
+    userNationalPhoneNumber:
+      type: string
+    cardProductId:
+      type: integer
+      format: int64
+    referralCode:
+      type: string
+    emailFromPlatform:
+      type: string
+    countryCodeFromPlatform:
+      type: integer
+      format: int32
+    nationalPhoneNumberFromPlatform:
+      type: string
+    shippingFirstName:
+      type: string
+    shippingLastName:
+      type: string
+    shippingCity:
+      type: string
+    shippingNationCode:
+      type: string
+    shippingPostalCode:
+      type: string
+    shippingAddress:
+      type: string
+    shippingCountryCode:
+      type: integer
+    shippingNationalPhoneNumber:
+      type: string
+    remark:
+      type: string

@@ -1,0 +1,1206 @@
+openapi: 3.0.3
+info:
+  title: user base
+  description: This is my API
+  version: 1.0.0
+paths:
+  /userGet:
+    post:
+      operationId: /user/get
+      description: 取得用戶
+      tags:
+        - user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userQuery'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userGetResponse'
+  /user/register:
+    post:
+      operationId: /user/register
+      tags:
+        - user
+      requestBody:
+        description: 用戶註冊
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userRegisterRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userRegisterResponse'
+  /user/pageGet:
+    post:
+      operationId: /user/page/get
+      description: 取得用戶分頁
+      tags:
+        - user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userPageRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userPageResponse'
+  /user/forgetPassword:
+    patch:
+      operationId: /user/forgetPassword
+      description: 用戶忘記密碼
+      tags:
+        - user
+      requestBody:
+        description: 用戶忘記密碼
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userForgetPasswordRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userForgetPasswordResponse'
+  '/user/{userId}/resetPassword':
+    patch:
+      operationId: /user/resetPassword
+      description: 用戶重設密碼
+      tags:
+        - user
+      parameters:
+        - in: path
+          name: userId
+          description: user ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: 用戶重設密碼
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userResetPasswordRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userResetPasswordResponse'
+  '/user/{userId}/resetEmail':
+    post:
+      operationId: /user/resetEmail
+      description: 用戶重設email
+      tags:
+        - user
+      parameters:
+        - in: path
+          name: userId
+          description: user ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: 用戶重設密碼
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userResetEmailRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userResetEmailResponse'
+  '/user/{userId}/byIdGet':
+    post:
+      operationId: /user/getById
+      description: 取得用戶資料
+      tags:
+        - user
+      parameters:
+        - in: path
+          name: userId
+          description: user ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userQuery'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userGetByIdResponse'
+  '/user/{userId}/bind':
+    post:
+      operationId: /user/bind
+      tags:
+        - user
+      parameters:
+        - in: path
+          name: userId
+          description: user ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: 用戶綁定
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userBindRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userBindResponse'
+  '/user/{userId}':
+    post:
+      operationId: /user/update
+      description: 用戶更新
+      tags:
+        - user
+      parameters:
+        - in: path
+          name: userId
+          description: user ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: 用戶更新
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userUpdateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userUpdateResponse'
+  /user/infoGet:
+    post:
+      operationId: /user/info/get
+      description: 取得用戶本身資料
+      tags:
+        - user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userInfoGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userInfoGetResponse'
+  /auth/login:
+    post:
+      operationId: /auth/login
+      tags:
+        - auth
+      requestBody:
+        description: 登入
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authLoginRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authLoginResponse'
+  /auth/logout:
+    post:
+      operationId: /auth/logout
+      tags:
+        - auth
+      requestBody:
+        description: 登出
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authLogoutRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authLogoutResponse'
+  /auth/sendVerificationCode:
+    post:
+      operationId: /auth/sendVerificationCode
+      tags:
+        - auth
+      requestBody:
+        description: 送出驗證碼
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authSendVerificationCodeRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authSendVerificationCodeResponse'
+  /auth/captchaGet:
+    post:
+      operationId: /auth/captcha/get
+      tags:
+        - auth
+      requestBody:
+        description: 登入
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authCaptchaGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authCaptchaGetResponse'
+  /token:
+    post:
+      operationId: /token/add
+      description: 新增權杖
+      tags:
+        - token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/token'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tokenAddResponse'
+  /userAgency:
+    post:
+      operationId: /userAgency/add
+      description: 新增用戶代理
+      tags:
+        - userAgency
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userAgency'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userAgencyAddResponse'
+  /userAgencyGet:
+    get:
+      operationId: /userAgency/get
+      description: 取得用戶代理
+      tags:
+        - userAgency
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userAgencyQuery'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userAgencyGetResponse'
+  /userPlatform:
+    post:
+      operationId: /userPlatform/add
+      description: 新增用戶平台
+      tags:
+        - userPlatform
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userPlatform'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userPlatformAddResponse'
+  /userPlatformGet:
+    post:
+      operationId: /userPlatform/get
+      description: 取得用戶平台
+      tags:
+        - userPlatform
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userPlatformQuery'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userPlatformGetResponse'
+  /userWithAgencyGet:
+    post:
+      operationId: /userWithAgency/get
+      description: 同時取得用戶與代理
+      tags:
+        - userWithAgency
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userWithAgencyQuery'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userWithAgencyGetResponse'
+  /userWithAgency/pageGet:
+    post:
+      operationId: /userWithAgency/page/get
+      description: 同時取得用戶與代理分頁
+      tags:
+        - userWithAgency
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userWithAgencyPageRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userWithAgencyPageResponse'
+  /userCardOrder:
+    post:
+      operationId: /userCardOrder/add
+      description: 新增用戶卡片訂單
+      tags:
+        - userCardOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userCardOrder'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userCardOrderAddResponse'
+components:
+  schemas:
+    id:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    result:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        requestId:
+          type: string
+        success:
+          type: boolean
+    phoneNumber:
+      type: object
+      title: phoneNumber
+      properties:
+        countryCode:
+          type: integer
+          format: int32
+        nationalPhoneNumber:
+          type: string
+    page:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        size:
+          type: integer
+          format: int64
+        current:
+          type: integer
+          format: int64
+        pages:
+          type: integer
+          format: int64
+    user:
+      type: object
+      title: user
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        email:
+          type: string
+          format: email
+        countryCode:
+          type: integer
+        nationalPhoneNumber:
+          type: string
+        password:
+          type: string
+          format: password
+        firstName:
+          type: string
+        lastName:
+          type: string
+        fullName:
+          type: string
+        fullNameWestern:
+          type: string
+        fullNameReverse:
+          type: string
+        fullNameWesternReverse:
+          type: string
+        nationCode:
+          type: string
+          description: '國籍編碼(ISO 3166-1) 中國:CHN 新加坡:SGP 台灣:TWN'
+        gender:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+        updatedAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+    userQuery:
+      allOf:
+        - $ref: '#/components/schemas/user'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+            idIn:
+              type: array
+              items:
+                type: integer
+                format: int64
+    userInfoGetRequest:
+      type: object
+      title: userInfoGetRequest
+      properties:
+        id:
+          type: integer
+          format: int64
+    userInfoGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/user'
+                - type: object
+                  properties:
+                    password:
+                      type: Filtered
+                    countryCode:
+                      type: Filtered
+                    nationalPhoneNumber:
+                      type: Filtered
+                    platformRegistrations:
+                      type: array
+                      items:
+                        allOf:
+                          - $ref: '#/components/schemas/userPlatform'
+                          - type: object
+                            properties:
+                              id:
+                                type: Filtered
+                              userId:
+                                type: Filtered
+                              platformId:
+                                type: Filtered
+                              platformRegistrationMethod:
+                                type: Filtered
+                              createdAt:
+                                type: Filtered
+                              updatedAt:
+                                type: Filtered
+    userGetRequest:
+      $ref: '#/components/schemas/userQuery'
+    userGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/user'
+    userGetByIdRequest:
+      $ref: '#/components/schemas/userQuery'
+    userGetByIdResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/user'
+    userPageRequest:
+      allOf:
+        - $ref: '#/components/schemas/userQuery'
+        - type: object
+          properties:
+            pageCurrent:
+              type: integer
+            pageSize:
+              type: integer
+    userPageResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/page'
+                - type: object
+                  properties:
+                    records:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/user'
+    userRegisterRequest:
+      type: object
+      title: userRegisterRequest
+      properties:
+        email:
+          type: string
+          format: email
+          description: 'max:100'
+        emailVerificationCode:
+          type: string
+          description: 'max:6'
+        password:
+          type: string
+          format: password
+          description: 'max:100'
+        confirmPassword:
+          type: string
+          format: password
+          description: 'max:100'
+      required:
+        - email
+        - emailVerificationCode
+        - password
+        - conformPassword
+    userRegisterResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/jwtToken'
+    userResetPasswordRequest:
+      type: object
+      title: userResetPasswordRequest
+      properties:
+        oldPassword:
+          type: string
+          format: password
+        newPassword:
+          type: string
+          format: password
+        confirmNewPassword:
+          type: string
+          format: password
+    userResetPasswordResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    userForgetPasswordRequest:
+      type: object
+      title: userForgetPasswordRequest
+      properties:
+        email:
+          type: string
+          format: email
+        emailVerificationCode:
+          type: string
+        password:
+          type: string
+          format: password
+        confirmPassword:
+          type: string
+          format: password
+    userForgetPasswordResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    userResetEmailRequest:
+      type: object
+      title: userResetEmailRequest
+      properties:
+        email:
+          type: string
+          format: email
+        executor:
+          type: integer
+          format: int64
+    userResetEmailResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    userBindRequest:
+      type: object
+      title: userRegisterRequest
+      properties:
+        email:
+          type: string
+          format: email
+        emailVerificationCode:
+          type: string
+        password:
+          type: string
+          format: password
+        conformPassword:
+          type: string
+          format: password
+      required:
+        - email
+        - emailVerificationCode
+        - password
+        - conformPassword
+    userBindResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/jwtToken'
+    userUpdateRequest:
+      allOf:
+        - $ref: '#/components/schemas/user'
+        - type: object
+          properties:
+            query:
+              $ref: '#/components/schemas/userQuery'
+    userUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/user'
+    userAgency:
+      type: object
+      title: userAgency
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        userId:
+          type: integer
+          format: int64
+        agencyId:
+          type: integer
+          format: int64
+        agencyName:
+          type: string
+        platformId:
+          type: integer
+          format: int64
+        platformName:
+          type: string
+        platformRegistrationMethod:
+          type: integer
+          description: '1:phone 2:email 3:username'
+        countryCodeFromPlatform:
+          type: integer
+          format: int32
+        nationalPhoneNumberFromPlatform:
+          type: string
+        emailFromPlatform:
+          type: string
+          format: email
+        userPlatformId:
+          type: integer
+          format: int64
+          description: the relation between user and platform
+        createdAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+        updatedAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+        deleted:
+          type: integer
+          description: '0:not delete 1:delete'
+    userAgencyQuery:
+      allOf:
+        - $ref: '#/components/schemas/userAgency'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+    userAgencyAddRequest:
+      $ref: '#/components/schemas/userAgency'
+    userAgencyAddResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/id'
+    userAgencyGetRequest:
+      $ref: '#/components/schemas/userAgencyQuery'
+    userAgencyGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/userAgency'
+    userWithAgency:
+      allOf:
+        - $ref: '#/components/schemas/user'
+        - $ref: '#/components/schemas/userAgency'
+        - $ref: '#/components/schemas/userCardOrder'
+    userWithAgencyFiltered:
+      allOf:
+        - $ref: '#/components/schemas/user'
+        - $ref: '#/components/schemas/userAgency'
+        - $ref: '#/components/schemas/userCardOrder'
+        - type: object
+          properties:
+            password:
+              type: Filtered
+    userWithAgencyQuery:
+      allOf:
+        - $ref: '#/components/schemas/userWithAgency'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+            orderByColumn:
+              type: string
+            orderByDirection:
+              type: integer
+              description: '1:asc 2:desc'
+            strategy:
+              type: integer
+              description: '1:newest 2:oldest 3:newest active 4:oldest active'
+    userWithAgencyGetRequest:
+      $ref: '#/components/schemas/userWithAgencyQuery'
+    userWithAgencyGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/userWithAgency'
+    userWithAgencyPageRequest:
+      allOf:
+        - $ref: '#/components/schemas/userWithAgencyQuery'
+        - type: object
+          properties:
+            pageCurrent:
+              type: integer
+            pageSize:
+              type: integer
+    userWithAgencyPageResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                total:
+                  type: integer
+                  format: int64
+                size:
+                  type: integer
+                  format: int64
+                current:
+                  type: integer
+                  format: int64
+                pages:
+                  type: integer
+                  format: int64
+                records:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/userWithAgencyFiltered'
+    userPlatform:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        userId:
+          type: integer
+          format: int64
+        platformId:
+          type: integer
+          format: int64
+        platformName:
+          type: string
+        platformRegistrationMethod:
+          type: integer
+          description: '1:phone 2:email 3:username'
+        countryCodeFromPlatform:
+          type: integer
+          format: int32
+        nationalPhoneNumberFromPlatform:
+          type: string
+        emailFromPlatform:
+          type: string
+          format: email
+        createdAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+        updatedAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+        deleted:
+          type: integer
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableLogic(value="0", delval="1")'
+          description: '0:not delete 1:delete'
+    userPlatformQuery:
+      allOf:
+        - $ref: '#/components/schemas/userPlatform'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+    userPlatformAddRequest:
+      $ref: '#/components/schemas/userPlatform'
+    userPlatformAddResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/id'
+    userPlatformGetRequest:
+      $ref: '#/components/schemas/userPlatformQuery'
+    userPlatformGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/userPlatform'
+    jwtToken:
+      type: object
+      title: jwtToken
+      properties:
+        accessToken:
+          type: string
+        refreshToken:
+          type: string
+    authLoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        captcha:
+          type: string
+        password:
+          type: string
+          format: password
+        emailVerificationCode:
+          type: string
+    authLoginResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/jwtToken'
+    authLogoutRequest:
+      type: object
+      properties:
+        accessToken:
+          type: object
+          properties:
+            token:
+              type: string
+          additionalProperties:
+            type: object
+        refreshToken:
+          type: object
+          properties:
+            token:
+              type: string
+          additionalProperties:
+            type: object
+    authLogoutResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    authSendVerificationCodeRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        phoneNumber:
+          $ref: '#/components/schemas/phoneNumber'
+        purpose:
+          type: integer
+          description: '驗證碼目的 1:register 2:login 3:forgetPassword 4:resetEmail'
+    authSendVerificationCodeResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+          nullable: false
+        - type: object
+          properties:
+            data:
+              type: object
+    authCaptchaGetRequest:
+      type: object
+      properties:
+        purpose:
+          type: integer
+          description: 'captcha目的 1:user login 2:admin login 3:admin reset user email'
+    authCaptchaGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+          nullable: false
+        - type: object
+          properties:
+            data:
+              type: string
+    token:
+      type: object
+      title: token
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        jwtId:
+          type: string
+        subject:
+          type: string
+        audience:
+          type: string
+        notBefore:
+          type: string
+          format: date-time
+        issuer:
+          type: string
+        issuedAt:
+          type: string
+          format: date-time
+        expiration:
+          type: string
+          format: date-time
+        role:
+          type: integer
+        caller:
+          type: string
+        type:
+          type: integer
+    tokenAddRequest:
+      $ref: '#/components/schemas/token'
+    tokenAddResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/id'
+    userCardOrder:
+      type: object
+      title: userCardOrder
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        userId:
+          type: integer
+          format: int64
+        cardOrderId:
+          type: integer
+          format: int64
+        orderNumber:
+          type: string
+        cardProductId:
+          type: integer
+          format: int64
+        cardAssociation:
+          type: integer
+          description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
+        agencyId:
+          type: integer
+          format: int64
+        agencyPlanId:
+          type: integer
+          format: int64
+        userAgencyId:
+          type: integer
+          format: int64
+        cardOrderCreatedAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+    userCardOrderAddRequest:
+      $ref: '#/components/schemas/userCardOrder'
+    userCardOrderAddResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/id'
+

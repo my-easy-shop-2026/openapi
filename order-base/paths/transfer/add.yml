@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /transfer/add
+  description: 新增轉帳
+  tags:
+    - transfer
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/transferAddRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/transferAddResponse"

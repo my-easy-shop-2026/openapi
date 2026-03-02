@@ -1,0 +1,11 @@
+---
+authLoginRequest:
+  type: object
+  properties:
+    username:
+      type: string
+    captcha:
+      type: string
+    password:
+      type: string
+      format: password

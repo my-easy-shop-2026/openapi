@@ -1,0 +1,24 @@
+---
+agencyWithPlan:
+  allOf:
+    - $ref: "../schemas.yml#/schemas/agency"
+    - type: object
+      properties:
+        planId:
+          type: integer
+          format: int64
+        planName:
+          type: string
+        cardAssociation:
+          type: integer
+          description: 1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay
+        discount:
+          type: number
+          description: in percentage
+        referralCode:
+          type: string
+        planStatus:
+          type: integer
+          description: 1:active 2:inactive
+
+    

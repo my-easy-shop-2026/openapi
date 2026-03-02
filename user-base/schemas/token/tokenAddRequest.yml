@@ -1,0 +1,3 @@
+---
+tokenAddRequest:
+  "$ref": "../../schemas.yml#/schemas/token"

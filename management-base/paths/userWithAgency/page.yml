@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /userWithAgency/page/get
+  description: 同時取得用戶與代理分頁
+  tags:
+    - userWithAgency
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/userWithAgencyPageRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/userWithAgencyPageResponse"

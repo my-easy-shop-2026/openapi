@@ -1,0 +1,3 @@
+---
+transferAddRequest:
+  "$ref": "../../schemas.yml#/schemas/transfer"

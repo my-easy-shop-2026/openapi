@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /systemUser/get
+  description: 取得系統用戶資料
+  tags:
+    - systemUser
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/systemUserGetRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/systemUserGetResponse"

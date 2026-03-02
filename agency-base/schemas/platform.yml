@@ -1,0 +1,19 @@
+---
+platform:
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int64
+      x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+    name:
+      type: string
+    registrationMethod:
+      type: integer
+      description: 1:phone 2:email 3:username
+    createdAt:
+      type: string
+      format: date-time
+    updated_at:
+      type: string
+      format: date-time

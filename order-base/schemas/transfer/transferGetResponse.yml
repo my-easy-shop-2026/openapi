@@ -1,0 +1,12 @@
+---
+transferGetResponse:
+  allOf:
+    - $ref: "../../schemas.yml#/schemas/result"
+    - type: object
+      properties:
+        data:
+          type: array
+          items:
+            "$ref": "../../schemas.yml#/schemas/transfer"
+    
+    

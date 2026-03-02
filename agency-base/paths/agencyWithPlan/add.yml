@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /agencyWithPlan/add
+  description: 新增代理同時新增方案
+  tags:
+    - agencyWithPlan
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/agencyWithPlanAddRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/agencyWithPlanAddResponse"

@@ -1,0 +1,19 @@
+---
+get:
+  operationId: /userAgency/get
+  description: 取得用戶代理
+  tags:
+    - userAgency
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/userAgencyGetRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/userAgencyGetResponse"

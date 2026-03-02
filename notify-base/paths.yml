@@ -1,0 +1,37 @@
+---
+paths:
+
+# email
+  /email/send:
+    $ref: "paths/email/send.yml"
+  /email/sendWithTemplate:
+    $ref: "paths/email/sendWithTemplate.yml"
+
+# passageway
+  /passageway:
+    $ref: "paths/passageway/get.yml"
+
+# sendRecord
+  /sendRecord:
+    post:
+      $ref: "paths/sendRecord/add.yml#/post"
+  /sendRecord/{sendRecordId}:
+    $ref: "paths/sendRecord/getById.yml"
+
+# template
+  /template:
+    post:
+      $ref: "paths/template/add.yml#/post"
+    get:
+      $ref: "paths/template/get.yml#/get"
+    patch: 
+      $ref: "paths/template/update.yml#/patch"
+  /template/{templateId}:
+    $ref: "paths/template/getById.yml"
+
+# message
+  /message:
+    post: 
+      $ref: "paths/message/add.yml#/post"
+  /message/{messageId}:
+    $ref: "paths/message/getById.yml"

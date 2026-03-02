@@ -1,0 +1,40 @@
+---
+shipment:
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int64
+      x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+    shipmentOrderNumber:
+      type: string
+    shippingVendorId:
+      type: integer
+      format: int64
+    shippingVendorName:
+      type: string
+    cardOrderId:
+      type: integer
+      format: int64
+    shippingStatus:
+      type: integer
+      description: 貨運狀態 1:不需出貨 2:等待貨運 3:建立貨運中 4:已出貨 5:創建貨運失敗 6:出貨失敗 7:已到貨
+    shippedBy:
+      type: integer
+      format: int64
+      description: 負責出貨的管理員id
+    shippedByName:
+      type: string
+      description: 負責出貨的管理員名稱
+    createdAt:
+      type: string
+      format: date-time
+    updatedAt:
+      type: string
+      format: date-time
+    shippedAt:
+      type: string
+      format: date-time
+    deliveredAt:
+      type: string
+      format: date-time

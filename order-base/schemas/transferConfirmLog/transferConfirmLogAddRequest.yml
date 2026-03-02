@@ -1,0 +1,3 @@
+---
+transferConfirmLogAddRequest:
+  "$ref": "../../schemas.yml#/schemas/transferConfirmLog"

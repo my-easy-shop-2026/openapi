@@ -1,0 +1,3 @@
+---
+cardProductAddRequest:
+  "$ref": "../../schemas.yml#/schemas/cardProduct"

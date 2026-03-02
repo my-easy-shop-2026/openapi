@@ -1,0 +1,19 @@
+---
+get:
+  operationId: /template/get
+  description: 取得通知樣板
+  tags:
+    - template
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/templateGetRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/templateGetResponse"

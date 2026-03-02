@@ -1,0 +1,3 @@
+---
+cardOrderAddRequest:
+  "$ref": "../../schemas.yml#/schemas/cardOrder"

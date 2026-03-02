@@ -1,0 +1,44 @@
+---
+user:
+  type: object
+  title: user
+  properties:
+    id:
+      type: integer
+      format: int64
+      x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+    email:
+      type: string
+      format: email
+    countryCode:
+      type: integer
+    nationalPhoneNumber:
+      type: string
+    password:
+      type: string
+      format: password
+    firstName:
+      type: string
+    lastName:
+      type: string
+    fullName:
+      type: string
+    fullNameWestern:
+      type: string
+    fullNameReverse:
+      type: string
+    fullNameWesternReverse:
+      type: string
+    nationCode:
+      type: string
+      description: 國籍編碼(ISO 3166-1) 中國:CHN 新加坡:SGP 台灣:TWN
+    gender:
+      type: integer
+    createdAt:
+      type: string
+      format: date-time
+      description: format:2023-12-25T05:04:03+02:00
+    updatedAt:
+      type: string
+      format: date-time
+      description: format:2023-12-25T05:04:03+02:00

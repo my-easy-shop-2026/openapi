@@ -1,0 +1,27 @@
+---
+patch:
+  operationId: /cardOrder/ship
+  description: 發貨
+  tags:
+    - cardOrder
+  parameters:
+    - in: path
+      name: cardOrderId
+      description: card order ID
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/cardOrderShipRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/cardOrderShipResponse"

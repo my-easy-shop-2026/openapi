@@ -1,0 +1,20 @@
+---
+emailSendWithTemplateResponse:
+  allOf:
+    - $ref: "../../schemas.yml#/schemas/result"
+    - type: object
+      properties:
+        data:
+          type: object
+          properties:
+            success:
+              type: boolean
+            response:
+              type: string
+            messageId:
+              type: integer
+              format: int64
+            sendRecordId:
+              type: integer
+              format: int64
+    

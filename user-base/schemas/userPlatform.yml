@@ -1,0 +1,39 @@
+---
+userPlatform:
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int64
+      x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+    userId:
+      type: integer
+      format: int64
+    platformId:
+      type: integer
+      format: int64
+    platformName:
+      type: string
+    platformRegistrationMethod:
+      type: integer
+      description: 1:phone 2:email 3:username
+    countryCodeFromPlatform:
+      type: integer
+      format: int32
+    nationalPhoneNumberFromPlatform:
+      type: string
+    emailFromPlatform:
+      type: string
+      format: email
+    createdAt:
+      type: string
+      format: date-time
+      description: format:2023-12-25T05:04:03+02:00
+    updatedAt:
+      type: string
+      format: date-time
+      description: format:2023-12-25T05:04:03+02:00
+    deleted:
+      type: integer
+      x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableLogic(value="0", delval="1")'
+      description: 0:not delete 1:delete

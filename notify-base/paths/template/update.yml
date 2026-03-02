@@ -1,0 +1,19 @@
+---
+patch:
+  operationId: /template/update
+  tags:
+    - template
+  requestBody:
+    description: 寄信
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/templateUpdateRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/templateUpdateResponse"

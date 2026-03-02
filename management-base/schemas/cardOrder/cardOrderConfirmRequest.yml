@@ -1,0 +1,6 @@
+---
+cardOrderConfirmRequest:
+  type: object
+  properties:
+    remark:
+      type: string

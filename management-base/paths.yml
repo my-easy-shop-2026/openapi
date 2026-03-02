@@ -1,0 +1,84 @@
+---
+paths:
+
+# auth
+  /auth/login:
+    $ref: paths/auth/login.yml
+  /auth/logout:
+    $ref: paths/auth/logout.yml
+  /auth/captchaGet:
+    $ref: ../user-base/paths/auth/captcha.yml
+  /auth/sendVerificationCode:
+    $ref: ../user-base/paths/auth/sendVerificationCode.yml
+
+# systemUser
+  /systemUserGet:
+    $ref: paths/systemUser/get.yml
+  /systemUser:
+    $ref: paths/systemUser/add.yml
+  /systemUser/{systemUserId}:
+    $ref: paths/systemUser/update.yml
+  /systemUser/{systemUserId}/resetPassword:
+    $ref: paths/systemUser/resetPassword.yml
+  /systemUser/infoGet:
+    $ref: paths/systemUser/info.yml
+
+# cardOrder
+  /cardOrderGet:
+    $ref: ../order-base/paths/cardOrder/get.yml
+  /cardOrder/pageGet:
+    $ref: paths/cardOrder/page.yml
+  /cardOrder/{cardOrderId}/confirm:
+    $ref: paths/cardOrder/confirm.yml
+  /cardOrder/{cardOrderId}/ship:
+    $ref: paths/cardOrder/ship.yml
+  /cardOrder/{cardOrderId}/remark:
+    $ref: paths/cardOrder/remark.yml
+
+# user
+  /user/{userId}/resetEmail:
+    $ref: paths/user/resetEmail.yml
+  /user/pageGet:
+    $ref: paths/user/page.yml
+  
+# user with agency
+  /userWithAgencyGet:
+    $ref: paths/userWithAgency/get.yml
+  /userWithAgency/pageGet:
+    $ref: paths/userWithAgency/page.yml
+
+# agency
+  /agency:
+    $ref: paths/agency/add.yml
+  /agencyGet:
+    $ref: ../agency-base/paths/agency/get.yml
+  /agency/{agencyId}:
+    $ref: paths/agency/update.yml
+  /agency/pageGet:
+    $ref: ../agency-base/paths/agency/page.yml
+  /agency/{agencyId}/activate:
+    $ref: paths/agency/activate.yml
+
+# agencyPlan
+  /agencyPlan:
+    $ref: paths/agencyPlan/add.yml
+  /agencyPlanGet:
+    $ref: ../agency-base/paths/agencyPlan/get.yml
+  /agencyPlan/{agencyPlanId}:
+    $ref: paths/agencyPlan/update.yml
+  /agencyPlan/referralCode/generateGet:
+    $ref: paths/agencyPlan/referralCode/generate.yml
+
+# agencyWithPlan
+  /agencyWithPlan:
+    $ref: "paths/agencyWithPlan/add.yml"
+  /agencyWithPlanGet:
+    $ref: "paths/agencyWithPlan/get.yml"
+  /agencyWithPlan/pageGet:
+    $ref: "paths/agencyWithPlan/page.yml"
+  /agencyWithPlan/{agencyPlanId}:
+    $ref: "paths/agencyWithPlan/update.yml"
+
+# platform
+  /platformGet:
+    $ref: ../agency-base/paths/platform/get.yml

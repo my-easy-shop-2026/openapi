@@ -1,0 +1,27 @@
+---
+post:
+  operationId: /transfer/confirm
+  description: 確認轉帳(接收回調)
+  tags:
+    - transfer
+  parameters:
+    - in: path
+      name: transferId
+      description: transfer ID
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/transferConfirmRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/transferConfirmResponse"

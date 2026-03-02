@@ -1,0 +1,30 @@
+---
+cardOrderExtendedQuery:
+  allOf:
+    - "$ref": "../schemas.yml#/schemas/cardOrderExtended"
+    - type: object
+      properties:
+        createdAtFrom:
+          type: string
+          format: date-time
+        createdAtTo:
+          type: string
+          format: date-time
+        updatedAtFrom:
+          type: string
+          format: date-time
+        updatedAtTo:
+          type: string
+          format: date-time
+        paymentDueAtFrom:
+          type: string
+          format: date-time
+        paymentDueAtTo:
+          type: string
+          format: date-time
+        ShippedAtFrom:
+          type: string
+          format: date-time
+        ShippedAtTo:
+          type: string
+          format: date-time

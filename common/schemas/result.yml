@@ -1,0 +1,12 @@
+---
+result:
+  type: object
+  properties:
+    code:
+      type: integer
+    message:
+      type: string
+    requestId:
+      type: string
+    success:
+      type: boolean

@@ -1,0 +1,27 @@
+---
+post:
+  operationId: /user/bind
+  tags:
+    - user
+  parameters:
+    - in: path
+      name: userId
+      description: user ID
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    description: 用戶綁定
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/userBindRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/userBindResponse"

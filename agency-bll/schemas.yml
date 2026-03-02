@@ -1,0 +1,48 @@
+---
+schemas:
+# common
+  id:
+    $ref: ../common/schemas.yml#/schemas/id
+  result:
+    $ref: ../common/schemas.yml#/schemas/result
+  phoneNumber:
+    $ref: ../common/schemas.yml#/schemas/phoneNumber
+  
+# agency
+  agency:  
+    $ref: ../agency-base/schemas/agency.yml#/agency
+  agencyAddRequest:
+    $ref: ../agency-base/schemas/agency/agencyAddRequest.yml#/agencyAddRequest
+  agencyAddResponse:
+    $ref: ../agency-base/schemas/agency/agencyAddResponse.yml#/agencyAddResponse
+  agencyGetRequest:
+    $ref: ../agency-base/schemas/agency/agencyGetRequest.yml#/agencyGetRequest
+  agencyGetResponse:
+    $ref: ../agency-base/schemas/agency/agencyGetResponse.yml#/agencyGetResponse
+  agencyUpdateRequest:
+    $ref: ../agency-base/schemas/agency/agencyUpdateRequest.yml#/agencyUpdateRequest
+  agencyUpdateResponse:
+    $ref: ../agency-base/schemas/agency/agencyUpdateResponse.yml#/agencyUpdateResponse
+
+# agency plan
+  agencyPlan:  
+    $ref: ../agency-base/schemas/agencyPlan.yml#/agencyPlan
+  agencyPlanQuery:  
+    $ref: ../agency-base/schemas/agencyPlanQuery.yml#/agencyPlanQuery
+  agencyPlanAddRequest:
+    $ref: ../agency-base/schemas/agencyPlan/agencyPlanAddRequest.yml#/agencyPlanAddRequest
+  agencyPlanAddResponse:
+    $ref: ../agency-base/schemas/agencyPlan/agencyPlanAddResponse.yml#/agencyPlanAddResponse
+  agencyPlanGetRequest:
+    $ref: ../agency-base/schemas/agencyPlan/agencyPlanGetRequest.yml#/agencyPlanGetRequest
+  agencyPlanGetResponse:
+    $ref: ../agency-base/schemas/agencyPlan/agencyPlanGetResponse.yml#/agencyPlanGetResponse
+  agencyPlanGetByReferralCodeRequest:
+    $ref: ../agency-base/schemas/agencyPlan/agencyPlanGetByReferralCodeRequest.yml#/agencyPlanGetByReferralCodeRequest
+  agencyPlanGetByReferralCodeResponse:
+    $ref: ../agency-base/schemas/agencyPlan/agencyPlanGetByReferralCodeResponse.yml#/agencyPlanGetByReferralCodeResponse
+  agencyPlanUpdateRequest:
+    $ref: ../agency-base/schemas/agencyPlan/agencyPlanUpdateRequest.yml#/agencyPlanUpdateRequest
+  agencyPlanUpdateResponse:
+    $ref: ../agency-base/schemas/agencyPlan/agencyPlanUpdateResponse.yml#/agencyPlanUpdateResponse
+

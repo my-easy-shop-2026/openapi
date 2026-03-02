@@ -1,0 +1,17 @@
+---
+deliveryFeeGetRequest:
+  type: object
+  properties:
+    cryptoCurrency:
+      type: string
+    agencyPlanId:
+      type: integer
+      format: int64
+    shippingNationCode:
+      type: string
+      description: 國籍編碼(ISO 3166-1) 中國:CHN 新加坡:SGP 台灣:TWN
+    shippingPostalCode:
+      type: string
+    shippingAddress:
+      type: string
+    

@@ -1,0 +1,641 @@
+openapi: 3.0.3
+info:
+  title: user bll
+  description: This is my API
+  version: 1.0.0
+paths:
+  /user/register:
+    post:
+      operationId: /user/register
+      tags:
+        - user
+      requestBody:
+        description: 用戶註冊
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userRegisterRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userRegisterResponse'
+  /user/forgetPassword:
+    patch:
+      operationId: /user/forgetPassword
+      description: 用戶忘記密碼
+      tags:
+        - user
+      requestBody:
+        description: 用戶忘記密碼
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userForgetPasswordRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userForgetPasswordResponse'
+  '/user/{userId}/resetPassword':
+    patch:
+      operationId: /user/resetPassword
+      description: 用戶重設密碼
+      tags:
+        - user
+      parameters:
+        - in: path
+          name: userId
+          description: user ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: 用戶重設密碼
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userResetPasswordRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userResetPasswordResponse'
+  /user/infoGet:
+    post:
+      operationId: /user/info/get
+      description: 取得用戶本身資料
+      tags:
+        - user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userInfoGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userInfoGetResponse'
+  /auth/login:
+    post:
+      operationId: /auth/login
+      tags:
+        - auth
+      requestBody:
+        description: 登入
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authLoginRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authLoginResponse'
+  /auth/logout:
+    post:
+      operationId: /auth/logout
+      tags:
+        - auth
+      requestBody:
+        description: 登出
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authLogoutRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authLogoutResponse'
+  /auth/sendVerificationCode:
+    post:
+      operationId: /auth/sendVerificationCode
+      tags:
+        - auth
+      requestBody:
+        description: 送出驗證碼
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authSendVerificationCodeRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authSendVerificationCodeResponse'
+  /auth/captchaGet:
+    post:
+      operationId: /auth/captcha/get
+      tags:
+        - auth
+      requestBody:
+        description: 登入
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authCaptchaGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authCaptchaGetResponse'
+components:
+  schemas:
+    id:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    result:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        requestId:
+          type: string
+        success:
+          type: boolean
+    phoneNumber:
+      type: object
+      title: phoneNumber
+      properties:
+        countryCode:
+          type: integer
+          format: int32
+        nationalPhoneNumber:
+          type: string
+    page:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        size:
+          type: integer
+          format: int64
+        current:
+          type: integer
+          format: int64
+        pages:
+          type: integer
+          format: int64
+    user:
+      type: object
+      title: user
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        email:
+          type: string
+          format: email
+        countryCode:
+          type: integer
+        nationalPhoneNumber:
+          type: string
+        password:
+          type: string
+          format: password
+        firstName:
+          type: string
+        lastName:
+          type: string
+        fullName:
+          type: string
+        fullNameWestern:
+          type: string
+        fullNameReverse:
+          type: string
+        fullNameWesternReverse:
+          type: string
+        nationCode:
+          type: string
+          description: '國籍編碼(ISO 3166-1) 中國:CHN 新加坡:SGP 台灣:TWN'
+        gender:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+        updatedAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+    userInfoGetRequest:
+      type: object
+      title: userInfoGetRequest
+      properties:
+        id:
+          type: integer
+          format: int64
+    userInfoGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/user'
+                - type: object
+                  properties:
+                    password:
+                      type: Filtered
+                    countryCode:
+                      type: Filtered
+                    nationalPhoneNumber:
+                      type: Filtered
+                    platformRegistrations:
+                      type: array
+                      items:
+                        allOf:
+                          - $ref: '#/components/schemas/userPlatform'
+                          - type: object
+                            properties:
+                              id:
+                                type: Filtered
+                              userId:
+                                type: Filtered
+                              platformId:
+                                type: Filtered
+                              platformRegistrationMethod:
+                                type: Filtered
+                              createdAt:
+                                type: Filtered
+                              updatedAt:
+                                type: Filtered
+    userRegisterRequest:
+      type: object
+      title: userRegisterRequest
+      properties:
+        email:
+          type: string
+          format: email
+          description: 'max:100'
+        emailVerificationCode:
+          type: string
+          description: 'max:6'
+        password:
+          type: string
+          format: password
+          description: 'max:100'
+        confirmPassword:
+          type: string
+          format: password
+          description: 'max:100'
+      required:
+        - email
+        - emailVerificationCode
+        - password
+        - conformPassword
+    userRegisterResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/jwtToken'
+    userResetPasswordRequest:
+      type: object
+      title: userResetPasswordRequest
+      properties:
+        oldPassword:
+          type: string
+          format: password
+        newPassword:
+          type: string
+          format: password
+        confirmNewPassword:
+          type: string
+          format: password
+    userResetPasswordResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    userForgetPasswordRequest:
+      type: object
+      title: userForgetPasswordRequest
+      properties:
+        email:
+          type: string
+          format: email
+        emailVerificationCode:
+          type: string
+        password:
+          type: string
+          format: password
+        confirmPassword:
+          type: string
+          format: password
+    userForgetPasswordResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    userAgency:
+      type: object
+      title: userAgency
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        userId:
+          type: integer
+          format: int64
+        agencyId:
+          type: integer
+          format: int64
+        agencyName:
+          type: string
+        platformId:
+          type: integer
+          format: int64
+        platformName:
+          type: string
+        platformRegistrationMethod:
+          type: integer
+          description: '1:phone 2:email 3:username'
+        countryCodeFromPlatform:
+          type: integer
+          format: int32
+        nationalPhoneNumberFromPlatform:
+          type: string
+        emailFromPlatform:
+          type: string
+          format: email
+        userPlatformId:
+          type: integer
+          format: int64
+          description: the relation between user and platform
+        createdAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+        updatedAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+        deleted:
+          type: integer
+          description: '0:not delete 1:delete'
+    userAgencyAddRequest:
+      $ref: '#/components/schemas/userAgency'
+    userAgencyAddResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/id'
+    userAgencyGetRequest:
+      allOf:
+        - $ref: '#/components/schemas/userAgency'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+    userAgencyGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/userAgency'
+    userPlatform:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        userId:
+          type: integer
+          format: int64
+        platformId:
+          type: integer
+          format: int64
+        platformName:
+          type: string
+        platformRegistrationMethod:
+          type: integer
+          description: '1:phone 2:email 3:username'
+        countryCodeFromPlatform:
+          type: integer
+          format: int32
+        nationalPhoneNumberFromPlatform:
+          type: string
+        emailFromPlatform:
+          type: string
+          format: email
+        createdAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+        updatedAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+        deleted:
+          type: integer
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableLogic(value="0", delval="1")'
+          description: '0:not delete 1:delete'
+    userPlatformAddRequest:
+      $ref: '#/components/schemas/userPlatform'
+    userPlatformAddResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/id'
+    userPlatformGetRequest:
+      allOf:
+        - $ref: '#/components/schemas/userPlatform'
+        - type: object
+          properties:
+            createdAtFrom:
+              type: string
+              format: date-time
+            createdAtTo:
+              type: string
+              format: date-time
+            updatedAtFrom:
+              type: string
+              format: date-time
+            updatedAtTo:
+              type: string
+              format: date-time
+    userPlatformGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/userPlatform'
+    jwtToken:
+      type: object
+      title: jwtToken
+      properties:
+        accessToken:
+          type: string
+        refreshToken:
+          type: string
+    authLoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        captcha:
+          type: string
+        password:
+          type: string
+          format: password
+        emailVerificationCode:
+          type: string
+    authLoginResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/jwtToken'
+    authLogoutRequest:
+      type: object
+      properties:
+        accessToken:
+          type: object
+          properties:
+            token:
+              type: string
+          additionalProperties:
+            type: object
+        refreshToken:
+          type: object
+          properties:
+            token:
+              type: string
+          additionalProperties:
+            type: object
+    authLogoutResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+        - type: object
+          properties:
+            data:
+              type: object
+    authSendVerificationCodeRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        phoneNumber:
+          $ref: '#/components/schemas/phoneNumber'
+        purpose:
+          type: integer
+          description: '驗證碼目的 1:register 2:login 3:forgetPassword 4:resetEmail'
+    authSendVerificationCodeResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+          nullable: false
+        - type: object
+          properties:
+            data:
+              type: object
+    authCaptchaGetRequest:
+      type: object
+      properties:
+        purpose:
+          type: integer
+          description: 'captcha目的 1:user login 2:admin login 3:admin reset user email'
+    authCaptchaGetResponse:
+      allOf:
+        - $ref: '#/components/schemas/result'
+          nullable: false
+        - type: object
+          properties:
+            data:
+              type: string
+    token:
+      type: object
+      title: token
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        jwtId:
+          type: string
+        subject:
+          type: string
+        audience:
+          type: string
+        notBefore:
+          type: string
+          format: date-time
+        issuer:
+          type: string
+        issuedAt:
+          type: string
+          format: date-time
+        expiration:
+          type: string
+          format: date-time
+        role:
+          type: integer
+        caller:
+          type: string
+        type:
+          type: integer
+

@@ -1,0 +1,83 @@
+---
+schemas:
+# common
+  id:
+    "$ref": '../common/schemas.yml#/schemas/id'
+  result:
+    "$ref": '../common/schemas.yml#/schemas/result'
+  phoneNumber:
+    $ref: ../common/schemas.yml#/schemas/phoneNumber
+  page:
+    $ref: ../common/schemas.yml#/schemas/page
+
+# user
+  user:
+    $ref: ../user-base/schemas/user.yml#/user
+  userInfoGetRequest:
+    $ref: ../user-base/schemas/user/userInfoGetRequest.yml#/userInfoGetRequest
+  userInfoGetResponse:
+    $ref: ../user-base/schemas/user/userInfoGetResponse.yml#/userInfoGetResponse
+  userRegisterRequest:
+    $ref: ../user-base/schemas/user/userRegisterRequest.yml#/userRegisterRequest
+  userRegisterResponse:
+    $ref: ../user-base/schemas/user/userRegisterResponse.yml#/userRegisterResponse
+  userResetPasswordRequest:
+    $ref: ../user-base/schemas/user/userResetPasswordRequest.yml#/userResetPasswordRequest
+  userResetPasswordResponse:
+    $ref: ../user-base/schemas/user/userResetPasswordResponse.yml#/userResetPasswordResponse
+  userForgetPasswordRequest:
+    $ref: ../user-base/schemas/user/userForgetPasswordRequest.yml#/userForgetPasswordRequest
+  userForgetPasswordResponse:
+    $ref: ../user-base/schemas/user/userForgetPasswordResponse.yml#/userForgetPasswordResponse
+
+# userAgency
+  userAgency:
+    $ref: ../user-base/schemas/userAgency.yml#/userAgency
+  userAgencyAddRequest:
+    $ref: ../user-base/schemas/userAgency/userAgencyAddRequest.yml#/userAgencyAddRequest
+  userAgencyAddResponse:
+    $ref: ../user-base/schemas/userAgency/userAgencyAddResponse.yml#/userAgencyAddResponse
+  userAgencyGetRequest:
+    $ref: ../user-base/schemas/userAgency/userAgencyGetRequest.yml#/userAgencyGetRequest
+  userAgencyGetResponse:
+    $ref: ../user-base/schemas/userAgency/userAgencyGetResponse.yml#/userAgencyGetResponse
+
+# userPlatform
+  userPlatform:
+    $ref: ../user-base/schemas/userPlatform.yml#/userPlatform
+  userPlatformAddRequest:
+    $ref: ../user-base/schemas/userPlatform/userPlatformAddRequest.yml#/userPlatformAddRequest
+  userPlatformAddResponse:
+    $ref: ../user-base/schemas/userPlatform/userPlatformAddResponse.yml#/userPlatformAddResponse
+  userPlatformGetRequest:
+    $ref: ../user-base/schemas/userPlatform/userPlatformGetRequest.yml#/userPlatformGetRequest
+  userPlatformGetResponse:
+    $ref: ../user-base/schemas/userPlatform/userPlatformGetResponse.yml#/userPlatformGetResponse
+
+#auth
+  jwtToken:
+    $ref: ../user-base/schemas/jwtToken.yml#/jwtToken
+  authLoginRequest:
+    $ref: ../user-base/schemas/auth/authLoginRequest.yml#/authLoginRequest
+  authLoginResponse:
+    $ref: ../user-base/schemas/auth/authLoginResponse.yml#/authLoginResponse
+  authLogoutRequest:
+    $ref: ../user-base/schemas/auth/authLogoutRequest.yml#/authLogoutRequest
+  authLogoutResponse:
+    $ref: ../user-base/schemas/auth/authLogoutResponse.yml#/authLogoutResponse
+  authSendVerificationCodeRequest:
+    $ref: ../user-base/schemas/auth/authSendVerificationCodeRequest.yml#/authSendVerificationCodeRequest
+  authSendVerificationCodeResponse:
+    $ref: ../user-base/schemas/auth/authSendVerificationCodeResponse.yml#/authSendVerificationCodeResponse
+  authCaptchaGetRequest:
+    $ref: ../user-base/schemas/auth/authCaptchaGetRequest.yml#/authCaptchaGetRequest
+  authCaptchaGetResponse:
+    $ref: ../user-base/schemas/auth/authCaptchaGetResponse.yml#/authCaptchaGetResponse
+
+#token
+  token:
+    $ref: ../user-base/schemas/token.yml#/token
+
+
+
+

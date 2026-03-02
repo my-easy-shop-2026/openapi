@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /agencyWithPlan/get
+  description: 取得代理同時取得方案
+  tags:
+    - agencyWithPlan
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/agencyWithPlanGetRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/agencyWithPlanGetResponse"

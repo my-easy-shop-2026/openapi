@@ -1,0 +1,88 @@
+---
+schemas:
+# common
+  id:
+    $ref: ../common/schemas.yml#/schemas/id
+  result:
+    $ref: ../common/schemas.yml#/schemas/result
+  phoneNumber:
+    $ref: ../common/schemas.yml#/schemas/phoneNumber
+  
+# agency
+  agency:  
+    $ref: schemas/agency.yml#/agency
+  agencyQuery:  
+    $ref: schemas/agencyQuery.yml#/agencyQuery
+  agencyAddRequest:
+    $ref: schemas/agency/agencyAddRequest.yml#/agencyAddRequest
+  agencyAddResponse:
+    $ref: schemas/agency/agencyAddResponse.yml#/agencyAddResponse
+  agencyGetRequest:
+    $ref: schemas/agency/agencyGetRequest.yml#/agencyGetRequest
+  agencyGetResponse:
+    $ref: schemas/agency/agencyGetResponse.yml#/agencyGetResponse
+  agencyPageRequest:
+    $ref: schemas/agency/agencyPageRequest.yml#/agencyPageRequest
+  agencyPageResponse:
+    $ref: schemas/agency/agencyPageResponse.yml#/agencyPageResponse
+  agencyUpdateRequest:
+    $ref: schemas/agency/agencyUpdateRequest.yml#/agencyUpdateRequest
+  agencyUpdateResponse:
+    $ref: schemas/agency/agencyUpdateResponse.yml#/agencyUpdateResponse
+  agencyBatchUpdateRequest:
+    $ref: schemas/agency/agencyBatchUpdateRequest.yml#/agencyBatchUpdateRequest
+  agencyBatchUpdateResponse:
+    $ref: schemas/agency/agencyBatchUpdateResponse.yml#/agencyBatchUpdateResponse
+
+# agency plan
+  agencyPlan:  
+    $ref: schemas/agencyPlan.yml#/agencyPlan
+  agencyPlanQuery:  
+    $ref: schemas/agencyPlanQuery.yml#/agencyPlanQuery
+  agencyPlanAddRequest:
+    $ref: schemas/agencyPlan/agencyPlanAddRequest.yml#/agencyPlanAddRequest
+  agencyPlanAddResponse:
+    $ref: schemas/agencyPlan/agencyPlanAddResponse.yml#/agencyPlanAddResponse
+  agencyPlanGetRequest:
+    $ref: schemas/agencyPlan/agencyPlanGetRequest.yml#/agencyPlanGetRequest
+  agencyPlanGetResponse:
+    $ref: schemas/agencyPlan/agencyPlanGetResponse.yml#/agencyPlanGetResponse
+  agencyPlanGetByReferralCodeRequest:
+    $ref: schemas/agencyPlan/agencyPlanGetByReferralCodeRequest.yml#/agencyPlanGetByReferralCodeRequest
+  agencyPlanGetByReferralCodeResponse:
+    $ref: schemas/agencyPlan/agencyPlanGetByReferralCodeResponse.yml#/agencyPlanGetByReferralCodeResponse
+  agencyPlanUpdateRequest:
+    $ref: schemas/agencyPlan/agencyPlanUpdateRequest.yml#/agencyPlanUpdateRequest
+  agencyPlanUpdateResponse:
+    $ref: schemas/agencyPlan/agencyPlanUpdateResponse.yml#/agencyPlanUpdateResponse
+  agencyPlanBatchUpdateRequest:
+    $ref: schemas/agencyPlan/agencyPlanBatchUpdateRequest.yml#/agencyPlanBatchUpdateRequest
+  agencyPlanBatchUpdateResponse:
+    $ref: schemas/agencyPlan/agencyPlanBatchUpdateResponse.yml#/agencyPlanBatchUpdateResponse
+
+# agency with plan
+  agencyWithPlan:  
+    $ref: schemas/agencyWithPlan.yml#/agencyWithPlan
+  agencyWithPlanQuery:  
+    $ref: schemas/agencyWithPlanQuery.yml#/agencyWithPlanQuery
+  agencyWithPlanAddRequest:
+    $ref: schemas/agencyWithPlan/agencyWithPlanAddRequest.yml#/agencyWithPlanAddRequest
+  agencyWithPlanAddResponse:
+    $ref: schemas/agencyWithPlan/agencyWithPlanAddResponse.yml#/agencyWithPlanAddResponse
+  agencyWithPlanGetRequest:
+    $ref: schemas/agencyWithPlan/agencyWithPlanGetRequest.yml#/agencyWithPlanGetRequest
+  agencyWithPlanGetResponse:
+    $ref: schemas/agencyWithPlan/agencyWithPlanGetResponse.yml#/agencyWithPlanGetResponse
+  agencyWithPlanPageRequest:
+    $ref: schemas/agencyWithPlan/agencyWithPlanPageRequest.yml#/agencyWithPlanPageRequest
+  agencyWithPlanPageResponse:
+    $ref: schemas/agencyWithPlan/agencyWithPlanPageResponse.yml#/agencyWithPlanPageResponse
+
+# platform
+  platform:  
+    $ref: schemas/platform.yml#/platform 
+  platformGetRequest:
+    $ref: schemas/platform/platformGetRequest.yml#/platformGetRequest
+  platformGetResponse:
+    $ref: schemas/platform/platformGetResponse.yml#/platformGetResponse
+  

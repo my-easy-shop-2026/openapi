@@ -1,0 +1,28 @@
+---
+paths:
+
+# store
+  /storeGet:
+    $ref: "paths/cardIssuer/get.yml"
+
+# sku
+  /sku:
+    $ref: "paths/cardProduct/add.yml"
+  /skuGet:
+    $ref: "paths/cardProduct/get.yml"
+  /sku/{cardProductId}/byIdGet:
+    $ref: "paths/cardProduct/getById.yml"
+
+# productDescription
+  /productDescription:
+    $ref: "paths/productDescription/add.yml"
+  /productDescriptionGet:
+    $ref: "paths/productDescription/get.yml"
+  
+# product
+  /productGet:
+    $ref: "paths/product/get.yml"
+  /product/displayAllGet:
+    $ref: "paths/product/displayAll.yml"
+  /product/displayGet:
+    $ref: "paths/product/display.yml"

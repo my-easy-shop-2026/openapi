@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /user/info/get
+  description: 取得用戶本身資料
+  tags:
+    - user
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/userInfoGetRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/userInfoGetResponse"

@@ -1,0 +1,6 @@
+---
+paths:
+
+# delivery fee
+  /deliveryFeeGet:
+    $ref: "paths/deliveryFee/get.yml"

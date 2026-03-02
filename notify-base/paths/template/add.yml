@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /template/add
+  description: 新增樣板
+  tags:
+    - template
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/templateAddRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/templateAddResponse"

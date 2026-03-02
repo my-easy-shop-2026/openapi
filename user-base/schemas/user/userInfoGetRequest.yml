@@ -1,0 +1,8 @@
+---
+userInfoGetRequest:
+  type: object
+  title: userInfoGetRequest
+  properties:
+    id:
+      type: integer
+      format: int64

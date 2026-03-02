@@ -1,0 +1,19 @@
+---
+post:
+  operationId: /product/get
+  description: 展示單一產品
+  tags:
+    - product
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/schemas/productGetRequest"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas.yml#/schemas/productGetResponse"

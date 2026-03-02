@@ -1,0 +1,3 @@
+---
+messageAddRequest:
+  "$ref": "../../schemas.yml#/schemas/message"

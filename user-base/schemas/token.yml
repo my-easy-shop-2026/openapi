@@ -1,0 +1,32 @@
+
+token:
+  type: object
+  title: token
+  properties:
+    id: 
+      type: integer
+      format: int64
+      x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+    jwtId:
+      type: string
+    subject:
+      type: string
+    audience:
+      type: string
+    notBefore:
+      type: string
+      format: date-time
+    issuer:
+      type: string
+    issuedAt:
+      type: string
+      format: date-time
+    expiration:
+      type: string
+      format: date-time
+    role:
+      type: integer
+    caller:
+      type: string
+    type:
+      type: integer
