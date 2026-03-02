@@ -13,6 +13,8 @@ cardProduct:
       format: int64
     storeName:
       type: string
+    quantity:
+      type: integer
     balance:
       type: number
       description: card limit

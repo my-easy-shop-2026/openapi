@@ -1,9 +1,9 @@
 ---
 post:
-  operationId: /cardOrder/add
+  operationId: /order/add
   description: 新增卡片訂單
   tags:
-    - cardOrder
+    - order
   requestBody:
     required: true
     content:

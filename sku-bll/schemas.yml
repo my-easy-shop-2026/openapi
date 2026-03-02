@@ -1,0 +1,68 @@
+---
+schemas:
+# common
+  result:
+    "$ref": '../common/schemas.yml#/schemas/result'
+  id:
+    "$ref": '../common/schemas.yml#/schemas/id'
+  cryptocurrency:
+    "$ref": "../sku-base/schemas/cryptocurrency.yml#/cryptocurrency"
+  currency:
+    "$ref": "../sku-base/schemas/currency.yml#/currency"
+
+# card issuer
+  cardIssuer:
+    "$ref": "../sku-base/schemas/cardIssuer.yml#/cardIssuer"
+  cardIssuerGetRequest:
+    "$ref": "../sku-base/schemas/cardIssuer/cardIssuerGetRequest.yml#/cardIssuerGetRequest"
+  cardIssuerGetResponse:
+    "$ref": "../sku-base/schemas/cardIssuer/cardIssuerGetResponse.yml#/cardIssuerGetResponse"
+
+# card product
+  cardProduct:
+    "$ref": "../sku-base/schemas/cardProduct.yml#/cardProduct"
+  cardProductAddRequest:
+    "$ref": "../sku-base/schemas/cardProduct/cardProductAddRequest.yml#/cardProductAddRequest"
+  cardProductAddResponse:
+    "$ref": "../sku-base/schemas/cardProduct/cardProductAddResponse.yml#/cardProductAddResponse"
+  cardProductGetRequest:
+    "$ref": "../sku-base/schemas/cardProduct/cardProductGetRequest.yml#/cardProductGetRequest"
+  cardProductGetResponse:
+    "$ref": "../sku-base/schemas/cardProduct/cardProductGetResponse.yml#/cardProductGetResponse"
+  cardProductGetByIdRequest:
+    "$ref": "../sku-base/schemas/cardProduct/cardProductGetByIdRequest.yml#/cardProductGetByIdRequest"
+  cardProductGetByIdResponse:
+    "$ref": "../sku-base/schemas/cardProduct/cardProductGetByIdResponse.yml#/cardProductGetByIdResponse"
+
+# product description
+  productDescription:
+    "$ref": "../sku-base/schemas/productDescription.yml#/productDescription"
+  productDescriptionAddRequest:
+    "$ref": "../sku-base/schemas/productDescription/productDescriptionAddRequest.yml#/productDescriptionAddRequest"
+  productDescriptionAddResponse:
+    "$ref": "../sku-base/schemas/productDescription/productDescriptionAddResponse.yml#/productDescriptionAddResponse"
+  productDescriptionGetRequest:
+    "$ref": "../sku-base/schemas/productDescription/productDescriptionGetRequest.yml#/productDescriptionGetRequest"
+  productDescriptionGetResponse:
+    "$ref": "../sku-base/schemas/productDescription/productDescriptionGetResponse.yml#/productDescriptionGetResponse"
+  productDescriptionUpdateRequest:
+    "$ref": "../sku-base/schemas/productDescription/productDescriptionUpdateRequest.yml#/productDescriptionUpdateRequest"
+  productDescriptionUpdateResponse:
+    "$ref": "../sku-base/schemas/productDescription/productDescriptionUpdateResponse.yml#/productDescriptionUpdateResponse"
+
+# product 
+  product:
+    "$ref": "../sku-base/schemas/product.yml#/product"
+  productGetRequest:
+    "$ref": "../sku-base/schemas/product/productGetRequest.yml#/productGetRequest"
+  productGetResponse:
+    "$ref": "../sku-base/schemas/product/productGetResponse.yml#/productGetResponse"
+  productDisplayRequest:
+    "$ref": "../sku-base/schemas/product/productDisplayRequest.yml#/productDisplayRequest"
+  productDisplayResponse:
+    "$ref": "../sku-base/schemas/product/productDisplayResponse.yml#/productDisplayResponse"
+  productDisplayAllRequest:
+    "$ref": "../sku-base/schemas/product/productDisplayAllRequest.yml#/productDisplayAllRequest"
+  productDisplayAllResponse:
+    "$ref": "../sku-base/schemas/product/productDisplayAllResponse.yml#/productDisplayAllResponse"
+

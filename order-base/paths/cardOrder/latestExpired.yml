@@ -1,9 +1,9 @@
 ---
 post:
-  operationId: /cardOrder/latestExpired/get
+  operationId: /order/latestExpired/get
   description: 取得最新超時卡片訂單
   tags:
-    - cardOrder
+    - corderr
   requestBody:
     required: true
     content:

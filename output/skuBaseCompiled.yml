@@ -1,15 +1,15 @@
 openapi: 3.0.3
 info:
-  title: card base
+  title: sku base
   description: This is my API
   version: 1.0.0
 paths:
-  /cardIssuerGet:
+  /storeGet:
     post:
-      operationId: /cardIssuer/get
+      operationId: /store/get
       description: 取得發卡商
       tags:
-        - cardIssuer
+        - store
       requestBody:
         required: true
         content:
@@ -23,12 +23,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/cardIssuerGetResponse'
-  /cardProduct:
+  /sku:
     post:
-      operationId: /cardProduct/add
+      operationId: /sku/add
       description: 新增卡片產品
       tags:
-        - cardProduct
+        - sku
       requestBody:
         required: true
         content:
@@ -42,12 +42,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/cardProductAddResponse'
-  /cardProductGet:
+  /skuGet:
     post:
-      operationId: /cardProduct/get
+      operationId: /sku/get
       description: 取得卡片產品
       tags:
-        - cardProduct
+        - sku
       requestBody:
         required: true
         content:
@@ -61,12 +61,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/cardProductGetResponse'
-  '/cardProduct/{cardProductId}/byIdGet':
+  '/sku/{cardProductId}/byIdGet':
     post:
-      operationId: /cardProduct/getById
+      operationId: /sku/getById
       description: 取得卡片產品
       tags:
-        - cardProduct
+        - sku
       parameters:
         - in: path
           name: cardProductId
@@ -255,14 +255,13 @@ components:
           x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
         name:
           type: string
-        cardAssociation:
-          type: integer
-          description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
-        cardIssuerId:
+        storeId:
           type: integer
           format: int64
-        cardIssuerName:
+        storeName:
           type: string
+        quantity:
+          type: integer
         balance:
           type: number
           description: card limit
@@ -326,10 +325,7 @@ components:
           x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
         name:
           type: string
-        cardAssociation:
-          type: integer
-          description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
-        cardProductId:
+        productId:
           type: integer
           format: int64
         cryptocurrency:
@@ -389,10 +385,7 @@ components:
           format: int64
         name:
           type: string
-        cardAssociation:
-          type: integer
-          description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
-        cardIssuerId:
+        storeId:
           type: integer
           format: int64
         balance:

@@ -5,8 +5,8 @@ compile:
 	npx swagger-cli bundle -t yaml -w 300 user-base/main.yml > output/userBaseCompiled.yml
 	npx swagger-cli bundle -t yaml -w 300 user-bll/main.yml > output/userBllCompiled.yml
 	npx swagger-cli bundle -t yaml -w 300 notify-base/main.yml > output/notifyBaseCompiled.yml
-	npx swagger-cli bundle -t yaml -w 300 card-base/main.yml > output/cardBaseCompiled.yml
-	npx swagger-cli bundle -t yaml -w 300 card-bll/main.yml > output/cardBllCompiled.yml
+	npx swagger-cli bundle -t yaml -w 300 sku-base/main.yml > output/skuBaseCompiled.yml
+	npx swagger-cli bundle -t yaml -w 300 sku-bll/main.yml > output/skuBllCompiled.yml
 	npx swagger-cli bundle -t yaml -w 300 order-base/main.yml > output/orderBaseCompiled.yml
 	npx swagger-cli bundle -t yaml -w 300 order-bll/main.yml > output/orderBllCompiled.yml
 	npx swagger-cli bundle -t yaml -w 300 agency-base/main.yml > output/agencyBaseCompiled.yml

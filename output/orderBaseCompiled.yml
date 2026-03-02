@@ -4,12 +4,12 @@ info:
   description: This is my API
   version: 1.0.0
 paths:
-  /cardOrder:
+  /order:
     post:
-      operationId: /cardOrder/add
+      operationId: /order/add
       description: 新增卡片訂單
       tags:
-        - cardOrder
+        - order
       requestBody:
         required: true
         content:
@@ -23,12 +23,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/cardOrderAddResponse'
-  /cardOrderGet:
+  /orderGet:
     post:
-      operationId: /cardOrder/get
+      operationId: /order/get
       description: 取得卡片訂單
       tags:
-        - cardOrder
+        - order
       requestBody:
         required: true
         content:
@@ -42,12 +42,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/cardOrderGetResponse'
-  '/cardOrder/{cardOrderId}':
+  '/order/{cardOrderId}':
     patch:
-      operationId: /cardOrder/update
+      operationId: /order/update
       description: 更新卡片訂單
       tags:
-        - cardOrder
+        - order
       parameters:
         - in: path
           name: cardOrderId
@@ -69,12 +69,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/cardOrderUpdateResponse'
-  '/cardOrder/{cardOrderId}/cancel':
+  '/order/{cardOrderId}/cancel':
     post:
-      operationId: /cardOrder/cancel
+      operationId: /order/cancel
       description: 取消卡片訂單
       tags:
-        - cardOrder
+        - corderr
       parameters:
         - in: path
           name: cardOrderId
@@ -90,12 +90,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/cardOrderCancelResponse'
-  '/cardOrder/{cardOrderId}/repay':
+  '/order/{cardOrderId}/repay':
     post:
-      operationId: /cardOrder/repay
+      operationId: /order/repay
       description: 重新付款卡片訂單
       tags:
-        - cardOrder
+        - order
       parameters:
         - in: path
           name: cardOrderId
@@ -117,12 +117,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/cardOrderRepayResponse'
-  /cardOrder/apply:
+  /order/buy:
     post:
-      operationId: /cardOrder/apply
-      description: 申請卡片訂單
+      operationId: /order/buy
+      description: 申請訂單
       tags:
-        - cardOrder
+        - order
       requestBody:
         required: true
         content:
@@ -136,12 +136,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/cardOrderApplyResponse'
-  /cardOrder/pageGet:
+  /order/pageGet:
     post:
-      operationId: /cardOrder/page/get
+      operationId: /order/page/get
       description: 取得卡片訂單分頁
       tags:
-        - cardOrder
+        - order
       requestBody:
         required: true
         content:
@@ -155,25 +155,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/cardOrderPageResponse'
-  /cardOrder/latestExpiredGet:
-    post:
-      operationId: /cardOrder/latestExpired/get
-      description: 取得最新超時卡片訂單
-      tags:
-        - cardOrder
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/cardOrderLatestExpiredGetRequest'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/cardOrderLatestExpiredGetResponse'
   /transfer:
     post:
       operationId: /transfer/add
@@ -370,12 +351,9 @@ components:
           type: string
         transferRedirectLink:
           type: string
-        cardProductId:
+        productId:
           type: integer
           format: int64
-        cardAssociation:
-          type: integer
-          description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
         cryptocurrency:
           type: string
         currency:
@@ -420,6 +398,8 @@ components:
           type: string
         referralCode:
           type: string
+        quantity:
+          type: integer
         orderAmount:
           type: number
         finalOrderAmount:

@@ -23,16 +23,16 @@ paths:
   /systemUser/infoGet:
     $ref: paths/systemUser/info.yml
 
-# cardOrder
-  /cardOrderGet:
+# order
+  /orderGet:
     $ref: ../order-base/paths/cardOrder/get.yml
-  /cardOrder/pageGet:
+  /order/pageGet:
     $ref: paths/cardOrder/page.yml
-  /cardOrder/{cardOrderId}/confirm:
+  /order/{cardOrderId}/confirm:
     $ref: paths/cardOrder/confirm.yml
-  /cardOrder/{cardOrderId}/ship:
+  /order/{cardOrderId}/ship:
     $ref: paths/cardOrder/ship.yml
-  /cardOrder/{cardOrderId}/remark:
+  /order/{cardOrderId}/remark:
     $ref: paths/cardOrder/remark.yml
 
 # user

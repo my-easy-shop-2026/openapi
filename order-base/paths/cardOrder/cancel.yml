@@ -1,9 +1,9 @@
 ---
 post:
-  operationId: /cardOrder/cancel
+  operationId: /order/cancel
   description: 取消卡片訂單
   tags:
-    - cardOrder
+    - corderr
   parameters:
     - in: path
       name: cardOrderId

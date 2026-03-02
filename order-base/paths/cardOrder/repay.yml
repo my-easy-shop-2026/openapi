@@ -1,9 +1,9 @@
 ---
 post:
-  operationId: /cardOrder/repay
+  operationId: /order/repay
   description: 重新付款卡片訂單
   tags:
-    - cardOrder
+    - order
   parameters:
     - in: path
       name: cardOrderId

@@ -1,9 +1,9 @@
 ---
 post:
-  operationId: /cardOrder/apply
-  description: 申請卡片訂單
+  operationId: /order/buy
+  description: 申請訂單
   tags:
-    - cardOrder
+    - order
   requestBody:
     required: true
     content:

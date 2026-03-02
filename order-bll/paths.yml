@@ -5,16 +5,16 @@ paths:
   /transfer/{transferId}/confirm:
     $ref: "../order-base/paths/transfer/confirm.yml"
 
-# cardOrder
-  /cardOrderGet:
+# order
+  /orderGet:
     $ref: "../order-base/paths/cardOrder/get.yml"
-  /cardOrder/{cardOrderId}/repay:
+  /order/{cardOrderId}/repay:
       $ref: "../order-base/paths/cardOrder/repay.yml"
-  /cardOrder/apply:
+  /order/apply:
     $ref: "../order-base/paths/cardOrder/apply.yml"
-  /cardOrder/pageGet:
+  /order/pageGet:
       $ref: "./paths/cardOrder/page.yml"
-  /cardOrder/latestExpiredGet:
+  /order/latestExpiredGet:
       $ref: "../order-base/paths/cardOrder/latestExpired.yml"
 
   

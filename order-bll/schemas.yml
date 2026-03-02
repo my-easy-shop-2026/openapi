@@ -16,7 +16,7 @@ schemas:
   
 # card order
   cardOrder:  
-    "$ref": '../order-base/schemas/cardOrder.yml#/cardOrder'
+    "$ref": '../order-base/schemas/cardOrder.yml#/order'
   cardOrderIsLatest:  
     "$ref": '../order-base/schemas/cardOrderIsLatest.yml#/cardOrderIsLatest'
   cardOrderAddRequest:

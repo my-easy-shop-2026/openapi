@@ -1,9 +1,9 @@
 ---
 patch:
-  operationId: /cardOrder/update
+  operationId: /order/update
   description: 更新卡片訂單
   tags:
-    - cardOrder
+    - order
   parameters:
     - in: path
       name: cardOrderId

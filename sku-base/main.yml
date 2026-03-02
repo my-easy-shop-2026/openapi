@@ -1,7 +1,7 @@
 openapi: 3.0.3
 
 info:
-  title: card base
+  title: sku base
   description: This is my API
   version: 1.0.0
 

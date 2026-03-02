@@ -1,24 +1,22 @@
 ---
 paths:
 
-# cardOrder
-  /cardOrder:
+# order
+  /order:
     post:
       $ref: "paths/cardOrder/add.yml#/post"
-  /cardOrderGet:
+  /orderGet:
     $ref: "paths/cardOrder/get.yml"
-  /cardOrder/{cardOrderId}:
+  /order/{cardOrderId}:
     $ref: "paths/cardOrder/update.yml"
-  /cardOrder/{cardOrderId}/cancel:
+  /order/{cardOrderId}/cancel:
     $ref: "paths/cardOrder/cancel.yml"
-  /cardOrder/{cardOrderId}/repay:
+  /order/{cardOrderId}/repay:
       $ref: "paths/cardOrder/repay.yml"
-  /cardOrder/apply:
+  /order/buy:
     $ref: "paths/cardOrder/apply.yml"
-  /cardOrder/pageGet:
+  /order/pageGet:
       $ref: "paths/cardOrder/page.yml"
-  /cardOrder/latestExpiredGet:
-      $ref: "paths/cardOrder/latestExpired.yml"
 
 # transfer
   /transfer:

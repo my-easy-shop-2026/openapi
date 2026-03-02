@@ -6,7 +6,7 @@ card:
       type: integer
       format: int64
       x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
-    cardName:
+    name:
       type: integer
     cardProductId:
       type: integer
