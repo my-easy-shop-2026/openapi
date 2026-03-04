@@ -17,11 +17,11 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../../schemas.yml#/schemas/cardProductGetByIdRequest"
+          $ref: "../../schemas.yml#/schemas/skuProductGetByIdRequest"
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: "../../schemas.yml#/schemas/cardProductGetByIdResponse"
+            $ref: "../../schemas.yml#/schemas/skuProductGetByIdResponse"

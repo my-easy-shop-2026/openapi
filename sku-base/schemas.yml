@@ -10,29 +10,29 @@ schemas:
   currency:
     "$ref": "./schemas/currency.yml#/currency"
 
-# card issuer
-  cardIssuer:
-    "$ref": "./schemas/cardIssuer.yml#/cardIssuer"
-  cardIssuerGetRequest:
-    "$ref": "./schemas/cardIssuer/cardIssuerGetRequest.yml#/cardIssuerGetRequest"
-  cardIssuerGetResponse:
-    "$ref": "./schemas/cardIssuer/cardIssuerGetResponse.yml#/cardIssuerGetResponse"
+# store
+  store:
+    "$ref": "./schemas/store.yml#/store"
+  storeGetRequest:
+    "$ref": "./schemas/store/storeGetRequest.yml#/storeGetRequest"
+  storeGetResponse:
+    "$ref": "./schemas/store/storeGetResponse.yml#/storeGetResponse"
 
-# card product
-  cardProduct:
-    "$ref": "./schemas/cardProduct.yml#/cardProduct"
-  cardProductAddRequest:
-    "$ref": "./schemas/cardProduct/cardProductAddRequest.yml#/cardProductAddRequest"
-  cardProductAddResponse:
-    "$ref": "./schemas/cardProduct/cardProductAddResponse.yml#/cardProductAddResponse"
-  cardProductGetRequest:
-    "$ref": "./schemas/cardProduct/cardProductGetRequest.yml#/cardProductGetRequest"
-  cardProductGetResponse:
-    "$ref": "./schemas/cardProduct/cardProductGetResponse.yml#/cardProductGetResponse"
-  cardProductGetByIdRequest:
-    "$ref": "./schemas/cardProduct/cardProductGetByIdRequest.yml#/cardProductGetByIdRequest"
-  cardProductGetByIdResponse:
-    "$ref": "./schemas/cardProduct/cardProductGetByIdResponse.yml#/cardProductGetByIdResponse"
+# sku product
+  skuProduct:
+    "$ref": "./schemas/skuProduct.yml#/skuProduct"
+  skuProductAddRequest:
+    "$ref": "./schemas/skuProduct/skuProductAddRequest.yml#/skuProductAddRequest"
+  skuProductAddResponse:
+    "$ref": "./schemas/skuProduct/skuProductAddResponse.yml#/skuProductAddResponse"
+  skuProductGetRequest:
+    "$ref": "./schemas/skuProduct/skuProductGetRequest.yml#/skuProductGetRequest"
+  skuProductGetResponse:
+    "$ref": "./schemas/skuProduct/skuProductGetResponse.yml#/skuProductGetResponse"
+  skuProductGetByIdRequest:
+    "$ref": "./schemas/skuProduct/skuProductGetByIdRequest.yml#/skuProductGetByIdRequest"
+  skuProductGetByIdResponse:
+    "$ref": "./schemas/skuProduct/skuProductGetByIdResponse.yml#/skuProductGetByIdResponse"
 
 # product description
   productDescription:

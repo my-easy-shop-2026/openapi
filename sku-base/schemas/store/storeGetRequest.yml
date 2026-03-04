@@ -1,0 +1,3 @@
+---
+storeGetRequest:
+  "$ref": "../../schemas.yml#/schemas/store"

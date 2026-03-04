@@ -1,5 +1,5 @@
 ---
-cardIssuer:
+skuProduct:
   type: object
   properties:
     id:
@@ -8,6 +8,23 @@ cardIssuer:
       x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
     name:
       type: string
+    storeId:
+      type: integer
+      format: int64
+    storeName:
+      type: string
+    quantity:
+      type: integer
+    price:
+      type: number
+    currency:
+      type: string
+    status:
+      type: integer
+      description: 1:activated 2:deactivated
+    productDescriptionId:
+      type: integer
+      format: int64
     remark:
       type: string
     created_at:

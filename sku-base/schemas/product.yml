@@ -9,11 +9,11 @@ product:
     storeId:
       type: integer
       format: int64
-    balance:
+    price:
       type: number
-      description: card limit
-    cryptocurrency:
-      type: string
+      description: product price
+    quantity:
+      type: integer
     currency:
       type: string
     remark:

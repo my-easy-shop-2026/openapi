@@ -1,5 +1,5 @@
 ---
-cardProductGetByIdRequest:
+skuProductGetByIdRequest:
   type: object
   properties:
     id:

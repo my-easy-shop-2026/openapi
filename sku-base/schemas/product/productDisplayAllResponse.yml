@@ -9,20 +9,21 @@ productDisplayAllResponse:
           items: 
             type: object
             properties:
-              cardIssuerId:
+              storeId:
                 type: integer
                 format: int64
-              cardIssuerName:
+              storeName:
                 type: string
-              productsByCardAssociation:
+              productsByStore:
                 type: array
                 items: 
                   type: object
                   properties:
-                    cardAssociation:
+                    storeId:
                       type: integer
-                    cardAssociationName:
-                      type: integer
+                      format: int64
+                    storeName:
+                      type: string
                     products:
                       type: array
                       items: 

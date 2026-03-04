@@ -1,0 +1,3 @@
+---
+skuProductGetRequest:
+  "$ref": "../../schemas.yml#/schemas/skuProduct"

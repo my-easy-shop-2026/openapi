@@ -15,14 +15,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/cardIssuer'
+              $ref: '#/components/schemas/store'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cardIssuerGetResponse'
+                $ref: '#/components/schemas/storeGetResponse'
   /sku:
     post:
       operationId: /sku/add
@@ -34,14 +34,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/cardProduct'
+              $ref: '#/components/schemas/skuProduct'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cardProductAddResponse'
+                $ref: '#/components/schemas/skuProductAddResponse'
   /skuGet:
     post:
       operationId: /sku/get
@@ -53,14 +53,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/cardProduct'
+              $ref: '#/components/schemas/skuProduct'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cardProductGetResponse'
+                $ref: '#/components/schemas/skuProductGetResponse'
   '/sku/{cardProductId}/byIdGet':
     post:
       operationId: /sku/getById
@@ -80,14 +80,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/cardProductGetByIdRequest'
+              $ref: '#/components/schemas/skuProductGetByIdRequest'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cardProductGetByIdResponse'
+                $ref: '#/components/schemas/skuProductGetByIdResponse'
   /productDescription:
     post:
       operationId: /productDescription/add
@@ -218,7 +218,7 @@ components:
           x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId()'
         name:
           type: string
-    cardIssuer:
+    store:
       type: object
       properties:
         id:
@@ -235,9 +235,9 @@ components:
         updated_at:
           type: string
           format: date-time
-    cardIssuerGetRequest:
-      $ref: '#/components/schemas/cardIssuer'
-    cardIssuerGetResponse:
+    storeGetRequest:
+      $ref: '#/components/schemas/store'
+    storeGetResponse:
       allOf:
         - $ref: '#/components/schemas/result'
         - type: object
@@ -245,8 +245,8 @@ components:
             data:
               type: array
               items:
-                $ref: '#/components/schemas/cardIssuer'
-    cardProduct:
+                $ref: '#/components/schemas/store'
+    skuProduct:
       type: object
       properties:
         id:
@@ -262,11 +262,8 @@ components:
           type: string
         quantity:
           type: integer
-        balance:
+        price:
           type: number
-          description: card limit
-        cryptocurrency:
-          type: string
         currency:
           type: string
         status:
@@ -283,18 +280,18 @@ components:
         updated_at:
           type: string
           format: date-time
-    cardProductAddRequest:
-      $ref: '#/components/schemas/cardProduct'
-    cardProductAddResponse:
+    skuProductAddRequest:
+      $ref: '#/components/schemas/skuProduct'
+    skuProductAddResponse:
       allOf:
         - $ref: '#/components/schemas/result'
         - type: object
           properties:
             data:
               $ref: '#/components/schemas/id'
-    cardProductGetRequest:
-      $ref: '#/components/schemas/cardProduct'
-    cardProductGetResponse:
+    skuProductGetRequest:
+      $ref: '#/components/schemas/skuProduct'
+    skuProductGetResponse:
       allOf:
         - $ref: '#/components/schemas/result'
         - type: object
@@ -302,20 +299,20 @@ components:
             data:
               type: array
               items:
-                $ref: '#/components/schemas/cardProduct'
-    cardProductGetByIdRequest:
+                $ref: '#/components/schemas/skuProduct'
+    skuProductGetByIdRequest:
       type: object
       properties:
         id:
           type: integer
           format: int64
-    cardProductGetByIdResponse:
+    skuProductGetByIdResponse:
       allOf:
         - $ref: '#/components/schemas/result'
         - type: object
           properties:
             data:
-              $ref: '#/components/schemas/cardProduct'
+              $ref: '#/components/schemas/skuProduct'
     productDescription:
       type: object
       properties:
@@ -388,11 +385,11 @@ components:
         storeId:
           type: integer
           format: int64
-        balance:
+        price:
           type: number
-          description: card limit
-        cryptocurrency:
-          type: string
+          description: product price
+        quantity:
+          type: integer
         currency:
           type: string
         remark:
@@ -441,9 +438,9 @@ components:
         userId:
           type: integer
           format: int64
-        cardAssociation:
+        storeId:
           type: integer
-          description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
+          format: int64
     productDisplayResponse:
       allOf:
         - $ref: '#/components/schemas/result'
@@ -469,20 +466,21 @@ components:
               items:
                 type: object
                 properties:
-                  cardIssuerId:
+                  storeId:
                     type: integer
                     format: int64
-                  cardIssuerName:
+                  storeName:
                     type: string
-                  productsByCardAssociation:
+                  productsByStore:
                     type: array
                     items:
                       type: object
                       properties:
-                        cardAssociation:
+                        storeId:
                           type: integer
-                        cardAssociationName:
-                          type: integer
+                          format: int64
+                        storeName:
+                          type: string
                         products:
                           type: array
                           items:

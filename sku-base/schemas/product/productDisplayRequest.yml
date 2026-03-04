@@ -5,6 +5,6 @@ productDisplayRequest:
     userId:
       type: integer
       format: int64
-    cardAssociation:
+    storeId:
       type: integer
-      description: 1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay
+      format: int64

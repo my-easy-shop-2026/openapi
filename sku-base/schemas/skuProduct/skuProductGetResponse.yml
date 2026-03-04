@@ -1,5 +1,5 @@
 ---
-cardIssuerGetResponse:
+skuProductGetResponse:
   allOf:
     - $ref: "../../schemas.yml#/schemas/result"
     - type: object
@@ -7,5 +7,5 @@ cardIssuerGetResponse:
         data:
           type: array
           items:
-            "$ref": "../../schemas.yml#/schemas/cardIssuer"
+            "$ref": "../../schemas.yml#/schemas/skuProduct"
     
