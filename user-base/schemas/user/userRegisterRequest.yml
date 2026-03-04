@@ -20,6 +20,6 @@ userRegisterRequest:
       description: max:100
   required: 
     - email
-    - emailVerificationCode
+    # - emailVerificationCode
     - password
-    - conformPassword
+    - confirmPassword

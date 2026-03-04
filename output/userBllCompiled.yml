@@ -315,9 +315,8 @@ components:
           description: 'max:100'
       required:
         - email
-        - emailVerificationCode
         - password
-        - conformPassword
+        - confirmPassword
     userRegisterResponse:
       allOf:
         - $ref: '#/components/schemas/result'
