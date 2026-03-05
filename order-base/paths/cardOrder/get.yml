@@ -9,11 +9,11 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../../schemas.yml#/schemas/cardOrderGetRequest"
+          $ref: "../../schemas.yml#/schemas/orderGetRequest"
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: "../../schemas.yml#/schemas/cardOrderGetResponse"
+            $ref: "../../schemas.yml#/schemas/orderGetResponse"

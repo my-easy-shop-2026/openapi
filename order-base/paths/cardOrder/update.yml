@@ -17,11 +17,11 @@ patch:
     content:
       application/json:
         schema:
-          $ref: "../../schemas.yml#/schemas/cardOrderUpdateRequest"
+          $ref: "../../schemas.yml#/schemas/orderUpdateRequest"
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: "../../schemas.yml#/schemas/cardOrderUpdateResponse"
+            $ref: "../../schemas.yml#/schemas/orderUpdateResponse"

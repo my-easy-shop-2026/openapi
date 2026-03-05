@@ -24,4 +24,4 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../../schemas.yml#/schemas/cardOrderCancelResponse"
+            $ref: "../../schemas.yml#/schemas/orderCancelResponse"
