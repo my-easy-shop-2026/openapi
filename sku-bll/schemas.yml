@@ -10,29 +10,29 @@ schemas:
   currency:
     "$ref": "../sku-base/schemas/currency.yml#/currency"
 
-# card issuer
-  cardIssuer:
-    "$ref": "../sku-base/schemas/cardIssuer.yml#/cardIssuer"
-  cardIssuerGetRequest:
-    "$ref": "../sku-base/schemas/cardIssuer/cardIssuerGetRequest.yml#/cardIssuerGetRequest"
-  cardIssuerGetResponse:
-    "$ref": "../sku-base/schemas/cardIssuer/cardIssuerGetResponse.yml#/cardIssuerGetResponse"
+# store
+  store:
+    "$ref": "../sku-base/schemas/store.yml#/store"
+  storeGetRequest:
+    "$ref": "../sku-base/schemas/store/storeGetRequest.yml#/storeGetRequest"
+  storeGetResponse:
+    "$ref": "../sku-base/schemas/store/storeGetResponse.yml#/storeGetResponse"
 
-# card product
-  cardProduct:
-    "$ref": "../sku-base/schemas/cardProduct.yml#/cardProduct"
-  cardProductAddRequest:
-    "$ref": "../sku-base/schemas/cardProduct/cardProductAddRequest.yml#/cardProductAddRequest"
-  cardProductAddResponse:
-    "$ref": "../sku-base/schemas/cardProduct/cardProductAddResponse.yml#/cardProductAddResponse"
-  cardProductGetRequest:
-    "$ref": "../sku-base/schemas/cardProduct/cardProductGetRequest.yml#/cardProductGetRequest"
-  cardProductGetResponse:
-    "$ref": "../sku-base/schemas/cardProduct/cardProductGetResponse.yml#/cardProductGetResponse"
-  cardProductGetByIdRequest:
-    "$ref": "../sku-base/schemas/cardProduct/cardProductGetByIdRequest.yml#/cardProductGetByIdRequest"
-  cardProductGetByIdResponse:
-    "$ref": "../sku-base/schemas/cardProduct/cardProductGetByIdResponse.yml#/cardProductGetByIdResponse"
+# sku product
+  skuProduct:
+    "$ref": "../sku-base/schemas/skuProduct.yml#/skuProduct"
+  skuProductAddRequest:
+    "$ref": "../sku-base/schemas/skuProduct/skuProductAddRequest.yml#/skuProductAddRequest"
+  skuProductAddResponse:
+    "$ref": "../sku-base/schemas/skuProduct/skuProductAddResponse.yml#/skuProductAddResponse"
+  skuProductGetRequest:
+    "$ref": "../sku-base/schemas/skuProduct/skuProductGetRequest.yml#/skuProductGetRequest"
+  skuProductGetResponse:
+    "$ref": "../sku-base/schemas/skuProduct/skuProductGetResponse.yml#/skuProductGetResponse"
+  skuProductGetByIdRequest:
+    "$ref": "../sku-base/schemas/skuProduct/skuProductGetByIdRequest.yml#/skuProductGetByIdRequest"
+  skuProductGetByIdResponse:
+    "$ref": "../sku-base/schemas/skuProduct/skuProductGetByIdResponse.yml#/skuProductGetByIdResponse"
 
 # product description
   productDescription:

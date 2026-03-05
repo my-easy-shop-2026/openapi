@@ -1,7 +1,7 @@
 ---
 cardOrderPageRequest:
   allOf:
-    - "$ref": "../../schemas.yml#/schemas/cardOrderQuery"
+    - "$ref": "../../schemas.yml#/schemas/orderQuery"
     - type: object
       properties:
         pageCurrent:

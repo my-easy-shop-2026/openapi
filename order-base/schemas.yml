@@ -14,42 +14,42 @@ schemas:
   currency:
     "$ref": "./schemas/currency.yml#/currency"
   
-# card order
-  cardOrder:  
+# order
+  order:  
     "$ref": './schemas/cardOrder.yml#/order'
-  cardOrderQuery:  
+  orderQuery:  
     "$ref": './schemas/cardOrderQuery.yml#/cardOrderQuery'
   cardOrderIsLatest:  
     "$ref": './schemas/cardOrderIsLatest.yml#/cardOrderIsLatest'
-  cardOrderAddRequest:
+  orderAddRequest:
     $ref: schemas/cardOrder/cardOrderAddRequest.yml#/cardOrderAddRequest
-  cardOrderAddResponse:
+  orderAddResponse:
     $ref: schemas/cardOrder/cardOrderAddResponse.yml#/cardOrderAddResponse
-  cardOrderGetRequest:
+  orderGetRequest:
     $ref: schemas/cardOrder/cardOrderGetRequest.yml#/cardOrderGetRequest
-  cardOrderGetResponse:
+  orderGetResponse:
     $ref: schemas/cardOrder/cardOrderGetResponse.yml#/cardOrderGetResponse
-  cardOrderUpdateRequest:
+  orderUpdateRequest:
     $ref: schemas/cardOrder/cardOrderUpdateRequest.yml#/cardOrderUpdateRequest
-  cardOrderUpdateResponse:
+  orderUpdateResponse:
     $ref: schemas/cardOrder/cardOrderUpdateResponse.yml#/cardOrderUpdateResponse
-  cardOrderCancelResponse:
+  orderCancelResponse:
     $ref: schemas/cardOrder/cardOrderCancelResponse.yml#/cardOrderCancelResponse
-  cardOrderApplyRequest:
+  orderApplyRequest:
     $ref: schemas/cardOrder/cardOrderApplyRequest.yml#/cardOrderApplyRequest
-  cardOrderApplyResponse:
+  orderApplyResponse:
     $ref: schemas/cardOrder/cardOrderApplyResponse.yml#/cardOrderApplyResponse
-  cardOrderPageRequest:
+  orderPageRequest:
     $ref: schemas/cardOrder/cardOrderPageRequest.yml#/cardOrderPageRequest
-  cardOrderPageResponse:
+  orderPageResponse:
     $ref: schemas/cardOrder/cardOrderPageResponse.yml#/cardOrderPageResponse
-  cardOrderLatestExpiredGetRequest:
+  orderLatestExpiredGetRequest:
     $ref: schemas/cardOrder/cardOrderLatestExpiredGetRequest.yml#/cardOrderLatestExpiredGetRequest
-  cardOrderLatestExpiredGetResponse:
+  orderLatestExpiredGetResponse:
     $ref: schemas/cardOrder/cardOrderLatestExpiredGetResponse.yml#/cardOrderLatestExpiredGetResponse
-  cardOrderRepayRequest:
+  orderRepayRequest:
     $ref: schemas/cardOrder/cardOrderRepayRequest.yml#/cardOrderRepayRequest
-  cardOrderRepayResponse:
+  orderRepayResponse:
     $ref: schemas/cardOrder/cardOrderRepayResponse.yml#/cardOrderRepayResponse
 
 # transfer

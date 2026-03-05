@@ -1,8 +1,8 @@
 ---
 cardOrderUpdateRequest:
   allOf:
-    - "$ref": "../../schemas.yml#/schemas/cardOrder"
+    - "$ref": "../../schemas.yml#/schemas/order"
     - type: object
       properties:
         query:
-          "$ref": "../../schemas.yml#/schemas/cardOrderQuery"
+          "$ref": "../../schemas.yml#/schemas/orderQuery"

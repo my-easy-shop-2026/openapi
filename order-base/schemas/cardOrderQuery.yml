@@ -1,7 +1,7 @@
 ---
 cardOrderQuery:
   allOf:
-    - "$ref": "../schemas.yml#/schemas/cardOrder"
+    - "$ref": "../schemas.yml#/schemas/order"
     - type: object
       properties:
         createdAtFrom:

@@ -1,10 +1,10 @@
 ---
 paths:
 
-# cardProduct
-  /cardProductGet:
+# skuProduct
+  /skuProductGet:
     $ref: "../sku-base/paths/cardProduct/get.yml"
-  /cardProduct/{cardProductId}/byIdGet:
+  /skuProduct/{cardProductId}/byIdGet:
     $ref: "../sku-base/paths/cardProduct/getById.yml"
 
 # productDescription

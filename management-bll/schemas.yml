@@ -80,9 +80,9 @@ schemas:
 
 # card order
   cardOrder:
-    $ref: ../order-base/schemas.yml#/schemas/cardOrder
+    $ref: ../order-base/schemas.yml#/schemas/order
   cardOrderQuery:
-    $ref: ../order-base/schemas.yml#/schemas/cardOrderQuery
+    $ref: ../order-base/schemas.yml#/schemas/orderQuery
   cardOrderExtended:
     $ref: ../management-base/schemas/cardOrderExtended.yml#/cardOrderExtended
   cardOrderExtendedQuery:

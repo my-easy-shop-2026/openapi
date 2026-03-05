@@ -12,6 +12,6 @@ cardOrderPageResponse:
                 records:
                   type: array
                   items:
-                    "$ref": "../../schemas.yml#/schemas/cardOrder"
+                    "$ref": "../../schemas.yml#/schemas/order"
     
     

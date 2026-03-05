@@ -5,6 +5,6 @@ cardOrderCancelResponse:
     - type: object
       properties:
         data:
-          "$ref": "../../schemas.yml#/schemas/cardOrder"
+          "$ref": "../../schemas.yml#/schemas/order"
     
     
