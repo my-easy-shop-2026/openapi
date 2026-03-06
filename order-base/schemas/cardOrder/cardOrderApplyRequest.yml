@@ -2,6 +2,8 @@
 cardOrderApplyRequest:
   type: object
   properties:
+    quantity:
+      type: integer
     userId:
       type: integer
       format: int64
