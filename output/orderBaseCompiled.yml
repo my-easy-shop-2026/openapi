@@ -551,6 +551,8 @@ components:
     orderApplyRequest:
       type: object
       properties:
+        quantity:
+          type: integer
         userId:
           type: integer
           format: int64
@@ -677,7 +679,7 @@ components:
         userId:
           type: integer
           format: int64
-        cryptocurrency:
+        currency:
           type: string
         transferAmount:
           type: number
