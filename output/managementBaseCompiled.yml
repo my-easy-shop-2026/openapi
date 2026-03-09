@@ -969,12 +969,7 @@ components:
             data:
               type: array
               items:
-                allOf:
-                  - $ref: '#/components/schemas/userWithAgency'
-                  - type: object
-                    properties:
-                      password:
-                        type: Filtered
+                $ref: '#/components/schemas/userWithAgencyFiltered'
     userWithAgencyPageRequest:
       allOf:
         - $ref: '#/components/schemas/userWithAgencyQuery'
@@ -1330,8 +1325,6 @@ components:
           description: '物流公司 1:DHL 2:FedEx'
         deliveryFee:
           type: number
-        deliveryFeeCryptocurrency:
-          type: string
         handlingFee:
           type: number
         remark:

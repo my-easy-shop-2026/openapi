@@ -31,6 +31,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/transferConfirmResponse'
+  '/transfer/{transferId}/confirmBackdoor':
+    $ref: '#/paths/~1transfer~1%7BtransferId%7D~1confirm'
   /orderGet:
     post:
       operationId: /order/get
@@ -310,8 +312,6 @@ components:
           description: '物流公司 1:DHL 2:FedEx'
         deliveryFee:
           type: number
-        deliveryFeeCryptocurrency:
-          type: string
         handlingFee:
           type: number
         remark:

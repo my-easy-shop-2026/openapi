@@ -7,12 +7,7 @@ userWithAgencyGetResponse:
         data:
           type: array
           items:
-            allOf:
-              - "$ref": "../../schemas.yml#/schemas/userWithAgency"
-              - type: object
-                properties:
-                  password:
-                    type: Filtered
+            "$ref": "../../schemas.yml#/schemas/userWithAgencyFiltered"
     
     
     
