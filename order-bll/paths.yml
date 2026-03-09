@@ -5,6 +5,9 @@ paths:
   /transfer/{transferId}/confirm:
     $ref: "../order-base/paths/transfer/confirm.yml"
 
+  /transfer/{transferId}/confirmBackdoor:
+    $ref: "../order-base/paths/transfer/confirm.yml"
+
 # order
   /orderGet:
     $ref: "../order-base/paths/cardOrder/get.yml"

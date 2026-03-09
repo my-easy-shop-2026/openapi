@@ -1,5 +1,5 @@
 
-# linkpay-springdoc
+# openapi
 
 
 ## getting start

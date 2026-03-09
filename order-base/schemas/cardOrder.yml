@@ -116,8 +116,6 @@ order:
       description: 物流公司 1:DHL 2:FedEx
     deliveryFee:
       type: number
-    deliveryFeeCryptocurrency:
-      type: string
     handlingFee:
       type: number
     remark:
