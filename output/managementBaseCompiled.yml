@@ -840,96 +840,100 @@ components:
                             properties:
                               password:
                                 type: Filtered
+    userAgency:
+      type: object
+      title: userAgency
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        userId:
+          type: integer
+          format: int64
+        agencyId:
+          type: integer
+          format: int64
+        agencyName:
+          type: string
+        platformId:
+          type: integer
+          format: int64
+        platformName:
+          type: string
+        platformRegistrationMethod:
+          type: integer
+          description: '1:phone 2:email 3:username'
+        countryCodeFromPlatform:
+          type: integer
+          format: int32
+        nationalPhoneNumberFromPlatform:
+          type: string
+        emailFromPlatform:
+          type: string
+          format: email
+        userPlatformId:
+          type: integer
+          format: int64
+          description: the relation between user and platform
+        createdAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+        updatedAt:
+          type: string
+          format: date-time
+          description: 'format:2023-12-25T05:04:03+02:00'
+        deleted:
+          type: integer
+          description: '0:not delete 1:delete'
+    userCardOrder:
+      type: object
+      title: userCardOrder
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
+        userId:
+          type: integer
+          format: int64
+        cardOrderId:
+          type: integer
+          format: int64
+        orderNumber:
+          type: string
+        cardProductId:
+          type: integer
+          format: int64
+        cardAssociation:
+          type: integer
+          description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
+        agencyId:
+          type: integer
+          format: int64
+        agencyPlanId:
+          type: integer
+          format: int64
+        userAgencyId:
+          type: integer
+          format: int64
+        cardOrderCreatedAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
     userWithAgency:
       allOf:
         - $ref: '#/components/schemas/user'
-        - type: object
-          title: userAgency
-          properties:
-            id:
-              type: integer
-              format: int64
-              x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
-            userId:
-              type: integer
-              format: int64
-            agencyId:
-              type: integer
-              format: int64
-            agencyName:
-              type: string
-            platformId:
-              type: integer
-              format: int64
-            platformName:
-              type: string
-            platformRegistrationMethod:
-              type: integer
-              description: '1:phone 2:email 3:username'
-            countryCodeFromPlatform:
-              type: integer
-              format: int32
-            nationalPhoneNumberFromPlatform:
-              type: string
-            emailFromPlatform:
-              type: string
-              format: email
-            userPlatformId:
-              type: integer
-              format: int64
-              description: the relation between user and platform
-            createdAt:
-              type: string
-              format: date-time
-              description: 'format:2023-12-25T05:04:03+02:00'
-            updatedAt:
-              type: string
-              format: date-time
-              description: 'format:2023-12-25T05:04:03+02:00'
-            deleted:
-              type: integer
-              description: '0:not delete 1:delete'
-        - type: object
-          title: userCardOrder
-          properties:
-            id:
-              type: integer
-              format: int64
-              x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId(type = com.baomidou.mybatisplus.annotation.IdType.AUTO)'
-            userId:
-              type: integer
-              format: int64
-            cardOrderId:
-              type: integer
-              format: int64
-            orderNumber:
-              type: string
-            cardProductId:
-              type: integer
-              format: int64
-            cardAssociation:
-              type: integer
-              description: '1:visa 2:masterCard 3:AmericanExpress 4:JCB 5:unionPay'
-            agencyId:
-              type: integer
-              format: int64
-            agencyPlanId:
-              type: integer
-              format: int64
-            userAgencyId:
-              type: integer
-              format: int64
-            cardOrderCreatedAt:
-              type: string
-              format: date-time
-            createdAt:
-              type: string
-              format: date-time
+        - $ref: '#/components/schemas/userAgency'
+        - $ref: '#/components/schemas/userCardOrder'
     userWithAgencyFiltered:
       allOf:
         - $ref: '#/components/schemas/user'
-        - $ref: '#/components/schemas/userWithAgency/allOf/1'
-        - $ref: '#/components/schemas/userWithAgency/allOf/2'
+        - $ref: '#/components/schemas/userAgency'
+        - $ref: '#/components/schemas/userCardOrder'
         - type: object
           properties:
             password:

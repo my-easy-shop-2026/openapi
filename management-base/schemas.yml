@@ -22,6 +22,14 @@ schemas:
   userPageResponse:
     $ref: schemas/user/userPageResponse.yml#/userPageResponse
 
+# userAgency
+  userAgency:
+    $ref: ../user-base/schemas/userAgency.yml#/userAgency
+
+# userCardOrder
+  userCardOrder:
+    $ref: ../user-base/schemas/userCardOrder.yml#/userCardOrder
+    
 # userWithAgency
   userWithAgency:
     $ref: ../user-base/schemas/userWithAgency.yml#/userWithAgency
