@@ -13,7 +13,7 @@ paths:
     $ref: "../order-base/paths/cardOrder/get.yml"
   /order/{cardOrderId}/repay:
       $ref: "../order-base/paths/cardOrder/repay.yml"
-  /order/apply:
+  /order/buy:
     $ref: "../order-base/paths/cardOrder/apply.yml"
   /order/pageGet:
       $ref: "./paths/cardOrder/page.yml"

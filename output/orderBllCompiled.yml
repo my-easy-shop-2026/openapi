@@ -44,14 +44,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/cardOrderGetRequest'
+              $ref: '#/components/schemas/orderGetRequest'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cardOrderGetResponse'
+                $ref: '#/components/schemas/orderGetResponse'
   '/order/{cardOrderId}/repay':
     post:
       operationId: /order/repay
@@ -71,15 +71,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/cardOrderRepayRequest'
+              $ref: '#/components/schemas/orderRepayRequest'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cardOrderRepayResponse'
-  /order/apply:
+                $ref: '#/components/schemas/orderRepayResponse'
+  /order/buy:
     post:
       operationId: /order/buy
       description: 申請訂單
@@ -90,14 +90,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/cardOrderApplyRequest'
+              $ref: '#/components/schemas/orderApplyRequest'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cardOrderApplyResponse'
+                $ref: '#/components/schemas/orderApplyResponse'
   /order/pageGet:
     post:
       operationId: /order/page/get
@@ -109,14 +109,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/cardOrderPageRequest'
+              $ref: '#/components/schemas/orderPageRequest'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cardOrderPageResponse'
+                $ref: '#/components/schemas/orderPageResponse'
   /order/latestExpiredGet:
     post:
       operationId: /order/latestExpired/get
@@ -128,14 +128,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/cardOrderLatestExpiredGetRequest'
+              $ref: '#/components/schemas/orderLatestExpiredGetRequest'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cardOrderLatestExpiredGetResponse'
+                $ref: '#/components/schemas/orderLatestExpiredGetResponse'
 components:
   schemas:
     id:
@@ -195,7 +195,7 @@ components:
           x-field-extra-annotation: '@com.baomidou.mybatisplus.annotation.TableId()'
         name:
           type: string
-    cardOrder:
+    order:
       type: object
       properties:
         id:
@@ -339,25 +339,25 @@ components:
         shippedAt:
           type: string
           format: date-time
-    cardOrderIsLatest:
+    orderIsLatest:
       allOf:
-        - $ref: '#/components/schemas/cardOrder'
+        - $ref: '#/components/schemas/order'
         - type: object
           properties:
             isLatest:
               type: boolean
-    cardOrderAddRequest:
-      $ref: '#/components/schemas/cardOrder'
-    cardOrderAddResponse:
+    orderAddRequest:
+      $ref: '#/components/schemas/order'
+    orderAddResponse:
       allOf:
         - $ref: '#/components/schemas/result'
         - type: object
           properties:
             data:
               $ref: '#/components/schemas/id'
-    cardOrderGetRequest:
+    orderGetRequest:
       allOf:
-        - $ref: '#/components/schemas/cardOrder'
+        - $ref: '#/components/schemas/order'
         - type: object
           properties:
             createdAtFrom:
@@ -384,7 +384,7 @@ components:
             ShippedAtTo:
               type: string
               format: date-time
-    cardOrderGetResponse:
+    orderGetResponse:
       allOf:
         - $ref: '#/components/schemas/result'
         - type: object
@@ -392,29 +392,29 @@ components:
             data:
               type: array
               items:
-                $ref: '#/components/schemas/cardOrder'
-    cardOrderUpdateRequest:
+                $ref: '#/components/schemas/order'
+    orderUpdateRequest:
       allOf:
-        - $ref: '#/components/schemas/cardOrder'
+        - $ref: '#/components/schemas/order'
         - type: object
           properties:
             query:
-              $ref: '#/components/schemas/cardOrderGetRequest'
-    cardOrderUpdateResponse:
+              $ref: '#/components/schemas/orderGetRequest'
+    orderUpdateResponse:
       allOf:
         - $ref: '#/components/schemas/result'
         - type: object
           properties:
             data:
-              $ref: '#/components/schemas/cardOrder'
-    cardOrderCancelResponse:
+              $ref: '#/components/schemas/order'
+    orderCancelResponse:
       allOf:
         - $ref: '#/components/schemas/result'
         - type: object
           properties:
             data:
-              $ref: '#/components/schemas/cardOrder'
-    cardOrderApplyRequest:
+              $ref: '#/components/schemas/order'
+    orderApplyRequest:
       type: object
       properties:
         quantity:
@@ -465,7 +465,7 @@ components:
           type: string
         remark:
           type: string
-    cardOrderApplyResponse:
+    orderApplyResponse:
       allOf:
         - $ref: '#/components/schemas/result'
         - type: object
@@ -475,16 +475,16 @@ components:
               properties:
                 transferRedirectLink:
                   type: string
-    cardOrderPageRequest:
+    orderPageRequest:
       allOf:
-        - $ref: '#/components/schemas/cardOrderGetRequest'
+        - $ref: '#/components/schemas/orderGetRequest'
         - type: object
           properties:
             pageCurrent:
               type: integer
             pageSize:
               type: integer
-    cardOrderPageResponse:
+    orderPageResponse:
       allOf:
         - $ref: '#/components/schemas/result'
         - type: object
@@ -498,7 +498,7 @@ components:
                       type: array
                       items:
                         allOf:
-                          - $ref: '#/components/schemas/cardOrder'
+                          - $ref: '#/components/schemas/order'
                           - type: object
                             properties:
                               handlingFee:
@@ -507,26 +507,26 @@ components:
                               agreement:
                                 type: Filtered
                                 description: data filtered
-    cardOrderLatestExpiredGetRequest:
+    orderLatestExpiredGetRequest:
       type: object
       properties:
         userId:
           type: integer
           format: int64
-    cardOrderLatestExpiredGetResponse:
+    orderLatestExpiredGetResponse:
       allOf:
         - $ref: '#/components/schemas/result'
         - type: object
           properties:
             data:
-              $ref: '#/components/schemas/cardOrder'
-    cardOrderRepayRequest:
+              $ref: '#/components/schemas/order'
+    orderRepayRequest:
       type: object
       properties:
         userId:
           type: integer
           format: int64
-    cardOrderRepayResponse:
+    orderRepayResponse:
       allOf:
         - $ref: '#/components/schemas/result'
         - type: object
