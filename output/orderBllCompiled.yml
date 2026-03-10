@@ -32,7 +32,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/transferConfirmResponse'
   '/transfer/{transferId}/confirmBackdoor':
-    $ref: '#/paths/~1transfer~1%7BtransferId%7D~1confirm'
+    post:
+      operationId: /transfer/confirmBackdoor
+      description: 確認轉帳(接收回調)
+      tags:
+        - transfer
+      parameters:
+        - in: path
+          name: transferId
+          description: transfer ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/transferConfirmRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/transferConfirmResponse'
   /orderGet:
     post:
       operationId: /order/get
